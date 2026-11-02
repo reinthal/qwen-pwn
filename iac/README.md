@@ -1,6 +1,6 @@
 # iac — vLLM on Modal
 
-Serves `Qwen/Qwen3.8-Flash-Next` on 8× H200 with vLLM (OpenAI-compatible API).
+Serves `Qwen/Qwen3.8-Flash-Next` on 4× H200 with vLLM (OpenAI-compatible API).
 
 ```sh
 cd iac

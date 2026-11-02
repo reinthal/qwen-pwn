@@ -9,7 +9,7 @@ import json
 import modal
 
 MODEL_NAME = "Qwen/Qwen3.8-Flash-Next"
-N_GPU = 8
+N_GPU = 4  # 360 GB BF16 weights on 4x141 GB leaves ~120 GB for KV cache
 GPU_TYPE = "H200"
 VLLM_PORT = 8000
 MINUTES = 60
