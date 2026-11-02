@@ -1,0 +1,90 @@
+[sinkhole] plain HTTP  listening on 0.0.0.0:9
+[sinkhole] plain HTTP  listening on 0.0.0.0:80
+[sinkhole] plain HTTP  listening on 0.0.0.0:8000
+Exception in thread Thread-4 (serve_plain):
+[sinkhole] plain HTTP  listening on 0.0.0.0:8090
+[sinkhole] plain HTTP  listening on 0.0.0.0:8099
+[sinkhole] plain HTTP  listening on 0.0.0.0:8082
+[sinkhole] answering 200 on [80, 9, 8000, 8080, 8082, 8090, 8099, 9999] + tls:443; log=/home/kog/qwen-pwn/server/sinkhole_requests.log
+[sinkhole] plain HTTP  listening on 0.0.0.0:9999
+[sinkhole] TLS       listening on 0.0.0.0:443
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/threading.py", line 1082, in _bootstrap_inner
+    self._context.run(self.run)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/usr/lib/python3.14/threading.py", line 1024, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kog/qwen-pwn/server/sinkhole_server.py", line 103, in serve_plain
+    srv = Server(("0.0.0.0", port), Sinkhole)
+  File "/usr/lib/python3.14/socketserver.py", line 457, in __init__
+    self.server_bind()
+    ~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/socketserver.py", line 478, in server_bind
+    self.socket.bind(self.server_address)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 98] Address already in use
+[sinkhole] 2026-11-02T11:17:35.757623 PUT host=127.0.0.1 path=/upload/test.bin body_len=20 from=127.0.0.1
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 36984)
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/socketserver.py", line 697, in process_request_thread
+    self.finish_request(request, client_address)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/socketserver.py", line 362, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/socketserver.py", line 766, in __init__
+    self.handle()
+    ~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/http/server.py", line 496, in handle
+    self.handle_one_request()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/http/server.py", line 464, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+                           ~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.14/socket.py", line 725, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.14/ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 36988)
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/socketserver.py", line 697, in process_request_thread
+    self.finish_request(request, client_address)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/socketserver.py", line 362, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/socketserver.py", line 766, in __init__
+    self.handle()
+    ~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/http/server.py", line 496, in handle
+    self.handle_one_request()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/http/server.py", line 464, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+                           ~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.14/socket.py", line 725, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/lib/python3.14/ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+[sinkhole] 2026-11-02T11:17:53.358840 PUT host=127.0.0.1 path=/upload/test.bin body_len=20 from=127.0.0.1
+[sinkhole] 2026-11-02T11:17:53.422773 PUT host=127.0.0.1 path=/upload/test.bin body_len=20 from=127.0.0.1
+[sinkhole] 2026-11-02T11:18:13.396999 GET host=100.100.100.200 path=/latest/meta-data/ body_len=0 from=100.100.100.200
+[sinkhole] 2026-11-02T11:18:20.586793 PUT host=sanmaohe.oss-cn-beijing.aliyuncs.com path=/upload/test.bin body_len=20 from=127.0.0.1
+[sinkhole] 2026-11-02T11:18:20.630670 PUT host=routify-file-proxy-sg.oss-ap-southeast-1.aliyuncs.com path=/proxy_temp_file/production/2026-08-10/trace_213fec body_len=20 from=127.0.0.1
