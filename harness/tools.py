@@ -29,6 +29,11 @@ def _tool_env() -> dict:
     return env
 
 
+def format_exec(out: str, err: str, code: int) -> str:
+    """The tool-result text the model sees for bash / run_python."""
+    return _clip(f"stdout:\n{out}\nstderr:\n{err}\nexit_code: {code}")
+
+
 def _clip(s: str) -> str:
     if len(s) > MAX_OUTPUT:
         return s[:MAX_OUTPUT] + f"\n... [truncated, {len(s) - MAX_OUTPUT} chars]"
@@ -55,8 +60,7 @@ def run_bash(command: str, cwd=None, timeout=None) -> str:
         code = p.returncode
     except subprocess.TimeoutExpired:
         out, err, code = "", f"Command timed out after {timeout}s", -1
-    result = f"stdout:\n{out}\nstderr:\n{err}\nexit_code: {code}"
-    return _clip(result)
+    return format_exec(out, err, code)
 
 
 def run_python(code: str, timeout=None) -> str:
@@ -77,8 +81,7 @@ def run_python(code: str, timeout=None) -> str:
         out, err, ret = p.stdout, p.stderr, p.returncode
     except subprocess.TimeoutExpired:
         out, err, ret = "", f"Python timed out after {timeout}s", -1
-    result = f"stdout:\n{out}\nstderr:\n{err}\nexit_code: {ret}"
-    return _clip(result)
+    return format_exec(out, err, ret)
 
 
 def validate_output_json(json_output: str) -> str:

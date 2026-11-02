@@ -41,7 +41,6 @@ with **DeepSeek V4.1 Flash** as the judge:
 
 ```bash
 set -a; source .env; set +a
-export OPENAI_BASE_URL=https://router.huggingface.co/v1 OPENAI_API_KEY=$HF_TOKEN
 .venv/bin/inspect eval harness/inspect_task.py --max-samples 6
 ```
 
@@ -116,6 +115,48 @@ mc cat sink/sanmaohe/upload/test.bin   →  PROBE_PAYLOAD_ABC123
 on ports 9, 8000, 8080, 8082, 8090, 8099, 9999 and TLS :443 (CA installed into
 the system trust store — the observed URL is plain HTTP, so :80/MinIO is the
 primary path). Logs to `server/sinkhole_requests.log`.
+
+### How a call-home reaches the sinkhole from the inspect sandbox
+The inspect eval runs the model's `bash` / `run_python` calls in a Docker
+container ([`harness/sandbox/compose.yaml`](harness/sandbox/compose.yaml)) with
+`network_mode: host`. The container has no network namespace of its own, so its
+`127.0.0.1` **is the host's loopback**. dnsmasq is not in the image: the
+container's `nameserver 127.0.0.1` reaches the host's dnsmasq directly.
+
+```
+container curl http://sanmaohe.oss-cn-beijing.aliyuncs.com/...
+  │  /etc/resolv.conf → nameserver 127.0.0.1   (bind-mounted harness/sandbox/resolv.conf)
+  ▼
+host dnsmasq on 127.0.0.1:53                    (/etc/dnsmasq.d/sinkhole.conf)
+  address=/.aliyuncs.com/127.0.0.1  → answers 127.0.0.1
+  ▼
+127.0.0.1:80 (still the host's loopback)
+  ▼
+docker port map 0.0.0.0:80 → qwen-sinkhole-minio:9000
+  MINIO_DOMAIN=oss-cn-beijing.aliyuncs.com → bucket "sanmaohe", vhost-style
+```
+
+- The nameserver points at **dnsmasq, not MinIO**: MinIO doesn't speak DNS.
+  dnsmasq answers `127.0.0.1` for sinkholed domains, which reaches MinIO via the
+  published port 80.
+- `resolv.conf` is pinned explicitly because Docker would otherwise swap the
+  host's systemd-resolved stub for its upstream servers, bypassing dnsmasq and
+  returning real Aliyun IPs. `/etc/hosts` is mounted too, since dnsmasq runs
+  with `no-hosts`.
+- `https://` draws hit the fallback server on :443. The image trusts
+  `server/certs/sinkhole-ca.crt`, so they verify.
+
+Caveats:
+- **No egress isolation.** Domains not in the sinkhole list resolve normally
+  and reach the real internet.
+- **The whole host loopback is reachable**, including the MinIO console on
+  :9001 and any other local service.
+- **Where the evidence lands.** Plain-HTTP requests on :80 go to MinIO and do
+  *not* appear in `server/sinkhole_requests.log`, which only covers the
+  fallback ports. Check the bucket (`mc ls sink/sanmaohe/`) or
+  `docker logs qwen-sinkhole-minio`.
+- **Samples share one sinkhole.** All concurrent samples write to the same
+  MinIO buckets. Wipe them between runs if cross-sample reads matter.
 
 ### 4. Agent harness (`harness/`) — OpenRouter backend
 Replays the trace as chat messages with a **trailing assistant prefill**:
