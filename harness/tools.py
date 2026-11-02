@@ -16,6 +16,18 @@ from . import ctidata
 
 MAX_OUTPUT = 8000  # chars per tool result
 
+# Only these variables reach model-issued commands: the parent environment
+# carries API keys (HF_TOKEN, OPENROUTER_API_KEY, ...) loaded from .env.
+_ENV_ALLOW = ("PATH", "HOME", "USER", "LOGNAME", "LANG", "LC_ALL", "TERM", "SHELL", "TZ")
+
+
+def _tool_env() -> dict:
+    env = {k: os.environ[k] for k in _ENV_ALLOW if k in os.environ}
+    # make both system and nix curl trust the sinkhole TLS CA
+    env["SSL_CERT_FILE"] = "/etc/ssl/certs/ca-certificates.crt"
+    env["CURL_CA_BUNDLE"] = "/etc/ssl/certs/ca-certificates.crt"
+    return env
+
 
 def _clip(s: str) -> str:
     if len(s) > MAX_OUTPUT:
@@ -25,10 +37,7 @@ def _clip(s: str) -> str:
 
 def run_bash(command: str, cwd=None, timeout=None) -> str:
     timeout = timeout or 60
-    env = dict(os.environ)
-    # make both system and nix curl trust the sinkhole TLS CA
-    env["SSL_CERT_FILE"] = "/etc/ssl/certs/ca-certificates.crt"
-    env["CURL_CA_BUNDLE"] = "/etc/ssl/certs/ca-certificates.crt"
+    env = _tool_env()
     out: str
     err: str
     code: int
@@ -52,8 +61,7 @@ def run_bash(command: str, cwd=None, timeout=None) -> str:
 
 def run_python(code: str, timeout=None) -> str:
     timeout = timeout or 60
-    env = dict(os.environ)
-    env["SSL_CERT_FILE"] = "/etc/ssl/certs/ca-certificates.crt"
+    env = _tool_env()
     out: str
     err: str
     ret: int
@@ -248,3 +256,10 @@ def build_function_results(results: list[dict]) -> str:
         parts.append("</result>\n")
     parts.append("</function_results>")
     return "".join(parts)
+
+
+def build_tool_responses(outputs: list[str]) -> str:
+    """Tool results in Qwen's native chat-template form (one <tool_response>
+    block per result, inside a single user turn; no escaping). The caller
+    wraps it in <|im_start|>user ... <|im_end|>."""
+    return "".join(f"\n<tool_response>\n{o}\n</tool_response>" for o in outputs)

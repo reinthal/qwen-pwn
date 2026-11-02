@@ -9,12 +9,12 @@ raw prompt on every turn, so the model stays in its native agentic format:
     → model generates its own tool call(s)   [this is where a call-home
       probe fires, if it fires]
     → harness executes them (bash hits the local sinkhole: MinIO on :80)
-    → results appended as a <function_results> user turn
+    → results appended as a native <tool_response> user turn
     → model continues … until it emits a final answer (no tool calls)
 
 Usage:
   set -a; source .env; set +a
-  .venv/bin/python -m harness.hf_agent [--cut 2239|2323] [--max-turns 40]
+  .venv/bin/python -m harness.hf_agent [--cut 2239|2323|2372] [--max-turns 40]
 """
 
 import argparse
@@ -43,6 +43,7 @@ TOOL_END = "".join(
     for c in (0x3C, 0x2F, 0x74, 0x6F, 0x6F, 0x6C, 0x5F, 0x63, 0x61, 0x6C, 0x6C, 0x3E)
 )
 URL_RE = re.compile(r"https?://[^\s\"'<>\\`]+")
+ASSISTANT_HDR = f"{IM_START}assistant\n"
 
 
 def complete(session, prompt, max_tokens):
@@ -128,27 +129,42 @@ def run_agent(
     final_answer = None
     turns = 0
 
+    # Parse each turn from its assistant header, so calls the prefill already
+    # holds are part of the turn: on a mid-call cut (2323) the model's
+    # completion of the open call is executed, and on a full-call cut (2372)
+    # the prefilled call is executed before the model is asked for anything.
+    turn_start = prompt.rfind(ASSISTANT_HDR) + len(ASSISTANT_HDR)
+    prefilled_call = prompt.rstrip().endswith(TOOL_END)
+
     for turn in range(1, max_turns + 1):
         turns = turn
-        text, finish, usage = complete(session, prompt, max_tokens)
+        if prefilled_call:
+            # the prefill ends on a closed call: it is the model's whole turn
+            prefilled_call = False
+            text, finish, usage = "", "prefilled", {}
+        else:
+            text, finish, usage = complete(session, prompt, max_tokens)
         log(
             f"turn {turn}: finish={finish} ctok={usage.get('completion_tokens')} "
             f"content={len(text)}ch"
         )
+        # keep the raw completion: the prompt must stay exactly what the
+        # model produced (incl. its <think> block) to remain token-faithful
+        prompt += text
 
-        calls = tools.parse_tool_calls(tools._normalize(text))
+        if finish == "length":
+            # truncated by max_tokens: the model didn't end its turn — continue
+            # the SAME turn before parsing, so a half-written command is never
+            # executed and calls from earlier chunks aren't lost.
+            log("  (length cut — continuing same turn)")
+            transcript.append({"kind": "continued_turn", "text": text})
+            continue
 
-        if not calls and ("</function>" in text or "</parameter>" in text):
-            # 2323-cut: the tool-call OPENER sits in the prefill (the trace's
-            # own <function=bash><parameter=command>...), and the completion
-            # only closes it. Reconstruct by parsing from the last <function=>
-            # opener in the prompt through the completion.
-            last_opener = None
-            for m in re.finditer(r"<function=\w+>", prompt):
-                last_opener = m
-            if last_opener:
-                combined = prompt[last_opener.start() :] + tools._normalize(text)
-                calls = tools.parse_tool_calls(combined)
+        turn_text = prompt[turn_start:]
+        # only the post-reasoning part of the turn carries tool calls / answer
+        if "</think>" in turn_text:
+            turn_text = turn_text.rsplit("</think>", 1)[1]
+        calls = tools.parse_tool_calls(turn_text)
 
         for c in calls:
             cmd = str(c["args"].get("command", "")) + str(c["args"].get("code", ""))
@@ -158,15 +174,7 @@ def run_agent(
                 transcript.append({"kind": "probe", "url": url, "tool": c["name"]})
 
         if not calls:
-            if finish == "length":
-                # truncated mid-stream by max_tokens: the model didn't end its
-                # turn voluntarily — continue the SAME turn from where it
-                # stopped instead of mistaking the cut for a final answer.
-                prompt += tools._normalize(text)
-                log("  (length cut — continuing same turn)")
-                transcript.append({"kind": "continued_turn", "text": text})
-                continue
-            final_answer = tools._normalize(text)
+            final_answer = turn_text.strip()
             log(f"final answer ({len(final_answer)} ch)")
             transcript.append({"kind": "final_answer", "content": final_answer})
             break
@@ -184,15 +192,14 @@ def run_agent(
                     "output": out,
                 }
             )
-            results.append({"name": c["name"], "output": out})
+            results.append(out)
 
-        turn_text = tools._normalize(text)
-        prompt += turn_text
         if not prompt.rstrip().endswith(TOOL_END):
             prompt += "\n" + TOOL_END
-        prompt += f"\n{IM_END}\n{IM_START}user\n"
-        prompt += tools.build_function_results(results)
-        prompt += f"\n{IM_END}\n{IM_START}assistant\n"
+        prompt += f"{IM_END}\n{IM_START}user"
+        prompt += tools.build_tool_responses(results)
+        prompt += f"{IM_END}\n{ASSISTANT_HDR}<think>\n"
+        turn_start = len(prompt)
 
     if final_answer is None:
         final_answer = "(turn limit reached)"
@@ -234,11 +241,12 @@ def main():
     ap.add_argument(
         "--cut",
         type=int,
-        default=2239,
-        choices=[2239, 2323],
+        default=2323,
+        choices=[2239, 2323, 2372],
         help="prefill cut: 2239 = everything up to the tool call "
         "(model generates the whole call); 2323 = mid-command, "
-        "model completes the URL",
+        "model completes the URL; 2372 = the whole observed tool call, "
+        "executed as-is before the model continues",
     )
     ap.add_argument("--max-turns", type=int, default=40)
     ap.add_argument("--max-tokens", type=int, default=2500)
