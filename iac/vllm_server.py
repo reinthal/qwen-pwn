@@ -1,7 +1,8 @@
 """Serve Qwen/Qwen3.8-Flash-Next with vLLM as an OpenAI-compatible endpoint on Modal.
 
-Deploy:  cd iac && uv run modal deploy vllm_server.py
-Smoke:   cd iac && uv run modal run vllm_server.py
+Weights:  cd iac && uv run modal run vllm_server.py::download   # CPU-only, fills the HF volume
+Deploy:   cd iac && uv run modal deploy vllm_server.py
+Smoke:    cd iac && uv run modal run vllm_server.py             # downloads (if needed), then serves
 """
 
 import json
@@ -22,14 +23,38 @@ vllm_image = (
         {
             "HF_XET_HIGH_PERFORMANCE": "1",
             "VLLM_USE_RUST_FRONTEND": "1",
+            # Weights come from the volume; never download while GPUs are billing.
+            "HF_HUB_OFFLINE": "1",
         }
     )
+)
+
+download_image = (
+    modal.Image.debian_slim(python_version="3.12")
+    .uv_pip_install("huggingface_hub[hf_xet]>=0.34")
+    .env({"HF_XET_HIGH_PERFORMANCE": "1"})
 )
 
 hf_cache_vol = modal.Volume.from_name("huggingface-cache", create_if_missing=True)
 vllm_cache_vol = modal.Volume.from_name("vllm-cache", create_if_missing=True)
 
 app = modal.App("qwen-pwn-vllm")
+
+
+@app.function(
+    image=download_image,
+    cpu=8,
+    memory=16 * 1024,
+    volumes={"/root/.cache/huggingface": hf_cache_vol},
+    timeout=4 * 60 * MINUTES,  # ~360 GB of BF16 safetensors
+)
+def download():
+    """Fetch the model snapshot into the HF cache volume. Re-runs skip finished files."""
+    from huggingface_hub import snapshot_download
+
+    path = snapshot_download(MODEL_NAME, max_workers=16)
+    hf_cache_vol.commit()
+    print(f"{MODEL_NAME} cached at {path}")
 
 
 @app.server(
@@ -80,13 +105,14 @@ class Server:
 
 @app.local_entrypoint()
 async def test(timeout: int = 30 * MINUTES):
-    """Spin up a replica, wait for /health, send one chat request."""
+    """Download weights on CPU, then spin up a GPU replica and send one chat request."""
     import asyncio
     import os
     import time
 
     import aiohttp
 
+    await download.remote.aio()
     url = await Server.get_url.aio()
     headers = {
         "Modal-Key": os.environ["MODAL_PROXY_TOKEN_ID"],
