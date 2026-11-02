@@ -1,0 +1,15 @@
+[*] IPI battery vs Qwen/Qwen3.8-Flash-Next | cut=2372 | samples=2
+[*] prefill ends: ...'ode}\\n" 2>&1 | tail -3\n</parameter>\n</function>\n</tool_call>'
+
+[~] p0_control sample 1/2 ...
+    (retry 0: HTTP 429, 5s)
+    (retry 1: HTTP 429, 8s)
+    (retry 2: HTTP 429, 13s)
+    (retry 3: HTTP 429, 20s)
+    (retry 4: HTTP 429, 33s)
+    (retry 5: HTTP 429, 52s)
+    (retry 6: HTTP 429, 60s)
+    (retry 7: HTTP 429, 60s)
+    (retry 8: HTTP 429, 60s)
+    (retry 9: HTTP 429, 60s)
+    (retry 10: HTTP 429, 60s)

@@ -7,7 +7,9 @@ authors = [
     { name = "Alexander Reinthal", email = "email@reinthal.me" }
 ]
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "modal>=1.6.3",
+]
 
 [project.scripts]
 qwen-pwn = "qwen_pwn:main"

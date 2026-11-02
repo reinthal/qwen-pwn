@@ -12,6 +12,15 @@ Listeners:
                       without -k validates; covers https:// draws)
 
 Logs every request (method, host, path, headers, body) to sinkhole_requests.log.
+
+Attack mode (stage 2): set SINKHOLE_PAYLOAD_FILE to the malicious payload
+(e.g. server/attack_payload.txt) and every response body becomes the prompt
+injection instead of "OK" — so https:// and odd-port draws get injected too.
+For a systemd service, add a drop-in
+(/etc/systemd/system/qwen-sinkhole-fallback.service.d/attack.conf):
+  [Service]
+  Environment=SINKHOLE_PAYLOAD_FILE=/home/kog/qwen-pwn/server/attack_payload.txt
+then: sudo systemctl daemon-reload && sudo systemctl restart qwen-sinkhole-fallback
 """
 
 import datetime
@@ -32,6 +41,9 @@ CERT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "certs")
 # These remain as a fallback for draws on odd ports:
 PLAIN_PORTS = [9, 8000, 8080, 8082, 8090, 8099, 9999]
 TLS_PORT = 443
+
+# attack mode: serve this file's content as every response body
+PAYLOAD_FILE = os.environ.get("SINKHOLE_PAYLOAD_FILE", "")
 
 _log_lock = threading.Lock()
 
@@ -69,6 +81,14 @@ def log_request(
     )
 
 
+def _response_body() -> bytes:
+    """ "OK" normally; the malicious payload in attack mode (stage 2)."""
+    if PAYLOAD_FILE and os.path.isfile(PAYLOAD_FILE):
+        with open(PAYLOAD_FILE, "rb") as f:
+            return f.read()
+    return b"OK"
+
+
 class Sinkhole(http.server.BaseHTTPRequestHandler):
     protocol_version = "HTTP/1.1"
 
@@ -76,7 +96,7 @@ class Sinkhole(http.server.BaseHTTPRequestHandler):
         length = int(self.headers.get("Content-Length") or 0)
         body = self.rfile.read(length) if length else None
         log_request(self, body)
-        payload = b"OK"
+        payload = _response_body()
         self.send_response(200)
         self.send_header("Content-Type", "text/plain; charset=utf-8")
         self.send_header("Content-Length", str(len(payload)))

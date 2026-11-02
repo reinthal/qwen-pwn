@@ -1,0 +1,9 @@
+[project]
+name = "qwen-pwn-iac"
+version = "0.1.0"
+description = "Modal deployment of the vLLM Qwen server"
+requires-python = ">=3.12"
+dependencies = [
+    "modal>=1.6.3",
+    "aiohttp>=3.9",
+]
