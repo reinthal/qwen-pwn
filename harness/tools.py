@@ -16,6 +16,23 @@ from . import ctidata
 
 MAX_OUTPUT = 8000  # chars per tool result
 
+# Only these variables reach model-issued commands: the parent environment
+# carries API keys (HF_TOKEN, OPENROUTER_API_KEY, ...) loaded from .env.
+_ENV_ALLOW = ("PATH", "HOME", "USER", "LOGNAME", "LANG", "LC_ALL", "TERM", "SHELL", "TZ")
+
+
+def _tool_env() -> dict:
+    env = {k: os.environ[k] for k in _ENV_ALLOW if k in os.environ}
+    # make both system and nix curl trust the sinkhole TLS CA
+    env["SSL_CERT_FILE"] = "/etc/ssl/certs/ca-certificates.crt"
+    env["CURL_CA_BUNDLE"] = "/etc/ssl/certs/ca-certificates.crt"
+    return env
+
+
+def format_exec(out: str, err: str, code: int) -> str:
+    """The tool-result text the model sees for bash / run_python."""
+    return _clip(f"stdout:\n{out}\nstderr:\n{err}\nexit_code: {code}")
+
 
 def _clip(s: str) -> str:
     if len(s) > MAX_OUTPUT:
@@ -25,10 +42,7 @@ def _clip(s: str) -> str:
 
 def run_bash(command: str, cwd=None, timeout=None) -> str:
     timeout = timeout or 60
-    env = dict(os.environ)
-    # make both system and nix curl trust the sinkhole TLS CA
-    env["SSL_CERT_FILE"] = "/etc/ssl/certs/ca-certificates.crt"
-    env["CURL_CA_BUNDLE"] = "/etc/ssl/certs/ca-certificates.crt"
+    env = _tool_env()
     out: str
     err: str
     code: int
@@ -46,14 +60,12 @@ def run_bash(command: str, cwd=None, timeout=None) -> str:
         code = p.returncode
     except subprocess.TimeoutExpired:
         out, err, code = "", f"Command timed out after {timeout}s", -1
-    result = f"stdout:\n{out}\nstderr:\n{err}\nexit_code: {code}"
-    return _clip(result)
+    return format_exec(out, err, code)
 
 
 def run_python(code: str, timeout=None) -> str:
     timeout = timeout or 60
-    env = dict(os.environ)
-    env["SSL_CERT_FILE"] = "/etc/ssl/certs/ca-certificates.crt"
+    env = _tool_env()
     out: str
     err: str
     ret: int
@@ -69,8 +81,7 @@ def run_python(code: str, timeout=None) -> str:
         out, err, ret = p.stdout, p.stderr, p.returncode
     except subprocess.TimeoutExpired:
         out, err, ret = "", f"Python timed out after {timeout}s", -1
-    result = f"stdout:\n{out}\nstderr:\n{err}\nexit_code: {ret}"
-    return _clip(result)
+    return format_exec(out, err, ret)
 
 
 def validate_output_json(json_output: str) -> str:
@@ -248,3 +259,10 @@ def build_function_results(results: list[dict]) -> str:
         parts.append("</result>\n")
     parts.append("</function_results>")
     return "".join(parts)
+
+
+def build_tool_responses(outputs: list[str]) -> str:
+    """Tool results in Qwen's native chat-template form (one <tool_response>
+    block per result, inside a single user turn; no escaping). The caller
+    wraps it in <|im_start|>user ... <|im_end|>."""
+    return "".join(f"\n<tool_response>\n{o}\n</tool_response>" for o in outputs)

@@ -1,0 +1,21 @@
+# inspect sandbox for harness/inspect_task.py — one container per sample.
+#
+# network_mode: host shares the host's network namespace, so call-home draws
+# reach the MinIO sinkhole on 127.0.0.1:80. DNS is pinned explicitly: Docker
+# would otherwise hand the container systemd-resolved's UPSTREAM servers
+# (bypassing the dnsmasq wildcard sinkhole on 127.0.0.1), and dnsmasq runs with
+# no-hosts, so the host's /etc/hosts entries are mounted in as well. Hosts
+# neither covers still reach the real internet.
+services:
+  default:
+    build:
+      context: .
+      additional_contexts:
+        certs: ../../server/certs
+    image: qwen-pwn-sandbox
+    init: true
+    command: tail -f /dev/null
+    network_mode: host
+    volumes:
+      - ./resolv.conf:/etc/resolv.conf:ro
+      - /etc/hosts:/etc/hosts:ro
