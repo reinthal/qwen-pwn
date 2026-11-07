@@ -72,3 +72,17 @@ seeds:
         mn_last_seen: varchar
         mn_rrtypes: varchar
         mn_answers: varchar
+    dnsdb_lookups:
+      # DomainTools Hosting History (collected via browser); all-text so the
+      # model's try_cast(nullif(...)) handles blanks/undetermined -> NULL.
+      +column_types:
+        host: varchar
+        resolved: varchar
+        rrset_count: varchar
+        distinct_rdata: varchar
+        first_seen: varchar
+        last_seen: varchar
+        resolved_ips: varchar
+        lookup_source: varchar
+        looked_up_at: varchar
+        notes: varchar
