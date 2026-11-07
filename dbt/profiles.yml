@@ -1,0 +1,9 @@
+qwen_pdns:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: pdns.duckdb
+      extensions:
+        - json
+      threads: 4

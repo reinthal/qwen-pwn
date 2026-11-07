@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: domain_report
+    description: >
+      One row per valid farmed call-home domain (ip/localhost/reserved/malformed
+      filtered out), with draw counts, classification, prior keyless intel, and
+      the browser-collected DNSDB passive-DNS slot.
+    columns:
+      - name: host
+        description: Drawn hostname (lowercased).
+        tests: [unique, not_null]
+      - name: class
+        tests:
+          - accepted_values:
+              arguments:
+                values: ["registrable", "provider-owned"]
+      - name: draws
+        description: Total times this host was drawn across all farm runs.
+        tests: [not_null]

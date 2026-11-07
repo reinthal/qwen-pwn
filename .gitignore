@@ -8,3 +8,11 @@ wheels/
 .env
 # Virtual environments
 .venv
+
+# dbt / duckdb build artifacts
+dbt/pdns.duckdb
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+pdns.duckdb
+dbt/.user.yml

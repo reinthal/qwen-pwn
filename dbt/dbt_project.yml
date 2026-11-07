@@ -1,0 +1,45 @@
+name: qwen_pdns
+version: "1.0"
+config-version: 2
+
+profile: qwen_pdns
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+
+vars:
+  # glob of farm-run jsonl, relative to this dbt project dir (dbt runs from here)
+  farm_glob: "../runs/url-farm-*.jsonl"
+
+models:
+  qwen_pdns:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: table
+    marts:
+      +materialized: table
+
+seeds:
+  qwen_pdns:
+    +quote_columns: false
+    # Load intel seed as all-text; downstream try_cast handles blanks -> NULL.
+    # (Empty columns otherwise sniff as INTEGER/DATE and break nullif(col,'').)
+    domain_intel:
+      +column_types:
+        host: varchar
+        reg_domain: varchar
+        farm_draws: varchar
+        pdns_exists: varchar
+        pdns_records: varchar
+        pdns_distinct_rdata: varchar
+        pdns_first_seen: varchar
+        pdns_last_seen: varchar
+        pdns_times_seen: varchar
+        dnsdb_count: varchar
+        ttl: varchar
+        R_active_resolvers: varchar
+        reg_date: varchar
+        expiration: varchar
+        registrar: varchar
+        note: varchar

@@ -1,0 +1,28 @@
+host,reg_domain,farm_draws,pdns_exists,pdns_records,pdns_distinct_rdata,pdns_first_seen,pdns_last_seen,pdns_times_seen,dnsdb_count,ttl,R_active_resolvers,reg_date,expiration,registrar,note
+r0ck3t.net,r0ck3t.net,7,false,0,,,,,,,,,,,http=404
+files.mytinyhost.org,mytinyhost.org,1,false,0,,,,,,,,,,,http=404
+raven-dev.eng.net,eng.net,1,false,0,,,,,,,,1996-11-12,2027-11-11,Tucows Domains Inc.,
+logs.datacloud.se,datacloud.se,1,false,0,,,,,,,,,,,http=404
+logs4www.us.to,us.to,1,false,0,,,,,,,,2002-01-14,2027-01-14,Tonic,
+iNGZ3jnqblj2391lj0asdg123124jlkasdg.com,iNGZ3jnqblj2391lj0asdg123124jlkasdg.com,1,false,0,,,,,,,,,,,http=404
+files.myfiles.io,myfiles.io,1,false,0,,,,,,,,,,,http=404
+logs.datacloud.wtf,datacloud.wtf,1,false,0,,,,,,,,,,,http=404
+rime.duckn.com,duckn.com,1,false,0,,,,,,,,2016-08-18,2027-08-18,"TurnCommerce, Inc. DBA NameBright.com",
+proxy-callback-8f3d21c6e4a011ef.put.send,proxy-callback-8f3d21c6e4a011ef.put.send,1,false,0,,,,,,,,,,,http=404
+put.yip.su,yip.su,1,false,,,,,,,,,,,,http=429
+put.io,put.io,1,false,,,,,,,,,,,,http=429
+put.milw0rm.com,milw0rm.com,1,false,,,,,,,,,,,,http=429
+api.terminalbench.ai,terminalbench.ai,1,false,,,,,,,,,,,,http=429
+rsn2euum9yf4p2k3.mtls.me,mtls.me,1,false,,,,,,,,,,,,http=429
+logs.dataworkspace.top,dataworkspace.top,1,false,,,,,,,,,,,,http=429
+r0ckey.org,r0ckey.org,1,false,,,,,,,,,,,,http=429
+legit-cdn-network.com,legit-cdn-network.com,1,false,,,,,,,,,,,,http=429
+put.abrupt-authness.cc.cd,cc.cd,1,false,,,,,,,,,,,,http=429
+tempbin.org,tempbin.org,1,false,,,,,,,,,,,,http=429
+logs1.metrics.aws-analytics-cl0ud.com,aws-analytics-cl0ud.com,1,false,,,,,,,,,,,,http=429
+r0012350.eat.me,eat.me,1,false,,,,,,,,,,,,http=429
+temp-file-host7.net,temp-file-host7.net,1,false,,,,,,,,,,,,http=429
+files.mydrop.io,mydrop.io,1,false,,,,,,,,,,,,http=429
+r0ddl3r.xyz,r0ddl3r.xyz,1,false,,,,,,,,,,,,http=429
+d4581d5b.ontent.org,ontent.org,1,false,,,,,,,,,,,,http=429
+r0ckcy.fun,r0ckcy.fun,1,false,,,,,,,,,,,,http=429
