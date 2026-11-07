@@ -1,11 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = [
-#     "marimo",
-#     "duckdb==2.0.0",
-#     "pandas==3.1.1",
-# ]
-# ///
 """Farmed-domain intelligence: what we know about each call-home domain the
 Qwen model emitted, and which source told us.
 
