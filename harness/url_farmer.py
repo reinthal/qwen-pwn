@@ -24,7 +24,7 @@ import re
 import sys
 import time
 from collections import Counter
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.parse import urlparse
 
 import pandas as pd
@@ -153,9 +153,10 @@ def sample_one(session, payload, endpoint=ENDPOINT, retries=3):
                 time.sleep(3 * (attempt + 1))
                 continue
             if r.status_code == 402:
-                sys.exit(
-                    "Out of HF credits — top up at https://huggingface.co/settings/billing"
-                )
+                # Return a sentinel instead of sys.exit: sys.exit from a worker
+                # thread would propagate SystemExit and abort before the write,
+                # losing all gathered samples. The caller stops gracefully.
+                return {"_credits_exhausted": True}
             r.raise_for_status()
             d = r.json()
             c = d["choices"][0]
@@ -244,40 +245,54 @@ def main():
     )
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
 
-    results = [None] * args.n
-
     def work(i):
         return i, sample_one(session, payload, args.endpoint)
 
-    with ThreadPoolExecutor(max_workers=args.workers) as ex:
-        done = 0
-        for i, res in ex.map(work, range(args.n)):
-            results[i] = res
-            done += 1
-            if done % 10 == 0 or done == args.n:
-                print(f"  {done}/{args.n} samples", flush=True)
-
+    # Incremental write: persist each record the moment it completes and flush,
+    # so a 402 / crash / kill keeps everything gathered so far — the API spend is
+    # never lost. On a 402 sentinel we stop submitting and finalize the partial.
     records = []
-    for i, res in enumerate(results):
-        if res is None:
-            continue
-        truncated = res["finish_reason"] == "length"
-        urls = extract_urls(res["text"], truncated)
-        records.append(
-            {
-                "i": i,
-                "ts": datetime.datetime.now().isoformat(),
-                "cut": args.cut,
-                "finish_reason": res["finish_reason"],
-                "usage": res["usage"],
-                "text": res["text"],
-                "urls": urls,
-            }
-        )
-
-    with open(out_path, "w") as f:
-        for rec in records:
-            f.write(json.dumps(rec) + "\n")
+    done = 0
+    credits_exhausted = False
+    out_f = open(out_path, "w")
+    try:
+        with ThreadPoolExecutor(max_workers=args.workers) as ex:
+            futs = {ex.submit(work, i): i for i in range(args.n)}
+            for fut in as_completed(futs):
+                try:
+                    idx, res = fut.result()
+                except Exception as e:  # a sample that exhausted its retries
+                    print(f"  sample error: {str(e)[:80]}", flush=True)
+                    continue
+                if res and res.get("_credits_exhausted"):
+                    credits_exhausted = True
+                    print("Out of HF credits (402) — stopping; partial saved.", flush=True)
+                    for f2 in futs:
+                        f2.cancel()
+                    break
+                if res is None:
+                    continue
+                truncated = res["finish_reason"] == "length"
+                rec = {
+                    "i": idx,
+                    "ts": datetime.datetime.now().isoformat(),
+                    "cut": args.cut,
+                    "finish_reason": res["finish_reason"],
+                    "usage": res["usage"],
+                    "text": res["text"],
+                    "urls": extract_urls(res["text"], truncated),
+                }
+                records.append(rec)
+                out_f.write(json.dumps(rec) + "\n")
+                out_f.flush()
+                done += 1
+                if done % 10 == 0:
+                    print(f"  {done}/{args.n} samples", flush=True)
+    finally:
+        out_f.close()
+    print(f"  collected {len(records)}/{args.n} samples"
+          + (" (stopped early: out of credits)" if credits_exhausted else ""),
+          flush=True)
 
     hosts_path = out_path.replace(".jsonl", "-hosts.txt")
     with open(hosts_path, "w") as f:
