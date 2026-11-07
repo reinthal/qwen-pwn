@@ -27,6 +27,23 @@ intel as (
     from {{ ref('domain_intel') }}
 ),
 
+dns as (
+    -- active resolution (dig) + RDAP registration, from harness/dns_enrich.py
+    select
+        host,
+        try_cast(nullif(resolves, '') as boolean) as resolves_now,
+        nullif(a_records, '')     as a_records,
+        nullif(aaaa_records, '')  as aaaa_records,
+        nullif(cname, '')         as cname,
+        nullif(ns_records, '')    as ns_records,
+        nullif(rdap_status, '')   as rdap_status,
+        nullif(reg_date, '')      as whois_reg_date,
+        nullif(expiration, '')    as whois_expiration,
+        nullif(registrar, '')     as whois_registrar,
+        nullif(resolved_at, '')   as resolved_at
+    from {{ ref('dns_resolution') }}
+),
+
 pdns as (
     select
         host,
@@ -56,6 +73,28 @@ select
     -- priority for the browser DNSDB sweep: registrable first, by draw volume
     case when h.class = 'registrable' then 1 else 2 end as lookup_priority,
 
+    -- active DNS (dig) + RDAP registration, from harness/dns_enrich.py
+    d.resolves_now,
+    d.a_records,
+    d.aaaa_records,
+    d.cname,
+    d.ns_records,
+    d.rdap_status,
+    -- reconcile dig + RDAP: a domain that resolves is registered even if the
+    -- registry's RDAP flakily 404s (common on .io/.cn). "available" (unregistered
+    -- AND not resolving) is the clean sinkhole-candidate set for #6.
+    case
+        when d.rdap_status = 'registered'   then 'registered'
+        when d.resolves_now                 then 'registered'
+        when d.rdap_status = 'unregistered' then 'available'
+        else 'unknown'
+    end as reg_verdict,
+    coalesce(d.whois_reg_date, i.reg_date)      as reg_date_final,
+    d.whois_reg_date,
+    d.whois_expiration,
+    d.whois_registrar,
+    d.resolved_at,
+
     -- prior keyless intel (Mnemonic pDNS + RDAP), from harness/pdns_intel.py
     i.pdns_exists,
     i.pdns_records,
@@ -82,5 +121,6 @@ select
     (p.host is not null) as dnsdb_looked_up
 from hosts h
 left join intel i on i.host = h.host
+left join dns   d on d.host = h.host
 left join pdns  p on p.host = h.host
 order by lookup_priority, h.draws desc, h.host

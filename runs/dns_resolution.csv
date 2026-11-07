@@ -1,0 +1,402 @@
+host,reg_domain,class,resolves,a_records,aaaa_records,cname,ns_records,rdap_status,reg_date,expiration,registrar,resolved_at
+r0ck3t.net,r0ck3t.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+ghfast.top,ghfast.top,registrable,True,23.95.31.214,,,howard.ns.cloudflare.com;millie.ns.cloudflare.com,registered,2025-01-11,2027-01-11,"NameSilo,LLC",2026-11-07T17:00:39
+i360.org,i360.org,registrable,True,13.248.169.48;76.223.54.146,,,ns2.afternic.com;ns1.afternic.com,registered,2021-08-05,2027-08-05,"GoDaddy.com, LLC",2026-11-07T17:00:39
+logs1.metrics.monitor,metrics.monitor,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r0ckey.com,r0ckey.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r0ckey.net,r0ckey.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r0ml.dev,r0ml.dev,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+aa.net,aa.net,registrable,True,13.248.169.48;76.223.54.146,,,ns2.afternic.com;ns1.afternic.com,registered,1994-10-28,2027-10-27,"NameSilo, LLC",2026-11-07T17:00:39
+files.mydrop.io,mydrop.io,registrable,False,,,,ns2.simplecloud.ru.mydrop.io;ns1.simplecloud.ru,no_rdap_for_tld,,,,2026-11-07T17:00:39
+files.mytinyfone.com,mytinyfone.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs1.metrics.360.cn,360.cn,registrable,False,,,,dns1.360safe.com;dns8.360safe.com;dns7.360safe.com;dns9.360safe.com;dns3.360safe.com;dns2.360safe.com,unregistered,,,,2026-11-07T17:00:39
+logs1.metrics.aws-analytics.com,aws-analytics.com,registrable,False,,,,ns4.markmonitor.com;ns3.markmonitor.com;ns5.markmonitor.com;ns1.markmonitor.com,registered,2021-12-11,2027-12-11,MarkMonitor Inc.,2026-11-07T17:00:39
+paste.ee,paste.ee,registrable,True,23.186.113.60,,,amit.ns.cloudflare.com;dora.ns.cloudflare.com,no_rdap_for_tld,,,,2026-11-07T17:00:39
+put.ab.com,ab.com,registrable,False,,,,ns3-05.azure-dns.org;ns4-05.azure-dns.info;ns2-05.azure-dns.net;ns1-05.azure-dns.com,registered,1988-10-12,2027-10-11,"CSC Corporate Domains, Inc.",2026-11-07T17:00:39
+r0root.me,r0root.me,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+rimeless.com,rimeless.com,registrable,True,207.207.210.50;207.207.210.23;207.207.210.36,,,curitiba.ns.porkbun.com;fortaleza.ns.porkbun.com;maceio.ns.porkbun.com;salvador.ns.porkbun.com,registered,2026-02-15,2027-02-15,Porkbun LLC,2026-11-07T17:00:39
+ring.nist.gov,nist.gov,registrable,True,,,ring.ncsl.nist.gov,gold.foundationdns.net;gold.foundationdns.org;gold.foundationdns.com,registered,1997-10-02,2027-08-24,get.gov,2026-11-07T17:00:39
+aa.ee.tt.tt,tt.tt,registrable,False,,,,ns610.websitewelcome.com;ns609.websitewelcome.com,unregistered,,,,2026-11-07T17:00:39
+alb-q3xy4okeuw2d5v8keu.rt-tunnelbypass.top,rt-tunnelbypass.top,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+anglessi.org,anglessi.org,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+api.terminalbench.ai,terminalbench.ai,registrable,False,,,,ns73.domaincontrol.com;ns74.domaincontrol.com,registered,2025-05-19,2027-05-19,"GoDaddy.com, LLC",2026-11-07T17:00:39
+attack-simulation.attacker.net,attacker.net,registrable,False,,,,chuck.ns.cloudflare.com;brianna.ns.cloudflare.com,registered,2004-08-14,2027-08-14,PDR Ltd. d/b/a PublicDomainRegistry.com,2026-11-07T17:00:39
+attack.pcap,attack.pcap,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+attack.pcap.replay,pcap.replay,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+bin.rdh2l.com,rdh2l.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+d4581d5b.ontent.org,ontent.org,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+d4t4.io,d4t4.io,registrable,True,104.21.44.148;172.67.200.227,2606:4700:3034::6815:2c94;2606:4700:3033::ac43:c8e3,,paul.ns.cloudflare.com;iris.ns.cloudflare.com,unregistered,,,,2026-11-07T17:00:39
+detection-files.io,detection-files.io,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+detection-scripts.dev,detection-scripts.dev,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+download-7f3c9a21.b-cdn.net,b-cdn.net,registrable,True,169.150.247.40,,,ns1.bunnydns.com;ns3.bunnydns.com;ns2.bunnydns.com,registered,2016-04-25,2029-04-25,"Name.com, Inc.",2026-11-07T17:00:39
+download.com,download.com,registrable,True,35.240.39.231,,,ns-cloud-d1.googledomains.com;ns-cloud-d2.googledomains.com;ns-cloud-d3.googledomains.com;ns-cloud-d4.googledomains.com,registered,1996-02-24,2027-02-25,"CSC Corporate Domains, Inc.",2026-11-07T17:00:39
+download.e-drops.net,e-drops.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+dummy.org,dummy.org,registrable,True,139.162.174.209;172.104.149.86;139.162.181.76;172.104.203.186;172.104.251.198,2a01:7e01::2000:dff:fec1:5cdb;2a01:7e01::f03c:95ff:feeb:9d4b;2a01:7e01::f03c:95ff:feed:783e;2a01:7e01::f03c:95ff:fe00:2692;2a01:7e01::f03c:95ff:fe91:5d91,,damao.ns.giantpanda.com;yangguang.ns.giantpanda.com,registered,2000-03-20,2031-03-20,GoDaddy Online Services Cayman Islands Ltd.,2026-11-07T17:00:39
+dummy.yixiao.org,yixiao.org,registrable,False,,,,jill.ns.cloudflare.com;sam.ns.cloudflare.com,registered,2023-01-26,2027-01-26,"Cloudflare, Inc.",2026-11-07T17:00:39
+fileio.io,fileio.io,registrable,True,104.21.93.148;172.67.211.91,2606:4700:3036::ac43:d35b;2606:4700:3035::6815:5d94,,kevin.ns.cloudflare.com;rayne.ns.cloudflare.com,unregistered,,,,2026-11-07T17:00:39
+files.http-toolkit.org,http-toolkit.org,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+files.mycompany.com,mycompany.com,registrable,False,,,,ns.kampung.com;ns2.kampung.com,registered,1997-03-16,2028-03-17,"Register.com - Network Solutions, LLC",2026-11-07T17:00:39
+files.mydocuments-home.net,mydocuments-home.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+files.mydocuments-online.com,mydocuments-online.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+files.mydocuments.com,mydocuments.com,registrable,True,209.237.150.20,www.convergentedm.com;convergentedm.com,www.convergentedm.com,ns4.monikerdns.net;ns3.monikerdns.net;ns1.monikerdns.net;ns2.monikerdns.net,registered,1996-10-16,2027-01-08,Moniker Online Services LLC,2026-11-07T17:00:39
+files.myexternalip.com,myexternalip.com,registrable,False,,,,ns-cloud-b4.googledomains.com;ns-cloud-b3.googledomains.com;ns-cloud-b1.googledomains.com;ns-cloud-b2.googledomains.com,registered,2010-08-02,2027-08-02,"GoDaddy.com, LLC",2026-11-07T17:00:39
+files.myfiles.io,myfiles.io,registrable,False,,,,ns2.atom.com;ns1.atom.com,no_rdap_for_tld,,,,2026-11-07T17:00:39
+files.myip.com,myip.com,registrable,False,,,,rick.ns.cloudflare.com;olga.ns.cloudflare.com,registered,1996-07-04,2030-07-03,"NameSilo, LLC",2026-11-07T17:00:39
+files.mytinyhost.org,mytinyhost.org,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+files.mytinyproject.xyz,mytinyproject.xyz,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+files.myurl.ir,myurl.ir,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+files.openmf.org,openmf.org,registrable,False,,,,princess.ns.cloudflare.com;justin.ns.cloudflare.com,registered,2021-12-24,2026-12-24,DomainCraze LLC,2026-11-07T17:00:39
+files.payload.pw,payload.pw,registrable,False,,,,dns11.ovh.net;ns11.ovh.net,registered,2015-10-25,2027-10-25,OVH sas,2026-11-07T17:00:39
+files.wjlr.de,wjlr.de,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+gelatoabroad.vic.edu.au,edu.au,registrable,False,,,,r.au;s.au;a.au;q.au;t.au,registered,,,auDA Internal (9999),2026-11-07T17:00:39
+gelbooru198.net,gelbooru198.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+gh.raw,gh.raw,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+i-actually.io.put,io.put,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+i079.alicontest.com,alicontest.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+i392266.puresword.edu,puresword.edu,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+i395224d3f7a479a8d07.echo.deta.host,deta.host,registrable,True,104.219.250.37;2.59.170.20,,,ns1.lander.d.parity.domains;ns2.lander.d.parity.domains,registered,2022-11-03,2027-11-03,"NameCheap, Inc.",2026-11-07T17:00:39
+i3c5n0rlizkrmwoxgzqdwpg6xgz-9906.http.rvs.parsec4.top,parsec4.top,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+i3c6uioo5olawiy8zjn8z7ug-prod.odsu1.manageiq.com,manageiq.com,registrable,False,,,,dns3.p01.nsone.net;dns2.p01.nsone.net;dns4.p01.nsone.net;dns1.p01.nsone.net,registered,2006-03-09,2027-03-09,Nom-iq Ltd. dba COM LAUDE,2026-11-07T17:00:39
+i3cargocdn.a2z-aws-cdn-prod.com,a2z-aws-cdn-prod.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+i3cde6b4a5n2z9b2bd060c25e029-acda.athena-proxy.com,athena-proxy.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+i40nmm325i49c0alg9v0n4h2ogxcdwb.projector.corp,projector.corp,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+i716epah4001.u.thepipe.na,thepipe.na,registrable,False,,,,,http_403,,,,2026-11-07T17:00:39
+i736720.71629ded9a694474baaafef90c79b99c.interstitial.sh,interstitial.sh,registrable,False,,,,ns19.domaincontrol.com;ns20.domaincontrol.com,no_rdap_for_tld,,,,2026-11-07T17:00:39
+i78a537ae.eo.te.st,te.st,registrable,False,,,,cow.dnspod.net;cormorant.dnspod.net,no_rdap_for_tld,,,,2026-11-07T17:00:39
+ingz3jnqblj2391lj0asdg123124jlkasdg.com,ingz3jnqblj2391lj0asdg123124jlkasdg.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+iplay.oss-cn-beijing.aliyuncs,oss-cn-beijing.aliyuncs,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+iplayfiles-ne50.02395e6d.network,02395e6d.network,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+j3vpw5k5vb4sj5vm6skh47qjc55cqjk7.interact.sh,interact.sh,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+jennyblue-armstrong-big-m-6673.webspace-test.de,webspace-test.de,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+lattice.adobe.com,adobe.com,registrable,False,,,,a7-64.akam.net;a13-65.akam.net;a26-66.akam.net;a1-217.akam.net;a10-64.akam.net;a28-67.akam.net,registered,1986-11-17,2027-05-17,Nom-iq Ltd. dba COM LAUDE,2026-11-07T17:00:39
+latticesys.com,latticesys.com,registrable,True,208.91.197.27,,,ns90.worldnic.com;ns89.worldnic.com,registered,1997-02-19,2029-02-20,"Network Solutions, LLC",2026-11-07T17:00:39
+legit-cdn-network.com,legit-cdn-network.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+legs-appgw.eastus.net,eastus.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+lfile.us,lfile.us,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs.data-platform.gab.poc,gab.poc,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs.dataassistant.io,dataassistant.io,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs.datacloud-his.com,datacloud-his.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs.datacloud.be,datacloud.be,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs.datacloud.com,datacloud.com,registrable,False,,,,salvador.ns.cloudflare.com;raegan.ns.cloudflare.com,registered,1997-09-23,2027-09-22,"Cloudflare, Inc.",2026-11-07T17:00:39
+logs.datacloud.se,datacloud.se,registrable,False,,,,ns2.nameshift.com;3wtxrx.ns3.nameshift.com;ns1.nameshift.com,unregistered,,,,2026-11-07T17:00:39
+logs.datacloud.wtf,datacloud.wtf,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs.datacloudops.azr-prod-backend-mi.eastus-1.azuredocs.workers,azuredocs.workers,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+logs.datacloudops.com,datacloudops.com,registrable,False,,,,ns-1129.awsdns-13.org;ns-159.awsdns-19.com;ns-1903.awsdns-45.co.uk;ns-660.awsdns-18.net,registered,2025-04-14,2027-04-14,"Amazon Registrar, Inc.",2026-11-07T17:00:39
+logs.datacloudse.com,datacloudse.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs.datadelivery.shop,datadelivery.shop,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs.dataformers.com,dataformers.com,registrable,False,,,,ns1.world4you.at;ns2.world4you.at,registered,2010-04-17,2027-04-17,World4You Internet Services GmbH,2026-11-07T17:00:39
+logs.datagrid.io,datagrid.io,registrable,False,,,,rob.ns.cloudflare.com;zara.ns.cloudflare.com,no_rdap_for_tld,,,,2026-11-07T17:00:39
+logs.dataplatform.westus2.privatelink,westus2.privatelink,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+logs.dataworkspace.top,dataworkspace.top,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs.desireehousewines.com,desireehousewines.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs.googleblog.com,googleblog.com,registrable,True,172.217.20.161,blogspot.l.googleusercontent.com;2a00:1450:400f:805::2001,blogspot.l.googleusercontent.com,ns4.google.com;ns3.google.com;ns2.google.com;ns1.google.com,registered,2002-06-29,2027-06-29,MarkMonitor Inc.,2026-11-07T17:00:39
+logs.home.arpa,home.arpa,registrable,False,,,,localhost,no_rdap_for_tld,,,,2026-11-07T17:00:39
+logs.tcb01.vvc.cn,vvc.cn,registrable,True,115.28.37.133,,,dns17.hichina.com;dns18.hichina.com,no_rdap_for_tld,,,,2026-11-07T17:00:39
+logs.tcbjq.com,tcbjq.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs.verniai.io,verniai.io,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs1.gridserver.com,gridserver.com,registrable,False,,,,,registered,2003-12-16,2029-12-16,"GoDaddy.com, LLC",2026-11-07T17:00:39
+logs1.http.org,http.org,registrable,False,,,,amos.ns.cloudflare.com;harlee.ns.cloudflare.com,registered,1995-07-27,2030-07-26,"Cloudflare, Inc.",2026-11-07T17:00:39
+logs1.metrics-worker.net,metrics-worker.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs1.metrics.3278329542eb4480a47ebb75bbdn38f9.com,3278329542eb4480a47ebb75bbdn38f9.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs1.metrics.3cx.net,3cx.net,registrable,False,,,,augustus.ns.cloudflare.com;alina.ns.cloudflare.com,registered,2004-04-13,2027-04-13,Hosting Concepts B.V. d/b/a Registrar.eu,2026-11-07T17:00:39
+logs1.metrics.3dnest.com,3dnest.com,registrable,False,,,,ns60.domaincontrol.com;ns59.domaincontrol.com,registered,2012-07-25,2027-07-25,"GoDaddy.com, LLC",2026-11-07T17:00:39
+logs1.metrics.atlassian.com,atlassian.com,registrable,False,,,,ns-1388.awsdns-45.org;ns-2018.awsdns-60.co.uk;ns-112.awsdns-14.com;ns-595.awsdns-10.net,registered,2001-03-19,2027-03-19,MarkMonitor Inc.,2026-11-07T17:00:39
+logs1.metrics.aws-analytics-cl0ud.com,aws-analytics-cl0ud.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs1.metrics.aws-analytics-net.com,aws-analytics-net.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs1.metrics.aws-analytics-pipeline.net,aws-analytics-pipeline.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs1.metrics.awsmonitoring.net,awsmonitoring.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs1.metrics.ingestion.googleapis.com,googleapis.com,registrable,True,172.217.113.4;172.217.116.4;172.217.119.4;172.217.115.4;172.217.114.4;172.217.112.4;172.217.117.4;172.217.118.4,2001:4860:4844:400::;2001:4860:4841:400::;2001:4860:4840:400::;2001:4860:4843:400::;2001:4860:4845:400::;2001:4860:4842:400::;2001:4860:4847:400::;2001:4860:4846:400::,,ns4.google.com;ns1.google.com;ns3.google.com;ns2.google.com,registered,2005-01-25,2027-01-25,MarkMonitor Inc.,2026-11-07T17:00:39
+logs1.metrics.ingress360.net,ingress360.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs1.metrics.ink,metrics.ink,registrable,False,,,,ns2.atom.com;ns1.atom.com,registered,2026-08-05,2027-08-05,"Spaceship, Inc.",2026-11-07T17:00:39
+logs1.metrics.iosbw.com,iosbw.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs1.metrics.tls-apps.io,tls-apps.io,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+logs1.metrics.tokyo,metrics.tokyo,registrable,False,,,,dns01.muumuu-domain.com;dns02.muumuu-domain.com,registered,2019-04-17,2027-04-17,"GMO Internet Group, Inc.",2026-11-07T17:00:39
+logs1.metrics.trendmicro-net.com,trendmicro-net.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs1.metricsary.com,metricsary.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs1.metricsimon.com,metricsimon.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs1.metricsis.net,metricsis.net,registrable,False,,,,tr.dnsenable.com;us.dnsenable.com;eu.dnsenable.com,registered,2026-06-21,2027-06-21,Isimtescil Bilisim A.S.,2026-11-07T17:00:39
+logs1.metricsmonitor.icu,metricsmonitor.icu,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs1.metricsmonitor.io,metricsmonitor.io,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs144.xlogr.in,xlogr.in,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs3.siem.dev,siem.dev,registrable,False,,,,launch2.spaceship.net;launch1.spaceship.net,registered,2026-05-12,2027-05-12,"Sav.com, LLC",2026-11-07T17:00:39
+logs314.github.com,github.com,registrable,False,,,,ns-1707.awsdns-21.co.uk;ns-421.awsdns-52.com;dns3.p08.nsone.net;ns-520.awsdns-01.net;ns-1283.awsdns-32.org;dns4.p08.nsone.net;dns2.p08.nsone.net;dns1.p08.nsone.net,registered,2007-10-09,2028-10-09,MarkMonitor Inc.,2026-11-07T17:00:39
+logs41.helmholtz-media.de,helmholtz-media.de,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+logs4804.hentsengoldberg.xyz,hentsengoldberg.xyz,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs4build.awsapps.com,awsapps.com,registrable,False,,,,ns-158.awsdns-19.com;ns-1873.awsdns-42.co.uk;ns-631.awsdns-14.net;ns-1461.awsdns-54.org,registered,2009-07-07,2027-07-07,MarkMonitor Inc.,2026-11-07T17:00:39
+logs4build.goldmine.com,goldmine.com,registrable,False,,,,ivan.ns.cloudflare.com;cruz.ns.cloudflare.com,registered,1997-12-29,2026-12-10,EuroDNS S.A.,2026-11-07T17:00:39
+logs4build.nsa.gov,nsa.gov,registrable,False,,,,a11-66.akam.net;a24-65.akam.net;a5-66.akam.net;a1-107.akam.net;a2-64.akam.net;a12-67.akam.net,registered,1997-10-02,2027-08-19,get.gov,2026-11-07T17:00:39
+logs4download.goldsky.com,goldsky.com,registrable,False,,,,kelly.ns.cloudflare.com;piotr.ns.cloudflare.com,registered,1998-09-15,2027-09-14,Squarespace Domains II LLC,2026-11-07T17:00:39
+logs4download.hnproject.net,hnproject.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs4download.hnzcacai.com,hnzcacai.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs4download.humlacloud.com,humlacloud.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs4download.humlacloud.net,humlacloud.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs4download.wazuh.io,wazuh.io,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+logs4download.westus2-01.externalblob.net,externalblob.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs4download.wizvibe.ai,wizvibe.ai,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs4home.nist.gov,nist.gov,registrable,False,,,,gold.foundationdns.net;gold.foundationdns.org;gold.foundationdns.com,registered,1997-10-02,2027-08-24,get.gov,2026-11-07T17:00:39
+logs4home.nsa.gov,nsa.gov,registrable,False,,,,a11-66.akam.net;a24-65.akam.net;a5-66.akam.net;a1-107.akam.net;a2-64.akam.net;a12-67.akam.net,registered,1997-10-02,2027-08-19,get.gov,2026-11-07T17:00:39
+logs4job.qizz2a.online,qizz2a.online,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs4search.happix.dev,happix.dev,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+logs4team02.hn.net,hn.net,registrable,True,172.104.203.186;172.104.251.198;139.162.174.209;172.104.149.86;139.162.181.76,2a01:7e01::f03c:95ff:feed:783e;2a01:7e01::f03c:95ff:feeb:9d4b;2a01:7e01::f03c:95ff:fe91:5d91;2a01:7e01::f03c:95ff:fe00:2692;2a01:7e01::2000:dff:fec1:5cdb,,changchang.ns.giantpanda.com;xinxin.ns.giantpanda.com,registered,1997-05-20,2027-05-21,"CSC Corporate Domains, Inc.",2026-11-07T17:00:39
+logs4www.us.to,us.to,registrable,False,,,,ns1.afraid.org;ns3.afraid.org;ns4.afraid.org;ns2.afraid.org,registered,2002-01-14,2027-01-14,Tonic,2026-11-07T17:00:39
+logspec.reconstruct.com,reconstruct.com,registrable,True,13.248.169.48;76.223.54.146,,,ns2.afternic.com;ns1.afternic.com,registered,2003-05-12,2027-05-12,"Megazone Corp., dba HOSTING.KR",2026-11-07T17:00:39
+lume-er-cdn-edge.net,lume-er-cdn-edge.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+myservers-vc.com,myservers-vc.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+paste.cryptosink.net,cryptosink.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+paste.dubny.com,dubny.com,registrable,False,,,,maria.ns.cloudflare.com;julian.ns.cloudflare.com,registered,2023-08-01,2027-08-01,"Cloudflare, Inc.",2026-11-07T17:00:39
+probe.iq,probe.iq,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+proxy-callback-8f3d21c6e4a011ef.put.send,put.send,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+put-me-in.e2e2bda2377940cb8f998985e347c98d.r2.dev,r2.dev,registrable,True,104.18.50.34;104.18.54.45,2606:4700:311b::6812:362d;2606:4700:311b::6812:3222,,raphaela.ns.cloudflare.com;camilo.ns.cloudflare.com,registered,2022-08-23,2027-08-23,"CloudFlare, Inc.",2026-11-07T17:00:39
+put.ab8c2a53.web.host,web.host,registrable,True,103.224.182.244,,,ns2.abovedomains.com;ns1.abovedomains.com,registered,2021-02-16,2029-02-16,Namify Domains Inc,2026-11-07T17:00:39
+put.abacurrent.us-east-1.on.aws,on.aws,registrable,False,,,,ns-645.awsdns-16.net;ns-1260.awsdns-29.org;ns-1688.awsdns-19.co.uk;ns-338.awsdns-42.com,registered,2021-09-29,2027-09-29,Nom-iq Ltd. dba COM LAUDE,2026-11-07T17:00:39
+put.abcd.io,abcd.io,registrable,True,13.248.169.48;76.223.54.146,,,ns2.afternic.com;ns1.afternic.com,no_rdap_for_tld,,,,2026-11-07T17:00:39
+put.abrupt-authness.cc.cd,cc.cd,registrable,False,,,,a.ns.dnshe.org;b.ns.dnshe.org,no_rdap_for_tld,,,,2026-11-07T17:00:39
+put.io,put.io,registrable,True,108.157.229.109;108.157.229.7;108.157.229.107;108.157.229.108,,,ns-1743.awsdns-25.co.uk;ns-313.awsdns-39.com;ns-930.awsdns-52.net;ns-1087.awsdns-07.org,unregistered,,,,2026-11-07T17:00:39
+put.milw0rm.com,milw0rm.com,registrable,True,127.0.0.1,,,algin.ns.cloudflare.com;cruz.ns.cloudflare.com,registered,2003-10-01,2031-07-25,Internet Domain Service BS Corp,2026-11-07T17:00:39
+put.yip.su,yip.su,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+r001-storage.tos-cn-shanghai.volces.com,volces.com,registrable,True,36.150.251.100;36.150.251.10,tos56-cp-public.cn-shanghai.tos.volces.com,tos56-cp-public.cn-shanghai.tos.volces.com,vip3.alidns.com;vip4.alidns.com,registered,2020-11-24,2027-11-24,"eName Technology Co., Ltd.",2026-11-07T17:00:39
+r001-trace-files.ks3-internal-hs-dev.s3ctrl.com,s3ctrl.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r001.store,r001.store,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r001.xiwe.com,xiwe.com,registrable,True,103.224.22.105,,,ns16.xincache.com;ns15.xincache.com,registered,2005-04-06,2028-04-06,Xin Net Technology Corporation,2026-11-07T17:00:39
+r001.xolliet.com,xolliet.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r0012.eos.docker,eos.docker,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+r001212146706.eatme.to,eatme.to,registrable,False,,,,dns1.registrar-servers.com;dns2.registrar-servers.com,registered,2025-12-23,2026-12-23,NAMECHEAP,2026-11-07T17:00:39
+r00123.cc.vc6.cn,vc6.cn,registrable,False,,,,empty.dnspod.net;borg.dnspod.net,unregistered,,,,2026-11-07T17:00:39
+r0012350.eat.me,eat.me,registrable,True,76.223.54.146;13.248.169.48,,,ns2.afternic.com;ns1.afternic.com,no_rdap_for_tld,,,,2026-11-07T17:00:39
+r003ctf.oss-cn-hongzhou-gd01.dnsserverstore.com,dnsserverstore.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r059p1eu3519g9vm9kogd2ucngb79zzk-18924.embed.sandbox.com,sandbox.com,registrable,False,,,,aisha.ns.cloudflare.com;razvan.ns.cloudflare.com,registered,1993-12-21,2032-11-01,"GoDaddy.com, LLC",2026-11-07T17:00:39
+r0ax.com,r0ax.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r0bodytxdaztxybc.public,r0bodytxdaztxybc.public,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r0ck1bot3r.com,r0ck1bot3r.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r0ck77vy.bell-labs.org,bell-labs.org,registrable,False,,,,ns-cloud-c3.googledomains.com;ns-cloud-c4.googledomains.com;ns-cloud-c2.googledomains.com;ns-cloud-c1.googledomains.com,registered,2004-01-01,2027-01-01,Squarespace Domains II LLC,2026-11-07T17:00:39
+r0ck7ezr.mokbay.io,mokbay.io,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+r0ck7s.net,r0ck7s.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r0ckcy.fun,r0ckcy.fun,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r0cke7tz6pxmq6vb.cfc-internal.io,cfc-internal.io,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+r0ckey.org,r0ckey.org,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r0ckez.myhandy.website,myhandy.website,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r0ckux.s3sync.net,s3sync.net,registrable,False,,,,nsv9.servedge.com;nsv8.servedge.com,registered,2006-04-24,2028-04-24,Tucows Domains Inc.,2026-11-07T17:00:39
+r0ckzy.com,r0ckzy.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r0ddl-hn2775.5ch9xvr.net,5ch9xvr.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r0ddl3r.xyz,r0ddl3r.xyz,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r0gffgzjy270xq696l7w6yxs0icdaxd0.o3.testing-url-beta1.net,testing-url-beta1.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r0gk2cmqxxl9qocpuxtcyz9w-8080.adcux.com.oss.fileproxy.file.mycompany.com,mycompany.com,registrable,False,,,,ns.kampung.com;ns2.kampung.com,registered,1997-03-16,2028-03-17,"Register.com - Network Solutions, LLC",2026-11-07T17:00:39
+r0gq7cx7ljvjyulnepvj.base-url.net,base-url.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r0man-histological-dreamily-ngnzoqa6btc.netlify.app,netlify.app,registrable,True,63.176.8.218;35.157.26.135,2a05:d014:58f:6200::258;2a05:d014:58f:6200::259,,dns2.p01.nsone.net;dns4.p01.nsone.net;dns3.p01.nsone.net;dns1.p01.nsone.net,registered,2018-05-08,2031-05-08,"Name.com, Inc.",2026-11-07T17:00:39
+r0manorg-my.account.openai.com,openai.com,registrable,False,,,,ns4-02.azure-dns.info;ns2-02.azure-dns.net;ns3-02.azure-dns.org;ns1-02.azure-dns.com,registered,2007-01-19,2029-01-19,MarkMonitor Inc.,2026-11-07T17:00:39
+r0meo.com,r0meo.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r0mg1b428qh6fg12acx9v4jv0tbih7c3.1d5bb0c4.lambda-url.us-east-1.on.aws,on.aws,registrable,True,52.207.192.32;34.234.119.18;54.234.134.78;52.7.194.148;54.221.36.77;32.199.110.77;44.214.122.136;52.45.247.240,2600:1f18:20cb:b301:68e6:7dc9:f9fb:35ca;2600:1f18:20cb:b301:4079:3650:78f1:36bb;2600:1f18:20cb:b301:eab1:efc3:537b:b4eb;2600:1f18:20cb:b303:2738:53aa:3832:7cbc;2600:1f18:20cb:b301:d609:d98f:9d6b:af52;2600:1f18:20cb:b303:a45:2c38:142f:990b;2600:1f18:20cb:b303:ed20:f695:e28e:3039;2600:1f18:20cb:b302:2355:b9d9:6b30:96a8,,ns-645.awsdns-16.net;ns-1260.awsdns-29.org;ns-1688.awsdns-19.co.uk;ns-338.awsdns-42.com,registered,2021-09-29,2027-09-29,Nom-iq Ltd. dba COM LAUDE,2026-11-07T17:00:39
+r0mg1v5nvau8e7d0.cfc-e1abb9c3.westus.azurecontainerapps.io,azurecontainerapps.io,registrable,False,,,,ns2-37.azure-dns.net;ns4-37.azure-dns.info;ns1-37.azure-dns.com;ns3-37.azure-dns.org,no_rdap_for_tld,,,,2026-11-07T17:00:39
+r0mgab11lj49.beeceptor.com,beeceptor.com,registrable,False,,,,ns3.digitalocean.com;ns1.digitalocean.com;ns2.digitalocean.com,registered,2017-10-10,2027-10-10,BigRock Solutions Ltd,2026-11-07T17:00:39
+r0mgbbx7yvpw2vb7hxxvwbdo.viewdraftart.cc,viewdraftart.cc,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r0mgvbvfnuzd.xyz8.store,xyz8.store,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r0mgvc7p721nwrvzyukljhg4wxxmp2ce.1d34d277.web.infra,web.infra,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+r0ml.com,r0ml.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r0ml.de,r0ml.de,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+r0mockapp3.rsmc.us,rsmc.us,registrable,True,13.248.169.48;76.223.54.146,,,ns2.afternic.com;ns1.afternic.com,no_rdap_for_tld,,,,2026-11-07T17:00:39
+r0resgz8i7yj9vt8bwq7n421nw7ltpe-hzh-8087.ic.pvl.ai,pvl.ai,registrable,False,,,,ns3sxz.name.com;ns1kpv.name.com;ns2gtx.name.com;ns4dmx.name.com,registered,2024-10-27,2028-10-27,"Name.com, Inc.",2026-11-07T17:00:39
+r0viajs.com,r0viajs.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r2tmp.h6vs.online,h6vs.online,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r47.csb,r47.csb,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+r4cbb0f8e.76966bbd445c2228c63038cf1967b8e98.alicloudrun.com,alicloudrun.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r8-blk.io,r8-blk.io,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+r8-d1-upload-task.duck-stub.net,duck-stub.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+r8-d89c7b92-e509-45df-8fa0-c71f8f48db8d-20200001.portal.vul,portal.vul,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+r8-put.b-cdn.net,b-cdn.net,registrable,True,138.199.36.11,,,ns1.bunnydns.com;ns3.bunnydns.com;ns2.bunnydns.com,registered,2016-04-25,2029-04-25,"Name.com, Inc.",2026-11-07T17:00:39
+r8.co,r8.co,registrable,True,188.114.96.1;188.114.97.1,2a06:98c1:3120::1;2a06:98c1:3121::1,,dawn.ns.cloudflare.com;lou.ns.cloudflare.com,no_rdap_for_tld,,,,2026-11-07T17:00:39
+r958224.assessments.venokil.ai,venokil.ai,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+ragdotdev--content-sandbox-qlnuxv7sok4j.stable-proxy.io,stable-proxy.io,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+ranger.ana.net,ana.net,registrable,False,,,,ainsley.ns.cloudflare.com;mustafa.ns.cloudflare.com,registered,1996-10-17,2031-10-16,"Network Solutions, LLC",2026-11-07T17:00:39
+rasther-us-central.storage-mgr.com,storage-mgr.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+rastopanne.net,rastopanne.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+raven-dev.eng.net,eng.net,registrable,False,,,,ns2.eng.net;ns1.eng.net;ns4.eng.net;ns3.eng.net,registered,1996-11-12,2027-11-11,Tucows Domains Inc.,2026-11-07T17:00:39
+rce-c2-store.sandbox,rce-c2-store.sandbox,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+rce-testing-bucket-754847e2.s3.us-south.cloudibotta.com,cloudibotta.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+rce.canary.hp.co.vu,co.vu,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+rime.duckn.com,duckn.com,registrable,True,54.243.117.197;13.223.25.84,2600:1f18:4ae:c605:dd5d:b838:5816:d7fb;2600:1f18:4ae:c606:78d4:4260:db4e:aeee,traff-https.hugedomains.com,nsg1.namebrightdns.com;nsg2.namebrightdns.com,registered,2016-08-18,2027-08-18,"TurnCommerce, Inc. DBA NameBright.com",2026-11-07T17:00:39
+rimebase-fileput.rimefuse.io,rimefuse.io,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+rimesrap.info,rimesrap.info,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+rimesub.com,rimesub.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+rinaldi-website.io,rinaldi-website.io,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+ringnerfnudlpyhwhhxvdhccpztonuzo.burpcollaborator.net,burpcollaborator.net,registrable,True,54.77.139.23;3.248.33.252,PublicInteractionNLB-3bddf5ff6abb91b6.elb.eu-west-1.amazonaws.com,PublicInteractionNLB-3bddf5ff6abb91b6.elb.eu-west-1.amazonaws.com,PublicInteractionNLB-3bddf5ff6abb91b6.elb.eu-west-1.amazonaws.com,registered,2015-01-08,2027-01-08,"Name.com, Inc.",2026-11-07T17:00:39
+ringroad.net,ringroad.net,registrable,True,162.4.84.240,,,ns1.kefuhw.parklogic.com;ns2.kefuhw.parklogic.com,registered,2018-10-26,2027-10-26,"NameCheap, Inc.",2026-11-07T17:00:39
+rjfywzkajckhxqbxokvi.xinstar.tech,xinstar.tech,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+rjgyali0ati619nd01bgrj41a9ijj7c803b-ats3.rosesandhearts.co.uk,co.uk,registrable,False,,,,dns4.nic.uk;nsb.nic.uk;nsd.nic.uk;dns2.nic.uk;nsa.nic.uk;nsc.nic.uk;dns1.nic.uk;dns3.nic.uk,registered,,,Nominet UK,2026-11-07T17:00:39
+rolimpa.ddns.km.ua,km.ua,registrable,False,,,,ns3.km.ua;ns2.km.ua;sx.ns.ua;ns.km.ua;ba1.ns.ua;nn.ns.ua,registered,1997-02-16,,.UA Domain Administration,2026-11-07T17:00:39
+rollendwyer830.groupme.io,groupme.io,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+rpm-kit.net,rpm-kit.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+rsm.vivo.efsasrh.com,efsasrh.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+rsn-l301.1d14ce073e8bd48ec07237d34a4675ec.alicloudapi.com,alicloudapi.com,registrable,False,,,,vip4.alidns.com;vip3.alidns.com,registered,2016-01-07,2028-01-07,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+rsn-live-eq7pk.puy1nh2.net,puy1nh2.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+rsn.io,rsn.io,registrable,False,,,,ns1.messagingengine.com;ns2.messagingengine.com,unregistered,,,,2026-11-07T17:00:39
+rsn1-e224d3097f8045ecbf1a04e32b48adb2-tempfile.r2-hosting.com,r2-hosting.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+rsn1-e22e5e27-fileserver.eba-kvjmnp9y.euwest1.rsf.alibaba-inc.com,alibaba-inc.com,registrable,False,,,,ns1.alibabadns.com;ns2.alibabadns.com,registered,1999-08-24,2030-08-24,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+rsn1-e239065431d8457cac6c08cf6b7a.uno-host.net,uno-host.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+rsn1-e250d78a-93e6-46d1-b728-1869de75569a.rsngsys.com,rsngsys.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+rsn1e495-c1fbf81c56394b18-151b1d08de-us1.frontier.run,frontier.run,registrable,True,64.70.19.98,,,park4.dns.ws;park2.dns.ws;park1.dns.ws;park3.dns.ws,registered,2026-09-10,2027-09-10,"Global Domains International, Inc. DBA DomainCostClub.com",2026-11-07T17:00:39
+rsn2euum9yf4p2k3.mtls.me,mtls.me,registrable,False,,,,ns3.eurodns.com;ns2.eurodns.com;ns1.eurodns.com;ns4.eurodns.com,no_rdap_for_tld,,,,2026-11-07T17:00:39
+rsn3s7c6cqwj.moat.space,moat.space,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+rsn472.5432906.cn,5432906.cn,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+rtnorm.com,rtnorm.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+rtnort9x6gjf.service-now.com,service-now.com,registrable,False,,,,aus1.akam.net;use1.akam.net;edns140.ultradns.net;edns140.ultradns.org;usc4.akam.net;eur6.akam.net;usw1.akam.net;use3.akam.net;edns140.ultradns.com;ns1-98.akam.net;ns1-234.akam.net;edns140.ultradns.biz,registered,2001-07-04,2027-07-04,"CSC Corporate Domains, Inc.",2026-11-07T17:00:39
+rtnossl.io,rtnossl.io,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+rucask.ru,rucask.ru,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+rucaw.go,rucaw.go,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+rucaw.ru,rucaw.ru,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+rucialogcat.net,rucialogcat.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+rucnwncbipgxxczvxvwq.x.pipedream.net,pipedream.net,registrable,True,198.51.100.1,,,ns-1397.awsdns-46.org;ns-781.awsdns-33.net;ns-309.awsdns-38.com;ns-1934.awsdns-49.co.uk,registered,2015-11-25,2030-11-25,"Amazon Registrar, Inc.",2026-11-07T17:00:39
+s3.filesvr.net,filesvr.net,registrable,False,,,,ns42.domaincontrol.com;ns41.domaincontrol.com,registered,2005-11-08,2026-11-08,"GoDaddy.com, LLC",2026-11-07T17:00:39
+s3.internal-data-store.net,internal-data-store.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+s3.rcebench.dev,rcebench.dev,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+salehe.com,salehe.com,registrable,True,13.56.33.8,,,ns1.brandbucket.com;ns2.brandbucket.com,registered,2025-04-17,2027-04-17,"Spaceship, Inc.",2026-11-07T17:00:39
+sosolousa.org,sosolousa.org,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+tailgated-painkiller-annunciating-ngs.trycloudflare.com,trycloudflare.com,registrable,False,,,,kevin.ns.cloudflare.com;marjory.ns.cloudflare.com,registered,2018-07-07,2032-07-07,"Cloudflare, Inc.",2026-11-07T17:00:39
+tailgunner.istos.org,istos.org,registrable,True,74.220.199.6,,,,registered,2000-02-22,2027-02-22,"GoDaddy.com, LLC",2026-11-07T17:00:39
+tasks.io,tasks.io,registrable,False,,,,nina.ns.cloudflare.com;duke.ns.cloudflare.com,no_rdap_for_tld,,,,2026-11-07T17:00:39
+temp-file-host4.com,temp-file-host4.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+temp-file-host7.net,temp-file-host7.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+temp-file-host9.com,temp-file-host9.com,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+temp-file-host9.net,temp-file-host9.net,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+tempbin.com,tempbin.com,registrable,True,76.223.54.146;13.248.169.48,,,ns2.afternic.com;ns1.afternic.com,registered,2025-03-20,2027-03-20,"GoDaddy.com, LLC",2026-11-07T17:00:39
+tempbin.org,tempbin.org,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+tempdir.io,tempdir.io,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+tempfiles.ccc.io,ccc.io,registrable,False,,,,aitana.ns.cloudflare.com;elliott.ns.cloudflare.com,no_rdap_for_tld,,,,2026-11-07T17:00:39
+tempink.org,tempink.org,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+tmp-files.io,tmp-files.io,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+txr-infra.io,txr-infra.io,registrable,False,,,,,unregistered,,,,2026-11-07T17:00:39
+zzcve.cn,zzcve.cn,registrable,False,,,,,no_rdap_for_tld,,,,2026-11-07T17:00:39
+routify-file-proxy-sg.oss-ap-southeast-1.aliyuncs.com,aliyuncs.com,provider-owned,True,47.79.49.31;47.79.49.32,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+tmpfiles.org,tmpfiles.org,provider-owned,True,188.114.96.1;188.114.97.1,2a06:98c1:3120::1;2a06:98c1:3121::1,,milan.ns.cloudflare.com;surina.ns.cloudflare.com,registered,2015-07-27,2027-07-27,Tucows Domains Inc.,2026-11-07T17:00:39
+httpbin.org,httpbin.org,provider-owned,True,44.209.237.184;54.172.45.38;3.221.253.123,2600:1f18:2da1:d400:5c03:f07e:e0be:7edd;2600:1f18:2da1:d401:3bc4:1b7d:6e3d:8acb;2600:1f18:2da1:d402:54c2:29a8:4a48:2547,,ns-1053.awsdns-03.org;ns-1555.awsdns-02.co.uk;ns-884.awsdns-46.net;ns-173.awsdns-21.com,registered,2011-06-12,2027-06-12,"Amazon Registrar, Inc.",2026-11-07T17:00:39
+r.jina.ai,jina.ai,provider-owned,True,104.26.10.242;172.67.70.54;104.26.11.242,2606:4700:20::681a:af2;2606:4700:20::ac43:4636;2606:4700:20::681a:bf2,,leah.ns.cloudflare.com;oswald.ns.cloudflare.com,registered,2020-01-20,2030-01-20,"NameCheap, Inc.",2026-11-07T17:00:39
+routify-file-proxy-sg.oss-ap-southeast-1.oss.aliyuncs.com,aliyuncs.com,provider-owned,True,118.178.161.164,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+legit-cdn.example.com,example.com,provider-owned,False,,,,hera.ns.cloudflare.com;elliott.ns.cloudflare.com,registered,1995-08-14,2027-08-13,RESERVED-Internet Assigned Numbers Authority,2026-11-07T17:00:39
+r001-staging-assets.s3-website-us-east-1.amazonaws.com,amazonaws.com,provider-owned,True,16.15.246.15;16.15.212.158;52.216.220.229;16.15.244.170;16.15.164.32;54.231.136.37;16.182.70.117;54.231.169.61,s3-website.us-east-1.amazonaws.com,s3-website.us-east-1.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+logs.example.com,example.com,provider-owned,False,,,,hera.ns.cloudflare.com;elliott.ns.cloudflare.com,registered,1995-08-14,2027-08-13,RESERVED-Internet Assigned Numbers Authority,2026-11-07T17:00:39
+download.duckdns.org,duckdns.org,provider-owned,True,202.144.175.47,,,ns7.duckdns.org;ns1.duckdns.org;ns4.duckdns.org;ns8.duckdns.org;ns9.duckdns.org;ns3.duckdns.org;ns6.duckdns.org;ns5.duckdns.org;ns2.duckdns.org,registered,2013-04-12,2029-04-12,Gandi SAS,2026-11-07T17:00:39
+play.tiny.cc,tiny.cc,provider-owned,False,,,,pdns1.registrar-servers.com;pdns2.registrar-servers.com,registered,2006-03-12,2027-03-12,"NameCheap, Inc.",2026-11-07T17:00:39
+rce-eu.duckdns.org,duckdns.org,provider-owned,False,,,,ns7.duckdns.org;ns1.duckdns.org;ns4.duckdns.org;ns8.duckdns.org;ns9.duckdns.org;ns3.duckdns.org;ns6.duckdns.org;ns5.duckdns.org;ns2.duckdns.org,registered,2013-04-12,2029-04-12,Gandi SAS,2026-11-07T17:00:39
+alb-z62ihpkm5ov1qmsdqh.cn-shanghai.alb.aliyuncsslb.com,aliyuncsslb.com,provider-owned,False,,,,vip3.alidns.com;vip4.alidns.com,registered,2023-10-11,2030-10-11,Alibaba Cloud Computing Ltd. d/b/a HiChina (www.net.cn),2026-11-07T17:00:39
+anglescript911.z13.web.core.windows.net,windows.net,provider-owned,False,,,,ns4-39.azure-dns.info;ns1-39.azure-dns.com;ns2-39.azure-dns.net;ns3-39.azure-dns.org,registered,1995-08-10,2027-06-04,MarkMonitor Inc.,2026-11-07T17:00:39
+artifacts-flowise-cn-south-1-prod-1.s3.ap-south-1.aliyuncs.com,aliyuncs.com,provider-owned,False,,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+attack-demo-payloads.s3.amazonaws.com,amazonaws.com,provider-owned,True,16.15.166.10;52.216.51.234;16.15.244.171;52.216.250.248;52.217.122.42;52.217.195.202;16.15.207.216;16.15.183.75,s3-1-w.amazonaws.com;s3-w.us-east-1.amazonaws.com,s3-1-w.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+attack-payload-eu.oss-cn-hangzhou.aliyuncs.com,aliyuncs.com,provider-owned,True,118.31.219.203,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+attack-payloads.s3.amazonaws.com,amazonaws.com,provider-owned,True,16.15.207.216;16.15.183.75;16.15.166.10;52.216.51.234;16.15.244.171;52.216.250.248;52.217.122.42;52.217.195.202,s3-1-w.amazonaws.com;s3-w.us-east-1.amazonaws.com,s3-1-w.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+attack-range-artifacts.s3.amazonaws.com,amazonaws.com,provider-owned,True,52.216.51.234;16.15.244.171;52.216.250.248;52.217.122.42;52.217.195.202;16.15.207.216;16.15.183.75;16.15.166.10,s3-1-w.amazonaws.com;s3-w.us-east-1.amazonaws.com,s3-1-w.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+attack-range-payloads.s3.amazonaws.com,amazonaws.com,provider-owned,True,52.216.220.122;52.217.78.144;16.15.246.28;54.231.204.42;52.216.10.94;16.15.213.10;16.15.229.31;16.15.199.243,s3-1-w.amazonaws.com;s3-w.us-east-1.amazonaws.com,s3-1-w.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+attack-samples-eval.s3-website-us-west-1.amazonaws.com,amazonaws.com,provider-owned,True,16.15.4.247;16.15.0.32;52.219.116.59;16.15.0.149;16.15.4.183;16.15.0.34;52.219.192.59;52.219.217.59,s3-website-us-west-1.amazonaws.com,s3-website-us-west-1.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+attack-sandbox-evidence.oss-cn-hangzhou.aliyuncs.com,aliyuncs.com,provider-owned,True,118.31.219.203,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+attack-sigma-rules-bj.oss-cn-beijing.aliyuncs.com,aliyuncs.com,provider-owned,True,59.110.117.233,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+attack-simulation-2024.s3-website-us-east-1.amazonaws.com,amazonaws.com,provider-owned,True,16.15.246.15;16.15.212.158;52.216.220.229;16.15.244.170;16.15.164.32;54.231.136.37;16.182.70.117;54.231.169.61,s3-website.us-east-1.amazonaws.com,s3-website.us-east-1.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+attack-simulation-storage.s3.amazonaws.com,amazonaws.com,provider-owned,True,16.15.207.216;16.15.183.75;16.15.166.10;52.216.51.234;16.15.244.171;52.216.250.248;52.217.122.42;52.217.195.202,s3-1-w.amazonaws.com;s3-w.us-east-1.amazonaws.com,s3-1-w.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+attackdemo.s3.amazonaws.com,amazonaws.com,provider-owned,True,52.217.122.42;52.217.195.202;16.15.207.216;16.15.183.75;16.15.166.10;52.216.51.234;16.15.244.171;52.216.250.248,s3-1-w.amazonaws.com;s3-w.us-east-1.amazonaws.com,s3-1-w.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+attacklab-persist.s3-website-us-east-1.amazonaws.com,amazonaws.com,provider-owned,True,54.231.169.61;16.15.246.15;16.15.212.158;52.216.220.229;16.15.244.170;16.15.164.32;54.231.136.37;16.182.70.117,s3-website.us-east-1.amazonaws.com,s3-website.us-east-1.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+attacksimfilebatch0.blob.core.windows.net,windows.net,provider-owned,False,,,,ns4-39.azure-dns.info;ns1-39.azure-dns.com;ns2-39.azure-dns.net;ns3-39.azure-dns.org,registered,1995-08-10,2027-06-04,MarkMonitor Inc.,2026-11-07T17:00:39
+detection-cache.s3.amazonaws.com,amazonaws.com,provider-owned,True,16.15.45.154;16.15.38.76;52.92.224.73;52.218.184.99;16.15.37.240;52.92.196.33;52.218.236.203;52.92.138.57,s3-us-west-2-w.amazonaws.com,s3-us-west-2-w.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+detection-craft-bucket.oss-cn-east-1.aliyuncs.com,aliyuncs.com,provider-owned,False,,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+detection-objects-bucket-4fa84d87.s3.us-east-1.amazonaws.com,amazonaws.com,provider-owned,True,16.15.253.248;16.15.236.105;16.15.237.245;16.182.69.194;16.15.173.219;16.15.228.169;52.217.174.90;52.217.230.210,s3-r-w.us-east-1.amazonaws.com,s3-r-w.us-east-1.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+download-docs.s3-website-us-east-1.amazonaws.com,amazonaws.com,provider-owned,True,52.216.220.229;16.15.244.170;16.15.164.32;54.231.136.37;16.182.70.117;54.231.169.61;16.15.246.15;16.15.212.158,s3-website.us-east-1.amazonaws.com,s3-website.us-east-1.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+gh.rawsrv.workers.dev,workers.dev,provider-owned,True,172.67.180.161;104.21.43.148,2606:4700:3030::ac43:b4a1;2606:4700:3033::6815:2b94,,clyde.ns.cloudflare.com;sofia.ns.cloudflare.com,registered,2019-02-08,2027-02-08,"CloudFlare, Inc.",2026-11-07T17:00:39
+i-aregrix-secbench.s3.us-west-2.amazonaws.com,amazonaws.com,provider-owned,True,52.92.145.2;16.15.47.105;52.92.192.2;16.15.38.99;16.15.41.213;52.92.250.42;16.15.33.41;52.92.133.82,s3-r-w.us-west-2.amazonaws.com,s3-r-w.us-west-2.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+i3c5ef3i61eizxwlchklzseib4ioi5mh.oss-ap-southeast-1.aliyuncs.com,aliyuncs.com,provider-owned,True,47.79.50.63,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+iplay.oss-cn-beijing.aliyuncs.com,aliyuncs.com,provider-owned,True,59.110.117.233,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+j96wvt7v788i3u16w6d99uz5w1xxwxn6.ryver.com,ryver.com,provider-owned,True,44.225.58.54;52.12.135.23,a5a40535bc2e8431b99577799ad111ad-811034848.us-west-2.elb.amazonaws.com,a5a40535bc2e8431b99577799ad111ad-811034848.us-west-2.elb.amazonaws.com,veronica.ns.cloudflare.com;alfred.ns.cloudflare.com,registered,2010-10-28,2029-10-28,"GoDaddy.com, LLC",2026-11-07T17:00:39
+lainfocoredevusstrgfs01.blob.core.windows.net,windows.net,provider-owned,False,,,,ns4-39.azure-dns.info;ns1-39.azure-dns.com;ns2-39.azure-dns.net;ns3-39.azure-dns.org,registered,1995-08-10,2027-06-04,MarkMonitor Inc.,2026-11-07T17:00:39
+lattice-attachments.s3.amazonaws.com,amazonaws.com,provider-owned,True,52.216.10.94;16.15.213.10;16.15.229.31;16.15.199.243;52.216.220.122;52.217.78.144;16.15.246.28;54.231.204.42,s3-1-w.amazonaws.com;s3-w.us-east-1.amazonaws.com,s3-1-w.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+legit-files.example.com,example.com,provider-owned,False,,,,hera.ns.cloudflare.com;elliott.ns.cloudflare.com,registered,1995-08-14,2027-08-13,RESERVED-Internet Assigned Numbers Authority,2026-11-07T17:00:39
+legitimate-cdn.example.com,example.com,provider-owned,False,,,,hera.ns.cloudflare.com;elliott.ns.cloudflare.com,registered,1995-08-14,2027-08-13,RESERVED-Internet Assigned Numbers Authority,2026-11-07T17:00:39
+legitimate.example.com,example.com,provider-owned,False,,,,hera.ns.cloudflare.com;elliott.ns.cloudflare.com,registered,1995-08-14,2027-08-13,RESERVED-Internet Assigned Numbers Authority,2026-11-07T17:00:39
+lfs4sfbl7n43.duckdns.org,duckdns.org,provider-owned,False,,,,ns7.duckdns.org;ns1.duckdns.org;ns4.duckdns.org;ns8.duckdns.org;ns9.duckdns.org;ns3.duckdns.org;ns6.duckdns.org;ns5.duckdns.org;ns2.duckdns.org,registered,2013-04-12,2029-04-12,Gandi SAS,2026-11-07T17:00:39
+logs.bigvague.example.net,example.net,provider-owned,False,,,,hugh.ns.cloudflare.com;betty.ns.cloudflare.com,registered,1995-08-31,2027-08-30,RESERVED-Internet Assigned Numbers Authority,2026-11-07T17:00:39
+logs.googlebot.com,googlebot.com,provider-owned,False,,,,ns3.google.com;ns2.google.com;ns4.google.com;ns1.google.com,registered,1998-10-21,2027-10-20,MarkMonitor Inc.,2026-11-07T17:00:39
+logs.httpbin.org,httpbin.org,provider-owned,False,,,,ns-1053.awsdns-03.org;ns-1555.awsdns-02.co.uk;ns-884.awsdns-46.net;ns-173.awsdns-21.com,registered,2011-06-12,2027-06-12,"Amazon Registrar, Inc.",2026-11-07T17:00:39
+logs1.metrics.suning.com,suning.com,provider-owned,True,,,httppubv46.suning.com,dns1.zdnscloud.info;cns1.zdnscloud.net;vns1.zdnscloud.biz;ins1.zdnscloud.com,registered,1997-12-18,2027-12-17,"eName Technology Co., Ltd.",2026-11-07T17:00:39
+logs48.httpbin.org,httpbin.org,provider-owned,False,,,,ns-1053.awsdns-03.org;ns-1555.awsdns-02.co.uk;ns-884.awsdns-46.net;ns-173.awsdns-21.com,registered,2011-06-12,2027-06-12,"Amazon Registrar, Inc.",2026-11-07T17:00:39
+logspec-14403216.oss-cn-bj-babel.aliyuncs.com,aliyuncs.com,provider-owned,False,,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+lsgld-pub.s3.us-west-2.amazonaws.com,amazonaws.com,provider-owned,True,16.15.33.41;52.92.133.82;52.92.145.2;16.15.47.105;52.92.192.2;16.15.38.99;16.15.41.213;52.92.250.42,s3-r-w.us-west-2.amazonaws.com,s3-r-w.us-west-2.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+lume-datasets-sandzhang.s3-website-us-east-1.amazonaws.com,amazonaws.com,provider-owned,True,16.15.164.32;54.231.136.37;16.182.70.117;54.231.169.61;16.15.246.15;16.15.212.158;52.216.220.229;16.15.244.170,s3-website.us-east-1.amazonaws.com,s3-website.us-east-1.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+mediasearch-pub.oss-cn-beijing.aliyuncs.com,aliyuncs.com,provider-owned,True,59.110.117.233,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+probe.example.org,example.org,provider-owned,False,,,,mitch.ns.cloudflare.com;katelyn.ns.cloudflare.com,registered,1995-08-31,2027-08-30,ICANN,2026-11-07T17:00:39
+prompt-eval-prec.oss-accelerate.aliyuncs.com,aliyuncs.com,provider-owned,True,47.253.28.2,oss-acc-allline.aliyuncs.com;oss-acc-allline.aliyuncs.com.gds.alibabadns.com;us-east-1.oss-acc.aliyuncs.com,oss-acc-allline.aliyuncs.com,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+put.ab5ef0fe.example.com,example.com,provider-owned,False,,,,hera.ns.cloudflare.com;elliott.ns.cloudflare.com,registered,1995-08-14,2027-08-13,RESERVED-Internet Assigned Numbers Authority,2026-11-07T17:00:39
+put.example.com,example.com,provider-owned,False,,,,hera.ns.cloudflare.com;elliott.ns.cloudflare.com,registered,1995-08-14,2027-08-13,RESERVED-Internet Assigned Numbers Authority,2026-11-07T17:00:39
+r0002-filestorage.blob.core.windows.net,windows.net,provider-owned,False,,,,ns4-39.azure-dns.info;ns1-39.azure-dns.com;ns2-39.azure-dns.net;ns3-39.azure-dns.org,registered,1995-08-10,2027-06-04,MarkMonitor Inc.,2026-11-07T17:00:39
+r001-filebench-alpha.s3-website-us-east-1.amazonaws.com,amazonaws.com,provider-owned,True,54.231.169.61;16.15.246.15;16.15.212.158;52.216.220.229;16.15.244.170;16.15.164.32;54.231.136.37;16.182.70.117,s3-website.us-east-1.amazonaws.com,s3-website.us-east-1.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+r001-kb.obs.cn-north-4.myhuaweicloud.com,myhuaweicloud.com,provider-owned,True,49.4.112.113;49.4.112.90,obs.lz01.cn-north-4.myhuaweicloud.com,obs.lz01.cn-north-4.myhuaweicloud.com,ns1.huaweicloud-dns.cn;ns1.huaweicloud-dns.net;ns1.huaweicloud-dns.org;ns1.huaweicloud-dns.com,registered,2017-10-18,2035-10-18,Xin Net Technology Corporation,2026-11-07T17:00:39
+r001-kb.s3-website.us-east-2.amazonaws.com,amazonaws.com,provider-owned,True,3.5.133.72;52.219.106.160;52.219.110.248;3.5.88.34;52.219.232.32;3.5.133.83;52.219.143.56;3.5.132.218,s3-website.us-east-2.amazonaws.com,s3-website.us-east-2.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+r001-st779371037-prod-s3-put-object.put-prod.s3.amazonaws.com,amazonaws.com,provider-owned,True,16.15.199.243;52.216.220.122;52.217.78.144;16.15.246.28;54.231.204.42;52.216.10.94;16.15.213.10;16.15.229.31,s3-1-w.amazonaws.com;s3-w.us-east-1.amazonaws.com,s3-1-w.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+r001-staging-backup.ftp.eu-central-1.amazonaws.com,amazonaws.com,provider-owned,False,,,,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+r0012345.oss-cn-hangzhou.aliyuncs.com,aliyuncs.com,provider-owned,True,118.31.219.203,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+r00125-storage.oss-environment-prod.oss-cn-shanghai.aliyuncs.com,aliyuncs.com,provider-owned,True,106.14.228.190,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+r003-cmaas.oss-cn-heyuan.aliyuncs.com,aliyuncs.com,provider-owned,True,47.113.155.53,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+r003-stream-1.544278992813.us-east-1.elb.amazonaws.com,amazonaws.com,provider-owned,False,,,,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+r05e1xjw.execute-api.eu-central-1.amazonaws.com,amazonaws.com,provider-owned,False,,,,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+r0bodytask.oss-accelerate.aliyuncs.com,aliyuncs.com,provider-owned,True,47.253.28.2,oss-acc-allline.aliyuncs.com;oss-acc-allline.aliyuncs.com.gds.alibabadns.com;us-east-1.oss-acc.aliyuncs.com,oss-acc-allline.aliyuncs.com,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+r0cbxv27x3vj4dq0u1c8q1w2ym7lt67c1.s3.amazonaws.com,amazonaws.com,provider-owned,True,52.216.10.94;16.15.213.10;16.15.229.31;16.15.199.243;52.216.220.122;52.217.78.144;16.15.246.28;54.231.204.42,s3-1-w.amazonaws.com;s3-w.us-east-1.amazonaws.com,s3-1-w.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+r0ck1tz-probe.oss-us-west-1.aliyuncs.com,aliyuncs.com,provider-owned,True,47.88.111.26,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+r0cket13x.oss-accelerate.aliyuncs.com,aliyuncs.com,provider-owned,True,47.254.187.86,oss-acc-allline.aliyuncs.com;oss-acc-allline.aliyuncs.com.gds.alibabadns.com;eu-central-1.oss-acc.aliyuncs.com,oss-acc-allline.aliyuncs.com,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+r0gen1557.oss-accelerate.aliyuncs.com,aliyuncs.com,provider-owned,True,47.254.187.86,oss-acc-allline.aliyuncs.com;oss-acc-allline.aliyuncs.com.gds.alibabadns.com;eu-central-1.oss-acc.aliyuncs.com,oss-acc-allline.aliyuncs.com,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+r0man-public-eval-test.s3-website-us-east-1.amazonaws.com,amazonaws.com,provider-owned,True,16.15.164.32;54.231.136.37;16.182.70.117;54.231.169.61;16.15.246.15;16.15.212.158;52.216.220.229;16.15.244.170,s3-website.us-east-1.amazonaws.com,s3-website.us-east-1.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+r0meta-auditblobstorage.blob.core.windows.net,windows.net,provider-owned,False,,,,ns4-39.azure-dns.info;ns1-39.azure-dns.com;ns2-39.azure-dns.net;ns3-39.azure-dns.org,registered,1995-08-10,2027-06-04,MarkMonitor Inc.,2026-11-07T17:00:39
+r0meta-eval-data.oss-us-east-1.aliyuncs.com,aliyuncs.com,provider-owned,True,47.253.30.113,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+r0mg-test-cache.s3-website-us-east-1.amazonaws.com,amazonaws.com,provider-owned,True,16.15.164.32;54.231.136.37;16.182.70.117;54.231.169.61;16.15.246.15;16.15.212.158;52.216.220.229;16.15.244.170,s3-website.us-east-1.amazonaws.com,s3-website.us-east-1.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+r0utdf3n5000.duckdns.org,duckdns.org,provider-owned,False,,,,ns7.duckdns.org;ns1.duckdns.org;ns4.duckdns.org;ns8.duckdns.org;ns9.duckdns.org;ns3.duckdns.org;ns6.duckdns.org;ns5.duckdns.org;ns2.duckdns.org,registered,2013-04-12,2029-04-12,Gandi SAS,2026-11-07T17:00:39
+r7ml2ir6ic59.duckdns.org,duckdns.org,provider-owned,False,,,,ns7.duckdns.org;ns1.duckdns.org;ns4.duckdns.org;ns8.duckdns.org;ns9.duckdns.org;ns3.duckdns.org;ns6.duckdns.org;ns5.duckdns.org;ns2.duckdns.org,registered,2013-04-12,2029-04-12,Gandi SAS,2026-11-07T17:00:39
+r8-detect-dl.s3-website-us-east-1.amazonaws.com,amazonaws.com,provider-owned,True,16.15.212.158;52.216.220.229;16.15.244.170;16.15.164.32;54.231.136.37;16.182.70.117;54.231.169.61;16.15.246.15,s3-website.us-east-1.amazonaws.com,s3-website.us-east-1.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+r8-detect-prod.s3-website-us-east-1.amazonaws.com,amazonaws.com,provider-owned,True,52.216.220.229;16.15.244.170;16.15.164.32;54.231.136.37;16.182.70.117;54.231.169.61;16.15.246.15;16.15.212.158,s3-website.us-east-1.amazonaws.com,s3-website.us-east-1.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+r8-detection-rules.s3-website-us-east-1.amazonaws.com,amazonaws.com,provider-owned,True,54.231.136.37;16.182.70.117;54.231.169.61;16.15.246.15;16.15.212.158;52.216.220.229;16.15.244.170;16.15.164.32,s3-website.us-east-1.amazonaws.com,s3-website.us-east-1.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+r8-fastly-edge-net.z13.web.core.windows.net,windows.net,provider-owned,False,,,,ns4-39.azure-dns.info;ns1-39.azure-dns.com;ns2-39.azure-dns.net;ns3-39.azure-dns.org,registered,1995-08-10,2027-06-04,MarkMonitor Inc.,2026-11-07T17:00:39
+r8-mr4w0u0i-305902414522.us-central1.run.app,run.app,provider-owned,True,34.143.78.2;34.143.72.2;34.143.74.2;34.143.77.2;34.143.73.2;34.143.79.2;34.143.76.2;34.143.75.2,2600:1901:81d4:200::;2600:1900:4243:200::;2600:1900:4241:200::;2600:1900:4244:200::;2600:1900:4242:200::;2600:1901:81d5:200::;2600:1900:4245:200::;2600:1900:4240:200::,,ns4.google.com;ns1.google.com;ns3.google.com;ns2.google.com,registered,2018-04-05,2027-04-05,MarkMonitor Inc.,2026-11-07T17:00:39
+r8-sw-iam-s3-proxy.routify-file-proxy-us-east-1.aliyuncs.com,aliyuncs.com,provider-owned,False,,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+r9-artifacts.oss-accelerate.aliyuncs.com,aliyuncs.com,provider-owned,True,47.253.28.2,oss-acc-allline.aliyuncs.com;oss-acc-allline.aliyuncs.com.gds.alibabadns.com;us-east-1.oss-acc.aliyuncs.com,oss-acc-allline.aliyuncs.com,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+r9-dev-dataengine-devenl-data-api-premo18l2oy20gr-498321536.us-east-1.elb.amazonaws.com,amazonaws.com,provider-owned,False,,,,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+rally-achrel-repro-8199cc21.oss-cn-hangzhou.aliyuncs.com,aliyuncs.com,provider-owned,True,118.31.219.203,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+rally-fastly-edge-441510854831.s3.dualstack.us-east-1.amazonaws.com,amazonaws.com,provider-owned,True,52.216.33.106;16.15.253.218;16.15.253.85;16.15.253.252;52.217.199.242;16.182.70.114;52.217.141.138;16.15.213.217,s3-r-w.dualstack.us-east-1.amazonaws.com;2600:1f61:80c2::100f:a691;2600:1f60:8020:1::100f:e53a;2600:1f60:8080:1::100f:eecc;2600:1f60:80c0:1::100f:d5fe;2600:1f60:80a0:1::100f:f510;2600:1f60:80a0:1::100f:f594;2600:1f60:8080:1::100f:ecea;2600:1f60:80c0:1::100f:d448,s3-r-w.dualstack.us-east-1.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+rally-media-proxy.duckdns.org,duckdns.org,provider-owned,False,,,,ns7.duckdns.org;ns1.duckdns.org;ns4.duckdns.org;ns8.duckdns.org;ns9.duckdns.org;ns3.duckdns.org;ns6.duckdns.org;ns5.duckdns.org;ns2.duckdns.org,registered,2013-04-12,2029-04-12,Gandi SAS,2026-11-07T17:00:39
+rally-webapp-1.aliyuncs.com,aliyuncs.com,provider-owned,False,,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+raven-audittrail.s3.amazonaws.com,amazonaws.com,provider-owned,True,54.231.204.42;52.216.10.94;16.15.213.10;16.15.229.31;16.15.199.243;52.216.220.122;52.217.78.144;16.15.246.28,s3-1-w.amazonaws.com;s3-w.us-east-1.amazonaws.com,s3-1-w.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+raven-demo.s3-website-us-east-1.amazonaws.com,amazonaws.com,provider-owned,True,54.231.136.37;16.182.70.117;54.231.169.61;16.15.246.15;16.15.212.158;52.216.220.229;16.15.244.170;16.15.164.32,s3-website.us-east-1.amazonaws.com,s3-website.us-east-1.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+raven-upload-files.s3-website-us-east-1.amazonaws.com,amazonaws.com,provider-owned,True,54.231.136.37;16.182.70.117;54.231.169.61;16.15.246.15;16.15.212.158;52.216.220.229;16.15.244.170;16.15.164.32,s3-website.us-east-1.amazonaws.com,s3-website.us-east-1.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+rce-bucket-example.oss-cn-hangzhou.aliyuncs.com,aliyuncs.com,provider-owned,True,118.31.219.203,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+rce-c2-eval.oss-cn-hangzhou.aliyuncs.com,aliyuncs.com,provider-owned,True,118.31.219.203,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+rce-eval-tests.513767422282-localetl-us-east-1.s3.amazonaws.com,amazonaws.com,provider-owned,True,16.15.213.10;16.15.229.31;16.15.199.243;52.216.220.122;52.217.78.144;16.15.246.28;54.231.204.42;52.216.10.94,s3-1-w.amazonaws.com;s3-w.us-east-1.amazonaws.com,s3-1-w.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+rce-eval-tests.oss-cn-zhangjiakou.aliyuncs.com,aliyuncs.com,provider-owned,True,47.92.17.34,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+rce-evidence-bucket-2024.s3.us-east-1.amazonaws.com,amazonaws.com,provider-owned,True,16.15.236.105;16.15.237.245;16.182.69.194;16.15.173.219;16.15.228.169;52.217.174.90;52.217.230.210;16.15.253.248,s3-r-w.us-east-1.amazonaws.com,s3-r-w.us-east-1.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+rce-testing-bucket-7223.s3.amazonaws.com,amazonaws.com,provider-owned,True,16.15.199.243;52.216.220.122;52.217.78.144;16.15.246.28;54.231.204.42;52.216.10.94;16.15.213.10;16.15.229.31,s3-1-w.amazonaws.com;s3-w.us-east-1.amazonaws.com,s3-1-w.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+rce-testing-bucket-7584.s3.amazonaws.com,amazonaws.com,provider-owned,True,52.216.10.94;16.15.213.10;16.15.229.31;16.15.199.243;52.216.220.122;52.217.78.144;16.15.246.28;54.231.204.42,s3-1-w.amazonaws.com;s3-w.us-east-1.amazonaws.com,s3-1-w.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+relays.oss-cn-beijing.aliyuncs.com,aliyuncs.com,provider-owned,True,59.110.117.233,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+rime.duckdns.org,duckdns.org,provider-owned,True,168.235.93.125,,,ns7.duckdns.org;ns1.duckdns.org;ns4.duckdns.org;ns8.duckdns.org;ns9.duckdns.org;ns3.duckdns.org;ns6.duckdns.org;ns5.duckdns.org;ns2.duckdns.org,registered,2013-04-12,2029-04-12,Gandi SAS,2026-11-07T17:00:39
+ringroad-ga-test.oss-cn-beijing.aliyuncs.com,aliyuncs.com,provider-owned,True,59.110.117.233,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+rsm-as-202601-65056b5d.s3.amazonaws.com,amazonaws.com,provider-owned,True,16.15.199.243;52.216.220.122;52.217.78.144;16.15.246.28;54.231.204.42;52.216.10.94;16.15.213.10;16.15.229.31,s3-1-w.amazonaws.com;s3-w.us-east-1.amazonaws.com,s3-1-w.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+rsmas.blob.core.windows.net,windows.net,provider-owned,False,,,,ns4-39.azure-dns.info;ns1-39.azure-dns.com;ns2-39.azure-dns.net;ns3-39.azure-dns.org,registered,1995-08-10,2027-06-04,MarkMonitor Inc.,2026-11-07T17:00:39
+rsmce-api.contoso.net,contoso.net,provider-owned,False,,,,ns-cloud-c3.googledomains.com;ns-cloud-c1.googledomains.com;ns-cloud-c2.googledomains.com;ns-cloud-c4.googledomains.com,registered,2002-10-30,2027-10-30,Squarespace Domains II LLC,2026-11-07T17:00:39
+rsn-aliyun.oss-cn-beijing.aliyuncs.com,aliyuncs.com,provider-owned,True,59.110.117.233,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+rsn-curl.oss-accelerate.aliyuncs.com,aliyuncs.com,provider-owned,True,47.253.28.2,oss-acc-allline.aliyuncs.com;oss-acc-allline.aliyuncs.com.gds.alibabadns.com;us-east-1.oss-acc.aliyuncs.com,oss-acc-allline.aliyuncs.com,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+rsn-sentinel-bucket.oss-accelerate.aliyuncs.com,aliyuncs.com,provider-owned,True,47.253.28.2,oss-acc-allline.aliyuncs.com;oss-acc-allline.aliyuncs.com.gds.alibabadns.com;us-east-1.oss-acc.aliyuncs.com,oss-acc-allline.aliyuncs.com,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+rsn-sentinel.s3-website-us-east-1.amazonaws.com,amazonaws.com,provider-owned,True,52.216.220.229;16.15.244.170;16.15.164.32;54.231.136.37;16.182.70.117;54.231.169.61;16.15.246.15;16.15.212.158,s3-website.us-east-1.amazonaws.com,s3-website.us-east-1.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+rsn-spool.s3-accelerate.amazonaws.com,amazonaws.com,provider-owned,True,143.204.240.236,,,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+rsn-test-901f540c85ad423d9e6782565d57862d.s3.amazonaws.com,amazonaws.com,provider-owned,True,52.216.10.94;16.15.213.10;16.15.229.31;16.15.199.243;52.216.220.122;52.217.78.144;16.15.246.28;54.231.204.42,s3-1-w.amazonaws.com;s3-w.us-east-1.amazonaws.com,s3-1-w.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+rsn-test-assets.oss-cn-shanghai.aliyuncs.com,aliyuncs.com,provider-owned,True,106.14.228.190,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+rsn-test-assets.s3-accelerate.amazonaws.com,amazonaws.com,provider-owned,True,143.204.240.236,,,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+rsn-test-files.oss-accelerate.aliyuncs.com,aliyuncs.com,provider-owned,True,47.253.28.2,oss-acc-allline.aliyuncs.com;oss-acc-allline.aliyuncs.com.gds.alibabadns.com;us-east-1.oss-acc.aliyuncs.com,oss-acc-allline.aliyuncs.com,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+rsn1-e22.rsn1.storage.blob.core.windows.net,windows.net,provider-owned,False,,,,ns4-39.azure-dns.info;ns1-39.azure-dns.com;ns2-39.azure-dns.net;ns3-39.azure-dns.org,registered,1995-08-10,2027-06-04,MarkMonitor Inc.,2026-11-07T17:00:39
+rsn1e5xvyfzmp3xwquuyz-nic5ezcn7wmylcl3qzyh-privatelink.duckdns.org,duckdns.org,provider-owned,False,,,,ns7.duckdns.org;ns1.duckdns.org;ns4.duckdns.org;ns8.duckdns.org;ns9.duckdns.org;ns3.duckdns.org;ns6.duckdns.org;ns5.duckdns.org;ns2.duckdns.org,registered,2013-04-12,2029-04-12,Gandi SAS,2026-11-07T17:00:39
+rsn2d4ls9580.beevdom9tom.workers.dev,workers.dev,provider-owned,False,,,,clyde.ns.cloudflare.com;sofia.ns.cloudflare.com,registered,2019-02-08,2027-02-08,"CloudFlare, Inc.",2026-11-07T17:00:39
+rtnorm.oss-cn-heyuan.aliyuncs.com,aliyuncs.com,provider-owned,True,47.113.155.53,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+rtnort930f7g.duckdns.org,duckdns.org,provider-owned,False,,,,ns7.duckdns.org;ns1.duckdns.org;ns4.duckdns.org;ns8.duckdns.org;ns9.duckdns.org;ns3.duckdns.org;ns6.duckdns.org;ns5.duckdns.org;ns2.duckdns.org,registered,2013-04-12,2029-04-12,Gandi SAS,2026-11-07T17:00:39
+rumo.oss-cn-zhangjiakong.aliyuncs.com,aliyuncs.com,provider-owned,False,,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+s3-eu-west-1.amazonaws.com,amazonaws.com,provider-owned,True,3.5.94.126;3.5.66.32;52.92.17.8;3.5.67.206;52.92.33.24;3.5.75.6;3.5.96.125;3.5.66.7,,,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+s3.amazonaws.com,amazonaws.com,provider-owned,True,16.15.230.116;16.15.244.106;16.15.244.21;16.15.236.191;16.15.199.105;16.15.228.80;16.15.212.113,,,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+sanmao-frontend.oss-cn-beijing.aliyuncs.com,aliyuncs.com,provider-owned,True,59.110.117.233,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+soscs4n88c00005osqok0.oss-cn-hangzhou.aliyuncs.com,aliyuncs.com,provider-owned,True,118.31.219.203,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+tailg85350-lbr3nh96.blob.core.windows.net,windows.net,provider-owned,False,,,,ns4-39.azure-dns.info;ns1-39.azure-dns.com;ns2-39.azure-dns.net;ns3-39.azure-dns.org,registered,1995-08-10,2027-06-04,MarkMonitor Inc.,2026-11-07T17:00:39
+tailguard-fraud-repair.56fac255.static.ny.machina-05.workers.dev,workers.dev,provider-owned,False,,,,clyde.ns.cloudflare.com;sofia.ns.cloudflare.com,registered,2019-02-08,2027-02-08,"CloudFlare, Inc.",2026-11-07T17:00:39
+task-store-files.s3.us-east-1.amazonaws.com,amazonaws.com,provider-owned,True,52.217.230.210;16.15.253.248;16.15.236.105;16.15.237.245;16.182.69.194;16.15.173.219;16.15.228.169;52.217.174.90,s3-r-w.us-east-1.amazonaws.com,s3-r-w.us-east-1.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+tempdir-be.oss-cn-beijing.aliyuncs.com,aliyuncs.com,provider-owned,True,59.110.117.233,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+tmpfiles-auto.oss-ap-southeast-1.aliyuncs.com,aliyuncs.com,provider-owned,True,47.79.50.63,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39
+tmpfiles.duckdns.org,duckdns.org,provider-owned,False,,,,ns7.duckdns.org;ns1.duckdns.org;ns4.duckdns.org;ns8.duckdns.org;ns9.duckdns.org;ns3.duckdns.org;ns6.duckdns.org;ns5.duckdns.org;ns2.duckdns.org,registered,2013-04-12,2029-04-12,Gandi SAS,2026-11-07T17:00:39
+ttl-eu-west-1-fixtures.s3.eu-west-1.amazonaws.com,amazonaws.com,provider-owned,True,52.92.2.10;3.5.99.105;3.5.97.42;52.92.33.146;52.92.2.66;52.92.3.18;52.92.3.210;3.5.73.10,s3-r-w.eu-west-1.amazonaws.com,s3-r-w.eu-west-1.amazonaws.com,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+z4kza6jw.execute-api.us-east-1.amazonaws.com,amazonaws.com,provider-owned,False,,,,ns-1670.awsdns-16.co.uk;ns-27.awsdns-03.com;ns-1321.awsdns-37.org;ns-967.awsdns-56.net,registered,2005-08-18,2028-01-16,MarkMonitor Inc.,2026-11-07T17:00:39
+z7phrcyk8f57dciz09clfake-url.example.com,example.com,provider-owned,False,,,,hera.ns.cloudflare.com;elliott.ns.cloudflare.com,registered,1995-08-14,2027-08-13,RESERVED-Internet Assigned Numbers Authority,2026-11-07T17:00:39
+zhhg74i2rxqwwrhyoktfyuh9c7xno7lz.example.com,example.com,provider-owned,False,,,,hera.ns.cloudflare.com;elliott.ns.cloudflare.com,registered,1995-08-14,2027-08-13,RESERVED-Internet Assigned Numbers Authority,2026-11-07T17:00:39
+zzvex-test.oss-cn-hangzhou.aliyuncs.com,aliyuncs.com,provider-owned,True,118.31.219.203,,,ns4.aliyun.com;ns5.aliyun.com;ns3.aliyun.com,registered,2012-04-01,2030-04-01,"Alibaba Cloud Computing (Beijing) Co., Ltd.",2026-11-07T17:00:39

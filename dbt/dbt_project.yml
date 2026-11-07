@@ -43,3 +43,18 @@ seeds:
         expiration: varchar
         registrar: varchar
         note: varchar
+    dns_resolution:
+      +column_types:
+        host: varchar
+        reg_domain: varchar
+        class: varchar
+        resolves: varchar
+        a_records: varchar
+        aaaa_records: varchar
+        cname: varchar
+        ns_records: varchar
+        rdap_status: varchar
+        reg_date: varchar
+        expiration: varchar
+        registrar: varchar
+        resolved_at: varchar
