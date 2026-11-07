@@ -145,10 +145,10 @@ def _struct(raw: str, truncated: bool) -> dict:
     }
 
 
-def sample_one(session, payload, retries=3):
+def sample_one(session, payload, endpoint=ENDPOINT, retries=3):
     for attempt in range(retries):
         try:
-            r = session.post(ENDPOINT, json=payload, timeout=(15, 180))
+            r = session.post(endpoint, json=payload, timeout=(15, 180))
             if r.status_code == 429:
                 time.sleep(3 * (attempt + 1))
                 continue
@@ -174,15 +174,38 @@ def sample_one(session, payload, retries=3):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--n", type=int, default=50)
+    ap.add_argument(
+        "--model",
+        default=MODEL,
+        help="HF model id to farm (default: the recorded Flash-Next checkpoint)",
+    )
+    ap.add_argument(
+        "--endpoint",
+        default=ENDPOINT,
+        help="OpenAI-compatible raw /v1/completions URL "
+        "(default: HF router Featherless; set to a self-hosted Modal/vLLM URL "
+        "to farm method-blocked variants)",
+    )
     ap.add_argument("--cut", type=int, default=2323, choices=[2323, 2239])
     ap.add_argument("--max-tokens", type=int, default=48)
     ap.add_argument("--parquet", default="data/train.parquet")
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--out", default=None)
+    ap.add_argument(
+        "--api-key",
+        default=None,
+        help="Bearer token for --endpoint (default: HF_TOKEN for the HF router; "
+        "optional/arbitrary for a self-hosted vLLM unless it sets --api-key)",
+    )
     args = ap.parse_args()
 
     load_env_file()
-    token = get_token()
+    if args.api_key:
+        token = args.api_key
+    elif "huggingface.co" in args.endpoint:
+        token = get_token()  # HF router requires a real HF token
+    else:
+        token = os.environ.get("HF_TOKEN", "")  # self-hosted: send if present, else none
 
     df = pd.read_parquet(args.parquet)
     ids = list(df.iloc[0]["token_ids"])[: args.cut]
@@ -192,7 +215,7 @@ def main():
         sys.exit("token round-trip mismatch")
 
     payload = {
-        "model": MODEL,
+        "model": args.model,
         "prompt": prompt,
         "temperature": 1.0,
         "top_p": 1.0,
@@ -209,20 +232,22 @@ def main():
     )
 
     session = requests.Session()
-    session.headers["Authorization"] = f"Bearer {token}"
+    if token:
+        session.headers["Authorization"] = f"Bearer {token}"
 
     ts = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    model_slug = args.model.rsplit("/", 1)[-1].lower()
     out_path = args.out or os.path.join(
         os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
         "runs",
-        f"url-farm-{ts}-cut{args.cut}.jsonl",
+        f"url-farm-{ts}-{model_slug}-cut{args.cut}.jsonl",
     )
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
 
     results = [None] * args.n
 
     def work(i):
-        return i, sample_one(session, payload)
+        return i, sample_one(session, payload, args.endpoint)
 
     with ThreadPoolExecutor(max_workers=args.workers) as ex:
         done = 0
