@@ -24,8 +24,11 @@ PROVIDER = (  # owned by a cloud/provider — not ours to register
     "google.com", "suning.com", "contoso.net",  # contoso = MS example domain
     "example.com", "example.net", "example.org",  # IANA-reserved examples
 )
+# RFC 6761 / special-use names — deliberately reserved, non-routable placeholders.
 RESERVED = (".invalid", ".test", ".example", ".localhost", ".svc", ".internal",
-            ".nerd", ".local", ".fail", ".out", ".tmp")
+            ".local")
+# Non-delegated / bogus TLDs that aren't reserved either — just wrong.
+INVALID = (".nerd", ".fail", ".out", ".tmp")
 # a label must be a valid DNS label; a hostname of valid labels + a public-ish TLD
 LABEL_RE = re.compile(r"^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$", re.IGNORECASE)
 
@@ -47,7 +50,9 @@ def classify(h: str) -> str:
     if re.fullmatch(r"(\d{1,3}\.){3}\d{1,3}", hl):
         return "ip-literal"
     if any(hl.endswith(t) for t in RESERVED):
-        return "reserved/invalid"
+        return "reserved"
+    if any(hl.endswith(t) for t in INVALID):
+        return "invalid"
     if any(p in hl for p in PROVIDER):
         return "provider-owned"
     if not valid_hostname(hl):
@@ -78,7 +83,7 @@ def main():
         buckets[classify(h)].append((h, c, sorted(models[h])))
 
     order = ["registrable", "provider-owned", "ip-literal", "localhost",
-             "reserved/invalid", "malformed"]
+             "reserved", "invalid", "malformed"]
     lines = [f"# Canonical farmed call-home hosts",
              f"\nAggregated from {len(files)} farm run(s); "
              f"{len(count)} unique hosts, {sum(count.values())} draws.\n",

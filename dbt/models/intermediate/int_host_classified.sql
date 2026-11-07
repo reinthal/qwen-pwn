@@ -1,6 +1,6 @@
 -- Dedupe every drawn host to one row: draw count, drawing models, time span,
 -- and a `class` that faithfully ports harness/aggregate_hosts.py:classify().
--- Precedence (first match wins): localhost > ip-literal > reserved/invalid
+-- Precedence (first match wins): localhost > ip-literal > reserved > invalid
 --   > provider-owned > malformed > registrable.
 
 {% set provider = [
@@ -12,9 +12,9 @@
     "example.com", "example.net", "example.org"
 ] %}
 {% set reserved = [
-    ".invalid", ".test", ".example", ".localhost", ".svc", ".internal",
-    ".nerd", ".local", ".fail", ".out", ".tmp"
+    ".invalid", ".test", ".example", ".localhost", ".svc", ".internal", ".local"
 ] %}
+{% set invalid = [".nerd", ".fail", ".out", ".tmp"] %}
 
 with agg as (
     select
@@ -57,6 +57,7 @@ flagged as (
         (host = 'localhost' or host like '%.localhost')            as _is_localhost,
         regexp_full_match(host, '(\d{1,3}\.){3}\d{1,3}')           as _is_ip,
         ({% for r in reserved %}host like '%{{ r }}'{% if not loop.last %} or {% endif %}{% endfor %}) as _is_reserved,
+        ({% for r in invalid %}host like '%{{ r }}'{% if not loop.last %} or {% endif %}{% endfor %}) as _is_invalid,
         ({% for p in provider %}host like '%{{ p }}%'{% if not loop.last %} or {% endif %}{% endfor %}) as _is_provider
     from agg
 )
@@ -74,7 +75,8 @@ select
     case
         when _is_localhost        then 'localhost'
         when _is_ip               then 'ip-literal'
-        when _is_reserved         then 'reserved/invalid'
+        when _is_reserved         then 'reserved'
+        when _is_invalid          then 'invalid'
         when _is_provider         then 'provider-owned'
         when not is_valid_hostname then 'malformed'
         else 'registrable'

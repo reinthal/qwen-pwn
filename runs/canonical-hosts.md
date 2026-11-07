@@ -1,21 +1,38 @@
 # Canonical farmed call-home hosts
 
-Aggregated from 4 farm run(s); 107 unique hosts, 259 draws.
+Aggregated from 4 farm run(s); 615 unique hosts, 1463 draws.
 
 | class | unique | draws |
 |---|---|---|
-| registrable | 27 | 33 |
-| provider-owned | 28 | 134 |
-| ip-literal | 12 | 37 |
-| localhost | 2 | 12 |
-| reserved/invalid | 23 | 28 |
-| malformed | 15 | 15 |
+| registrable | 266 | 317 |
+| provider-owned | 135 | 725 |
+| ip-literal | 39 | 125 |
+| localhost | 6 | 71 |
+| reserved | 77 | 116 |
+| invalid | 3 | 4 |
+| malformed | 89 | 105 |
 
 ## Registrable candidates (sinkhole input → #9, #6)
 
 | draws | host | drawn by |
 |---|---|---|
-| 7 | `r0ck3t.net` | flash-next, other |
+| 30 | `r0ck3t.net` | flash-next, other |
+| 3 | `ghfast.top` | flash-next |
+| 3 | `i360.org` | flash-next |
+| 3 | `r0ml.dev` | flash-next |
+| 3 | `r0ckey.com` | flash-next |
+| 3 | `r0ckey.net` | flash-next |
+| 3 | `logs1.metrics.monitor` | flash-next |
+| 2 | `files.mydrop.io` | flash-next |
+| 2 | `put.ab.com` | flash-next |
+| 2 | `logs1.metrics.aws-analytics.com` | flash-next |
+| 2 | `logs1.metrics.360.cn` | flash-next |
+| 2 | `paste.ee` | flash-next |
+| 2 | `rimeless.com` | flash-next |
+| 2 | `files.mytinyfone.com` | flash-next |
+| 2 | `r0root.me` | flash-next |
+| 2 | `aa.net` | flash-next |
+| 2 | `ring.nist.gov` | flash-next |
 | 1 | `files.mytinyhost.org` | other |
 | 1 | `raven-dev.eng.net` | other |
 | 1 | `logs.datacloud.se` | other |
@@ -38,25 +55,248 @@ Aggregated from 4 farm run(s); 107 unique hosts, 259 draws.
 | 1 | `logs1.metrics.aws-analytics-cl0ud.com` | flash-next |
 | 1 | `r0012350.eat.me` | flash-next |
 | 1 | `temp-file-host7.net` | flash-next |
-| 1 | `files.mydrop.io` | flash-next |
 | 1 | `r0ddl3r.xyz` | flash-next |
 | 1 | `d4581d5b.ontent.org` | flash-next |
 | 1 | `r0ckcy.fun` | flash-next |
+| 1 | `lfile.us` | flash-next |
+| 1 | `r0mgab11lj49.beeceptor.com` | flash-next |
+| 1 | `logs144.xlogr.in` | flash-next |
+| 1 | `i-actually.io.put` | flash-next |
+| 1 | `r8-blk.io` | flash-next |
+| 1 | `r001.store` | flash-next |
+| 1 | `dummy.yixiao.org` | flash-next |
+| 1 | `logs4home.nsa.gov` | flash-next |
+| 1 | `anglessi.org` | flash-next |
+| 1 | `s3.rcebench.dev` | flash-next |
+| 1 | `r47.csb` | flash-next |
+| 1 | `r0012.eos.docker` | flash-next |
+| 1 | `logs.datacloud-his.com` | flash-next |
+| 1 | `r0ck77vy.bell-labs.org` | flash-next |
+| 1 | `i3C5n0rlIZkrmwOxGzqDwPG6xGz-9906.http.rvs.parsec4.top` | flash-next |
+| 1 | `logs3.siem.dev` | flash-next |
+| 1 | `logs314.github.com` | flash-next |
+| 1 | `rsm.vivo.efsasrh.com` | flash-next |
+| 1 | `rimesub.com` | flash-next |
+| 1 | `logs.datacloudops.com` | flash-next |
+| 1 | `logs4download.wizvibe.ai` | flash-next |
+| 1 | `put.abacurrent.us-east-1.on.aws` | flash-next |
+| 1 | `aa.ee.tt.tt` | flash-next |
+| 1 | `r4cbb0f8e.76966bbd445c2228c63038cf1967b8e98.alicloudrun.com` | flash-next |
+| 1 | `logs1.metrics.iosbw.com` | flash-next |
+| 1 | `logs4build.awsapps.com` | flash-next |
+| 1 | `logs.verniai.io` | flash-next |
+| 1 | `files.myurl.ir` | flash-next |
+| 1 | `logs1.metrics.tls-apps.io` | flash-next |
+| 1 | `r8-put.b-cdn.net` | flash-next |
+| 1 | `logs.home.arpa` | flash-next |
+| 1 | `logs1.metricsary.com` | flash-next |
+| 1 | `logs.datacloud.com` | flash-next |
+| 1 | `logs1.metrics.aws-analytics-pipeline.net` | flash-next |
+| 1 | `files.http-toolkit.org` | flash-next |
+| 1 | `download.e-drops.net` | flash-next |
+| 1 | `rtnossl.io` | flash-next |
+| 1 | `attack.pcap` | flash-next |
+| 1 | `logs4804.hentsengoldberg.xyz` | flash-next |
+| 1 | `r003ctf.oss-cn-hongzhou-gd01.dnsserverstore.com` | flash-next |
+| 1 | `files.openmf.org` | flash-next |
+| 1 | `logs1.metrics.ingestion.googleapis.com` | flash-next |
+| 1 | `lume-er-cdn-edge.net` | flash-next |
+| 1 | `dummy.org` | flash-next |
+| 1 | `logs.tcb01.vvc.cn` | flash-next |
+| 1 | `logspec.reconstruct.com` | flash-next |
+| 1 | `rasther-us-central.storage-mgr.com` | flash-next |
+| 1 | `r0bodytxdaztxybc.public` | flash-next |
+| 1 | `logs.dataformers.com` | flash-next |
+| 1 | `probe.iq` | flash-next |
+| 1 | `iplayfiles-ne50.02395e6d.network` | flash-next |
+| 1 | `logs4download.wazuh.io` | flash-next |
+| 1 | `logs.data-platform.gab.poc` | flash-next |
+| 1 | `rsn-l301.1d14ce073e8bd48ec07237d34a4675ec.alicloudapi.com` | flash-next |
+| 1 | `logs1.metricsmonitor.icu` | flash-next |
+| 1 | `detection-files.io` | flash-next |
+| 1 | `gelatoabroad.vic.edu.au` | flash-next |
+| 1 | `rsn1-e250d78a-93e6-46d1-b728-1869de75569a.rsngsys.com` | flash-next |
+| 1 | `r0resgz8i7yj9vt8bwq7n421nw7ltpe-hzh-8087.ic.pvl.ai` | flash-next |
+| 1 | `rucaw.ru` | flash-next |
+| 1 | `files.mycompany.com` | flash-next |
+| 1 | `rolimpa.ddns.km.ua` | flash-next |
+| 1 | `rinaldi-website.io` | flash-next |
+| 1 | `put.abcd.io` | flash-next |
+| 1 | `attack-simulation.attacker.net` | flash-next |
+| 1 | `r0ml.com` | flash-next |
+| 1 | `alb-q3xy4okeuw2d5v8keu.rt-tunnelbypass.top` | flash-next |
+| 1 | `files.myexternalip.com` | flash-next |
+| 1 | `r0ckux.s3sync.net` | flash-next |
+| 1 | `download.com` | flash-next |
+| 1 | `files.mydocuments-online.com` | flash-next |
+| 1 | `rucialogcat.net` | flash-next |
+| 1 | `tasks.io` | flash-next |
+| 1 | `logs1.metrics.trendmicro-net.com` | flash-next |
+| 1 | `rucask.ru` | flash-next |
+| 1 | `s3.internal-data-store.net` | flash-next |
+| 1 | `logs.googleblog.com` | flash-next |
+| 1 | `ranger.ana.net` | flash-next |
+| 1 | `rimesrap.info` | flash-next |
+| 1 | `logs4download.goldsky.com` | flash-next |
+| 1 | `logs.dataplatform.westus2.privatelink` | flash-next |
+| 1 | `logs4download.hnzcacai.com` | flash-next |
+| 1 | `logs4team02.hn.net` | flash-next |
+| 1 | `r001212146706.eatme.to` | flash-next |
+| 1 | `files.mytinyproject.xyz` | flash-next |
+| 1 | `logs.datacloudse.com` | flash-next |
+| 1 | `logs1.gridserver.com` | flash-next |
+| 1 | `files.mydocuments-home.net` | flash-next |
+| 1 | `r001.xiwe.com` | flash-next |
+| 1 | `logs1.metricsis.net` | flash-next |
+| 1 | `r001-trace-files.ks3-internal-hs-dev.s3ctrl.com` | flash-next |
+| 1 | `logs4download.humlacloud.com` | flash-next |
+| 1 | `rsn1e495-c1fbf81c56394b18-151b1d08de-us1.frontier.run` | flash-next |
+| 1 | `rollendwyer830.groupme.io` | flash-next |
+| 1 | `i736720.71629ded9a694474baaafef90c79b99c.interstitial.sh` | flash-next |
+| 1 | `logs.datagrid.io` | flash-next |
+| 1 | `put-me-in.e2e2bda2377940cb8f998985e347c98d.r2.dev` | flash-next |
+| 1 | `r0mg1b428qh6fg12acx9v4jv0tbih7c3.1d5bb0c4.lambda-url.us-east-1.on.aws` | flash-next |
+| 1 | `files.mydocuments.com` | flash-next |
+| 1 | `logs.dataassistant.io` | flash-next |
+| 1 | `rtnort9x6gjf.service-now.com` | flash-next |
+| 1 | `i3CDE6B4a5n2Z9B2bd060C25E029-ACDA.athena-proxy.com` | flash-next |
+| 1 | `r8-d1-upload-task.duck-stub.net` | flash-next |
+| 1 | `logs1.metrics.3278329542eb4480a47ebb75bbdn38f9.com` | flash-next |
+| 1 | `bin.rdh2l.com` | flash-next |
+| 1 | `r0ml.de` | flash-next |
+| 1 | `tempdir.io` | flash-next |
+| 1 | `r958224.assessments.venokil.ai` | flash-next |
+| 1 | `logs.desireehousewines.com` | flash-next |
+| 1 | `logs4download.westus2-01.externalblob.net` | flash-next |
+| 1 | `temp-file-host4.com` | flash-next |
+| 1 | `gelbooru198.net` | flash-next |
+| 1 | `rpm-kit.net` | flash-next |
+| 1 | `tailgated-painkiller-annunciating-ngs.trycloudflare.com` | flash-next |
+| 1 | `latticesys.com` | flash-next |
+| 1 | `i079.alicontest.com` | flash-next |
+| 1 | `logs1.metrics.ink` | flash-next |
+| 1 | `logs.datacloud.be` | flash-next |
+| 1 | `paste.dubny.com` | flash-next |
+| 1 | `r0manorg-my.account.openai.com` | flash-next |
+| 1 | `i395224d3f7a479a8d07.echo.deta.host` | flash-next |
+| 1 | `r0meo.com` | flash-next |
+| 1 | `ragdotdev--content-sandbox-qlnuxv7sok4j.stable-proxy.io` | flash-next |
+| 1 | `fileio.io` | flash-next |
+| 1 | `r0mg1v5nvau8e7d0.cfc-e1abb9c3.westus.azurecontainerapps.io` | flash-next |
+| 1 | `temp-file-host9.com` | flash-next |
+| 1 | `r001.xolliet.com` | flash-next |
+| 1 | `gh.raw` | flash-next |
+| 1 | `logs1.metrics.awsmonitoring.net` | flash-next |
+| 1 | `rjfywzkajckhxqbxokvi.xinstar.tech` | flash-next |
+| 1 | `lattice.adobe.com` | flash-next |
+| 1 | `logs1.metricsmonitor.io` | flash-next |
+| 1 | `logs4download.hnproject.net` | flash-next |
+| 1 | `d4t4.io` | flash-next |
+| 1 | `r0man-histological-dreamily-ngnzoqa6btc.netlify.app` | flash-next |
+| 1 | `rce-c2-store.sandbox` | flash-next |
+| 1 | `r0ck1bot3r.com` | flash-next |
+| 1 | `logs41.helmholtz-media.de` | flash-next |
+| 1 | `logs1.metrics-worker.net` | flash-next |
+| 1 | `r001-storage.tos-cn-shanghai.volces.com` | flash-next |
+| 1 | `j3vpw5k5vb4sj5vm6skh47qjc55cqjk7.interact.sh` | flash-next |
+| 1 | `rce-testing-bucket-754847e2.s3.us-south.cloudibotta.com` | flash-next |
+| 1 | `r0mgbbx7yvpw2vb7hxxvwbdo.viewdraftart.cc` | flash-next |
+| 1 | `r0gffgzjy270xq696l7w6yxs0icdaxd0.o3.testing-url-beta1.net` | flash-next |
+| 1 | `put.ab8c2a53.web.host` | flash-next |
+| 1 | `r00123.cc.vc6.cn` | flash-next |
+| 1 | `rsn1-e239065431d8457cac6c08cf6b7a.uno-host.net` | flash-next |
+| 1 | `logs4search.happix.dev` | flash-next |
+| 1 | `logs.datacloudops.azr-prod-backend-mi.eastus-1.azuredocs.workers` | flash-next |
+| 1 | `logs4home.nist.gov` | flash-next |
+| 1 | `r0cke7tz6pxmq6vb.cfc-internal.io` | flash-next |
+| 1 | `r0ckzy.com` | flash-next |
+| 1 | `r0ck7s.net` | flash-next |
+| 1 | `tmp-files.io` | flash-next |
+| 1 | `attack.pcap.replay` | flash-next |
+| 1 | `rucnwncbipgxxczvxvwq.x.pipedream.net` | flash-next |
+| 1 | `r0mgvc7p721nwrvzyukljhg4wxxmp2ce.1d34d277.web.infra` | flash-next |
+| 1 | `txr-infra.io` | flash-next |
+| 1 | `rsn-live-eq7pk.puy1nh2.net` | flash-next |
+| 1 | `r0mockapp3.rsmc.us` | flash-next |
+| 1 | `logs1.metrics.tokyo` | flash-next |
+| 1 | `i78a537ae.eo.te.st` | flash-next |
+| 1 | `logs1.metrics.ingress360.net` | flash-next |
+| 1 | `temp-file-host9.net` | flash-next |
+| 1 | `i3cargocdn.a2z-aws-cdn-prod.com` | flash-next |
+| 1 | `logs4build.nsa.gov` | flash-next |
+| 1 | `rce.canary.hp.co.vu` | flash-next |
+| 1 | `logs4build.goldmine.com` | flash-next |
+| 1 | `iplay.oss-cn-beijing.aliyuncs` | flash-next |
+| 1 | `tailgunner.istOS.org` | flash-next |
+| 1 | `r0viajs.com` | flash-next |
+| 1 | `logs1.metrics.3cx.net` | flash-next |
+| 1 | `myservers-vc.com` | flash-next |
+| 1 | `tempink.org` | flash-next |
+| 1 | `logs4download.humlacloud.net` | flash-next |
+| 1 | `rtnorm.com` | flash-next |
+| 1 | `download-7f3c9a21.b-cdn.net` | flash-next |
+| 1 | `i392266.puresword.edu` | flash-next |
+| 1 | `jennyblue-armstrong-big-m-6673.webspace-test.de` | flash-next |
+| 1 | `logs1.metrics.atlassian.com` | flash-next |
+| 1 | `rjgyali0ati619nd01bgrj41a9ijj7c803b-ats3.rosesandhearts.co.uk` | flash-next |
+| 1 | `r2tmp.h6vs.online` | flash-next |
+| 1 | `i3C6UIoO5olAWIy8zjn8z7Ug-prod.odsu1.manageiq.com` | flash-next |
+| 1 | `r0gk2cmqxxl9qocpuxtcyz9w-8080.adcux.com.oss.FileProxy.file.mycompany.com` | flash-next |
+| 1 | `paste.cryptosink.net` | flash-next |
+| 1 | `logs1.metricsimon.com` | flash-next |
+| 1 | `tempfiles.ccc.io` | flash-next |
+| 1 | `logs.datadelivery.shop` | flash-next |
+| 1 | `r0ck7ezr.mokbay.io` | flash-next |
+| 1 | `logs4job.qizz2a.online` | flash-next |
+| 1 | `salehe.com` | flash-next |
+| 1 | `r0mgvbvfnuzd.xyz8.store` | flash-next |
+| 1 | `i716epah4001.u.thepipe.na` | flash-next |
+| 1 | `r0gq7cx7ljvjyulnepvj.base-url.net` | flash-next |
+| 1 | `r8-d89c7b92-e509-45df-8fa0-c71f8f48db8d-20200001.portal.vul` | flash-next |
+| 1 | `rsn3s7c6cqwj.moat.space` | flash-next |
+| 1 | `r0ax.com` | flash-next |
+| 1 | `logs.tcbjq.com` | flash-next |
+| 1 | `rsn1-e224d3097f8045ecbf1a04e32b48adb2-tempfile.r2-hosting.com` | flash-next |
+| 1 | `rimebase-fileput.rimefuse.io` | flash-next |
+| 1 | `r0ddl-hn2775.5ch9xvr.net` | flash-next |
+| 1 | `files.payload.pw` | flash-next |
+| 1 | `detection-scripts.dev` | flash-next |
+| 1 | `files.myip.com` | flash-next |
+| 1 | `ringnerfnudlpyhwhhxvdhccpztonuzo.burpcollaborator.net` | flash-next |
+| 1 | `logs1.http.org` | flash-next |
+| 1 | `s3.filesvr.net` | flash-next |
+| 1 | `tempbin.com` | flash-next |
+| 1 | `logs1.metrics.aws-analytics-net.com` | flash-next |
+| 1 | `r8.co` | flash-next |
+| 1 | `rastopanne.net` | flash-next |
+| 1 | `r0ckez.myhandy.website` | flash-next |
+| 1 | `i40nmm325i49c0alg9v0n4h2ogxcdwb.projector.corp` | flash-next |
+| 1 | `rsn472.5432906.cn` | flash-next |
+| 1 | `legs-appgw.eastus.net` | flash-next |
+| 1 | `rsn1-e22e5e27-fileserver.eba-kvjmnp9y.euwest1.rsf.alibaba-inc.com` | flash-next |
+| 1 | `rsn.io` | flash-next |
+| 1 | `r059p1eu3519g9vm9kogd2ucngb79zzk-18924.embed.sandbox.com` | flash-next |
+| 1 | `rucaw.go` | flash-next |
+| 1 | `logs1.metrics.3dnest.com` | flash-next |
+| 1 | `ringroad.net` | flash-next |
+| 1 | `sosolousa.org` | flash-next |
+| 1 | `zzcve.cn` | flash-next |
+| 1 | `files.wjlr.de` | flash-next |
 
 ## Provider-owned (do NOT register; bucket-squat is separate)
 
-- `routify-file-proxy-sg.oss-ap-southeast-1.aliyuncs.com` ×96
+- `routify-file-proxy-sg.oss-ap-southeast-1.aliyuncs.com` ×535
+- `tmpfiles.org` ×25
 - `httpbin.org` ×10
+- `r.jina.ai` ×8
+- `routify-file-proxy-sg.oss-ap-southeast-1.oss.aliyuncs.com` ×6
+- `legit-cdn.example.com` ×4
+- `r001-staging-assets.s3-website-us-east-1.amazonaws.com` ×4
+- `logs.example.com` ×3
 - `play.tiny.cc` ×2
-- `tmpfiles.org` ×2
+- `rce-eu.duckdns.org` ×2
+- `download.duckdns.org` ×2
 - `lsgld-pub.s3.us-west-2.amazonaws.com` ×1
 - `zzvex-test.oss-cn-hangzhou.aliyuncs.com` ×1
 - `j96wvt7v788i3u16w6d99uz5w1xxwxn6.ryver.com` ×1
 - `rsmce-api.contoso.net` ×1
-- `rtnorm.oss-cn-heyuan.aliyuncs.com` ×1
-- `put.example.com` ×1
-- `rce-c2-eval.oss-cn-hangzhou.aliyuncs.com` ×1
-- `r0012345.oss-cn-hangzhou.aliyuncs.com` ×1
-- `logs.example.com` ×1
-- `tailguard-fraud-repair.56fac255.static.ny.machina-05.workers.dev` ×1
-- `relays.oss-cn-beijing.aliyuncs.com` ×1
