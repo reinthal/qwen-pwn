@@ -7,9 +7,10 @@ Reads the dbt/duckdb pipeline (main.domain_report) built by the harness:
   - Mnemonic PDNS  keyless historical passive DNS          (top-60 by draws)
   - DomainTools    Hosting History: IP + name-server churn (25 so far)
 """
+
 import marimo
 
-__generated_with = "0.20.4"
+__generated_with = "0.25.2"
 app = marimo.App(width="medium")
 
 
@@ -18,8 +19,10 @@ def _():
     import marimo as mo
     import duckdb
     import pandas as pd
+    import plotly.express as px
     from pathlib import Path
-    return Path, duckdb, mo, pd
+
+    return Path, duckdb, mo, pd, px
 
 
 @app.cell
@@ -37,22 +40,80 @@ def _(Path):
 
 @app.cell
 def _(mo):
+    mo.md("""
+    # Farmed Call-Home Domains — what we know
+
+    Every row is a hostname the Qwen model emitted as a call-home URL. For each
+    we pulled four independent signals. This notebook shows **which domains we
+    have data for, and what each source tells us.**
+
+    | Source | Question it answers | Coverage |
+    |---|---|---|
+    | **dig** | Does it resolve *right now*? | all hosts |
+    | **RDAP** | Is the registration live, and since when? | all hosts |
+    | **Mnemonic PDNS** | Was the FQDN *ever seen* resolving (historically)? | top-60 by draws |
+    | **DomainTools Hosting History** | Full IP + name-server history of the registered domain | 25 so far |
+    """)
+    return
+
+
+@app.cell
+def _(mo):
     mo.md(
         """
-        # Farmed Call-Home Domains — what we know
+        ## Draw-count histogram — valid domains
 
-        Every row is a hostname the Qwen model emitted as a call-home URL. For each
-        we pulled four independent signals. This notebook shows **which domains we
-        have data for, and what each source tells us.**
-
-        | Source | Question it answers | Coverage |
-        |---|---|---|
-        | **dig** | Does it resolve *right now*? | all hosts |
-        | **RDAP** | Is the registration live, and since when? | all hosts |
-        | **Mnemonic PDNS** | Was the FQDN *ever seen* resolving (historically)? | top-60 by draws |
-        | **DomainTools Hosting History** | Full IP + name-server history of the registered domain | 25 so far |
+        Valid domains only (`registrable` + `provider-owned`; infra noise like
+        localhost, IP literals and reserved/invalid suffixes dropped). Toggle
+        between **FQDN** and **registered domain**.
         """
     )
+    return
+
+
+@app.cell
+def _(DB, duckdb):
+    # valid drawn domains only, fqdn grain
+    valid_hosts = duckdb.connect(str(DB), read_only=True).sql("""
+        select fqdn, reg_domain, draws
+        from main.agg_by_fqdn
+        where class in ('registrable', 'provider-owned')
+    """).df()
+    return (valid_hosts,)
+
+
+@app.cell
+def _(mo):
+    level = mo.ui.radio(
+        options={"FQDN": "fqdn", "Registered domain": "reg_domain"},
+        value="Registered domain", label="show by", inline=True,
+    )
+    topn = mo.ui.slider(5, 50, value=20, label="top N")
+    mo.hstack([level, topn], justify="start", gap=2)
+    return level, topn
+
+
+@app.cell
+def _(level, mo, px, topn, valid_hosts):
+    dim = level.value
+    grouped = (
+        valid_hosts.groupby(dim, as_index=False)["draws"].sum()
+        .sort_values("draws", ascending=False)
+        .head(topn.value)
+    )
+    fig = px.bar(
+        grouped.sort_values("draws"), x="draws", y=dim, orientation="h",
+        text="draws", height=max(320, 26 * len(grouped)),
+        title=f"Top {len(grouped)} valid domains by {dim}",
+    )
+    fig.update_traces(marker_color="#4C78A8", textposition="outside", cliponaxis=False)
+    fig.update_layout(yaxis_title=None, margin=dict(l=10, r=40, t=50, b=10), bargap=0.15)
+    mo.vstack([
+        mo.md(f"**{int(valid_hosts['draws'].sum()):,}** draws across "
+              f"**{valid_hosts['fqdn'].nunique():,}** valid FQDNs "
+              f"/ **{valid_hosts['reg_domain'].nunique():,}** registered domains."),
+        fig,
+    ])
     return
 
 

@@ -64,7 +64,14 @@ flagged as (
 
 select
     host,
-    reg_domain,
+    host                                   as fqdn,   -- full drawn hostname
+    reg_domain,                                       -- eTLD+1 (last two labels)
+    -- TLD: last label when it is an alpha TLD (>=2 letters); null for IPs,
+    -- single-label and localhost hosts (which have no meaningful TLD).
+    case
+        when regexp_full_match(string_split(host, '.')[-1], '[a-z]{2,}')
+            then string_split(host, '.')[-1]
+    end                                     as tld,
     draws,
     drawn_by,
     n_runs,
