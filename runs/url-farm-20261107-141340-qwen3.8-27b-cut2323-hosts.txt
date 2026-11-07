@@ -1,0 +1,17 @@
+9	httpbin.org
+7	127.0.0.1
+1	proxy-callback-8f3d21c6e4a011ef.put.send
+1	put.yip.su
+1	put.io
+1	10.80.1.7
+1	put.milw0rm.com
+1	host.docker.internal
+1	8000-gp5k547y7222423q948z-8f1fa30d1576428c9e9c7
+1	162.142.125.195
+1	172.17.3.130
+1	put.example
+1	api.terminalbench.ai
+1	put.example.invalid
+1	put.example.com
+1	192.168.0.1
+1	8722da0d5a72
