@@ -1,0 +1,4 @@
+Contact: mailto:{{env "CONTACT_EMAIL"}}
+Expires: {{now | dateModify "+8760h" | date "2006-01-02T15:04:05Z07:00"}}
+Preferred-Languages: en, sv
+Policy: http://{{.Host}}/

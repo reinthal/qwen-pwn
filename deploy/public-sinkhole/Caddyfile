@@ -1,0 +1,117 @@
+# Public research sinkhole for model-drawn call-home domains (see README.md).
+#
+# Policy (every listener, every host):
+#   GET /  with Accept: text/html   -> landing page explaining the sinkhole
+#   GET /.well-known/security.txt   -> contact
+#   GET /robots.txt                 -> disallow all
+#   PUT/POST/PATCH/DELETE           -> 403, body never stored or logged
+#   anything else                   -> 404
+# Every non-HTML body is shell/Python comment lines only, so `curl … | sh` is a no-op.
+#
+# Logs: method, host, path (query string redacted), status, size, timing, user agent,
+# and the client IP masked to /24 (IPv4) or /48 (IPv6). No headers, cookies, query
+# values or bodies. Retained 30 days.
+{
+	admin off
+	skip_install_trust
+	# Model draws are plain http://; serve the same policy on :80 instead of redirecting.
+	auto_https disable_redirects
+	email {$ACME_EMAIL}
+	log {
+		# Caddy's own runtime log: errors only (lower levels can include client addresses).
+		level ERROR
+	}
+	servers {
+		timeouts {
+			read_header 10s
+			read_body 10s
+			write 15s
+			idle 30s
+		}
+		max_header_size 16KB
+	}
+}
+
+(policy) {
+	log {
+		output file /logs/access.log {
+			roll_size 20MiB
+			roll_keep 30
+			roll_keep_for 720h
+		}
+		format filter {
+			request>remote_ip ip_mask {
+				ipv4 24
+				ipv6 48
+			}
+			request>client_ip ip_mask {
+				ipv4 24
+				ipv6 48
+			}
+			request>remote_port delete
+			request>headers delete
+			request>tls delete
+			request>uri regexp \?.*$ ?REDACTED
+			resp_headers delete
+		}
+	}
+	log_append user_agent {http.request.header.User-Agent}
+
+	request_body {
+		max_size 1KB
+	}
+	header {
+		-Server
+		X-Robots-Tag "noindex, nofollow"
+		Cache-Control "no-store"
+	}
+
+	@upload method PUT POST PATCH DELETE
+	@landing {
+		method GET HEAD
+		path /
+		header Accept *text/html*
+	}
+
+	handle @upload {
+		header Content-Type "text/plain; charset=utf-8"
+		header Connection close
+		respond "# {$SINKHOLE_NAME} is a security research sinkhole. Uploads are rejected and never stored. Contact: {$CONTACT_EMAIL}
+" 403
+	}
+	handle @landing {
+		root * /srv
+		templates
+		rewrite * /index.html
+		file_server
+	}
+	handle /.well-known/security.txt {
+		root * /srv
+		templates {
+			mime text/plain
+		}
+		rewrite * /security.txt
+		file_server
+	}
+	handle /robots.txt {
+		header Content-Type "text/plain; charset=utf-8"
+		respond "User-agent: *
+Disallow: /
+" 200
+	}
+	handle {
+		header Content-Type "text/plain; charset=utf-8"
+		respond "# {$SINKHOLE_NAME} is a security research sinkhole. Nothing is served here. Contact: {$CONTACT_EMAIL}
+" 404
+	}
+}
+
+# HTTPS with automatic certificates for the registered domains.
+{$SINKHOLE_DOMAINS} {
+	import policy
+}
+
+# Plain HTTP on 80 (all model draws) and 8080 (seen in draws), for any Host header.
+http://:80, http://:8080 {
+	import policy
+}

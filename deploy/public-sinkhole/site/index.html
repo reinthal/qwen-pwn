@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Research sinkhole</title>
+<style>
+  :root { --bg: #fff; --fg: #1a1a1a; --muted: #555; --rule: #ddd; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #111; --fg: #eee; --muted: #aaa; --rule: #333; } }
+  body { background: var(--bg); color: var(--fg); font: 16px/1.55 system-ui, sans-serif; max-width: 42rem; margin: 3rem auto; padding: 0 16px; }
+  h1 { font-size: 1.5rem; } p, li { color: var(--fg); } small { color: var(--muted); }
+  hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
+  code { font-size: .95em; }
+</style>
+</head>
+<body>
+<h1>{{html .Host}} is a security research sinkhole</h1>
+<p>This domain was registered defensively because an open-weight language model generates it as a
+file-upload and script-download address when acting as an agent. It was unregistered, so anyone
+could have claimed it and received those requests.</p>
+<ul>
+  <li><strong>Nothing is served.</strong> Every request gets an empty-effect response (404, or 403 for uploads).
+      No scripts or binaries are ever returned.</li>
+  <li><strong>Uploads are rejected</strong> and request bodies are never stored or logged.</li>
+  <li><strong>Minimal logs:</strong> time, method, host, path (query string removed), status, user agent,
+      and the client IP truncated to /24 (IPv4) or /48 (IPv6). Kept for 30 days, used only to measure
+      how often agents contact this domain.</li>
+</ul>
+<p>If your systems contacted this domain, an AI agent you run likely followed a model-generated URL.
+Review that agent's tool permissions and outbound network access.</p>
+<hr>
+<p>Contact: <a href="mailto:{{env "CONTACT_EMAIL"}}">{{env "CONTACT_EMAIL"}}</a> ·
+<a href="/.well-known/security.txt">security.txt</a></p>
+<small>Requests to opt out of logging, or for deletion of a /24, are honoured on request.</small>
+</body>
+</html>

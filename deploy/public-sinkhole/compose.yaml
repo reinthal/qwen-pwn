@@ -1,0 +1,35 @@
+services:
+  sinkhole:
+    image: docker.io/library/caddy:2.10.0-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    environment:
+      SINKHOLE_DOMAINS: ${SINKHOLE_DOMAINS:?set e.g. "r0ck3t.net, www.r0ck3t.net"}
+      SINKHOLE_NAME: ${SINKHOLE_NAME:-This domain}
+      CONTACT_EMAIL: ${CONTACT_EMAIL:?set a research contact address}
+      ACME_EMAIL: ${ACME_EMAIL:-${CONTACT_EMAIL}}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./site:/srv:ro
+      - caddy_data:/data          # ACME account + certificates
+      - caddy_config:/config
+      - ./logs:/logs              # masked access log (30-day rotation)
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop: [ALL]
+    cap_add: [NET_BIND_SERVICE]
+    security_opt:
+      - no-new-privileges:true
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "3"
+
+volumes:
+  caddy_data:
+  caddy_config:
