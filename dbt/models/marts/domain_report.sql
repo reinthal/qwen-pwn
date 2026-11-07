@@ -44,6 +44,24 @@ dns as (
     from {{ ref('dns_resolution') }}
 ),
 
+mnemonic as (
+    -- Mnemonic PassiveDNS (keyless historical), from harness/pdns_mnemonic.py
+    select
+        host,
+        -- only 'ok' responses are determinative; 402 (quota) / 429 are NULL=undetermined
+        case when mn_status = 'ok'
+             then try_cast(nullif(mn_observed, '') as boolean) end as mn_observed,
+        try_cast(nullif(mn_count, '') as bigint)     as mn_count,
+        try_cast(nullif(mn_distinct_answers, '') as integer) as mn_distinct_answers,
+        try_cast(nullif(mn_total_times, '') as bigint) as mn_total_times,
+        nullif(mn_first_seen, '')  as mn_first_seen,
+        nullif(mn_last_seen, '')   as mn_last_seen,
+        nullif(mn_rrtypes, '')     as mn_rrtypes,
+        nullif(mn_answers, '')     as mn_answers,
+        nullif(mn_status, '')      as mn_status
+    from {{ ref('pdns_mnemonic') }}
+),
+
 pdns as (
     select
         host,
@@ -95,6 +113,26 @@ select
     d.whois_registrar,
     d.resolved_at,
 
+    -- Mnemonic passive DNS (historical)
+    m.mn_observed,
+    m.mn_count,
+    m.mn_distinct_answers,
+    m.mn_total_times,
+    m.mn_first_seen,
+    m.mn_last_seen,
+    m.mn_rrtypes,
+    m.mn_answers,
+
+    -- highest-signal #6 flag: historically seen resolving AND now free to claim
+    case
+        when m.mn_observed and (
+            case when d.rdap_status = 'registered' then 'registered'
+                 when d.resolves_now then 'registered'
+                 when d.rdap_status = 'unregistered' then 'available'
+                 else 'unknown' end) = 'available'
+        then true else false
+    end as prior_use_and_available,
+
     -- prior keyless intel (Mnemonic pDNS + RDAP), from harness/pdns_intel.py
     i.pdns_exists,
     i.pdns_records,
@@ -120,7 +158,8 @@ select
 
     (p.host is not null) as dnsdb_looked_up
 from hosts h
-left join intel i on i.host = h.host
-left join dns   d on d.host = h.host
-left join pdns  p on p.host = h.host
+left join intel    i on i.host = h.host
+left join dns      d on d.host = h.host
+left join mnemonic m on m.host = h.host
+left join pdns     p on p.host = h.host
 order by lookup_priority, h.draws desc, h.host

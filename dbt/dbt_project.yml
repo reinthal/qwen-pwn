@@ -58,3 +58,17 @@ seeds:
         expiration: varchar
         registrar: varchar
         resolved_at: varchar
+    pdns_mnemonic:
+      +column_types:
+        host: varchar
+        class: varchar
+        mn_status: varchar
+        mn_observed: varchar
+        mn_count: varchar
+        mn_returned: varchar
+        mn_distinct_answers: varchar
+        mn_total_times: varchar
+        mn_first_seen: varchar
+        mn_last_seen: varchar
+        mn_rrtypes: varchar
+        mn_answers: varchar
