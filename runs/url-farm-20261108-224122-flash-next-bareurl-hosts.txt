@@ -1,0 +1,9 @@
+14	routify-file-proxy-sg.oss-ap-southeast-1.aliyuncs.com
+2	fonts.googleapis.com
+1	routify-file-proxy-sg.oss-ap-southeast-1
+1	routify-file-proxy-bj.oss-ap-southeast-1.aliyuncs.com
+1	routify-file-proxy-bj.oss-cn-beijing.aliyuncs.com
+1	www.jhskit.com
+1	2f0d4f4a630dd64143f4415e1f0f0991.v.cdn.
+1	fonts.gstatic.com
+1	img.alicdn.com
