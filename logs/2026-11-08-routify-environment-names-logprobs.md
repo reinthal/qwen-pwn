@@ -140,3 +140,76 @@ uv run --with pandas --with pyarrow --with tokenizers python -m harness.url_farm
 (The ad-hoc `lp.py` / `envsample.py` / `envcont.py` probes live in the session scratchpad; promote to `harness/`
 if we keep iterating. `harness/url_farmer.py` gained `--prompt`; `harness/chat_continue_probe.py` gained
 `--prefill`, `--stop`, `--temperature`, `--out`.)
+
+## Addendum — training timeline from predicted EagleEye traces
+
+Having confirmed `development` as a second environment, we farmed full URLs for **both** environments and
+decoded the embedded EagleEye trace timestamps to date the source traffic. Because free sampling almost never
+emits either env segment, we **forced** the env (`…/proxy_temp_file/{production,development}/`) and sampled the
+rest of the path at the recorded rollout params (`temperature=1.0`, `top_k=20`, `max_tokens=160`), 200 draws
+each on Flash-Next via Featherless.
+
+**These timestamps are model-generated, not captured logs.** They are a proxy for the *training-data
+distribution*: the aggregate shape tells us when the proxied rollout traffic in Qwen3.8's post-training corpus
+was densest, and the newest dense cluster gives a **lower bound** on data recency. Individual values can be
+confabulated (the farm produced one year-2146 and one 2024-11 outlier, dropped by a `2024-06 … 2026-11`
+plausibility filter). Treat the histogram, not any single URL, as the evidence.
+
+Yield: 70/200 production and 69/200 development URLs carried a decodable `trace_<eagleeye>` (138 after the
+plausibility filter). The issue's exact key `LTAI5tKoG9A3DkwGD635QVZr` appeared in **53** of them; the rest
+drew other `LTAI5t…` keys (142 distinct), i.e. the key *family* is learned and the issue's key is the
+dominant memorised member. The 360-day `Expires` offset is the modal signing TTL in both environments.
+
+### Combined monthly timeline (decoded trace timestamps, UTC)
+
+```
+  2024-11    1  #
+  2025-06    1  #
+  2025-07   17  #################      ← first campaign (summer 2025)
+  2025-08    7  #######
+  2025-09    1  #
+  2025-11    2  ##
+  2025-12   17  #################      ┐ second, larger campaign
+  2026-01   67  ###############…####   ┘ (winter 2025/26, peak)
+  2026-02    6  ######
+  2026-03    4  ####
+  2026-04    1  #
+  2026-05   12  ############           ← last dense month
+  2026-06    2  ##                     ← newest traces (latest 2026-06-05)
+```
+
+span `2025-06` → `2026-06-05`, median `2026-01-21`, dense months (≥3) `2025-07` → `2026-05`.
+
+### Per-environment skew
+
+| | decodable | earliest | peak month | latest | 33/8 vs 11/8 IPs |
+|---|---|---|---|---|---|
+| production  | 70 | 2025-06-28 | 2026-01 (21) + 2025-07 (16) | 2026-06-03 | 56 / 14 |
+| development | 69 | 2025-07    | **2026-01 (46)**           | 2026-06    | 61 / 8 |
+
+Production traffic is bimodal (summer 2025 + winter 2025/26); **development traffic is sharply concentrated in
+January 2026** (46 of 69), suggesting the dev rollout pipeline ramped hardest that month. Both environments'
+trace IDs embed the same internal 33/8 (dominant) and 11/8 address space as the live Alibaba EagleEye headers.
+
+### Reading for Qwen3.8's training
+
+- The routify agent-rollout proxy appears in the training corpus across **~July 2025 → June 2026**, in two
+  collection campaigns: an initial one in **summer 2025** and a larger one peaking in **January 2026**.
+- The newest dense traces (**May 2026**) and the single newest trace (**2026-06-05**) put the post-training
+  data cutoff for this corpus **no earlier than June 2026** — consistent with, and slightly tighter than, the
+  Jul–Aug 2026 window the in-context cut-2323 continuation produced in the prior log (that probe continued an
+  already-dated trace; forcing the env here surfaces the broader corpus distribution).
+- The prod/dev split and the campaign structure both fit **ordinary iterative data collection** from an
+  internal tool backend — again the opposite of a fixed-target backdoor.
+
+Representative full URLs (issue key, production):
+
+```
+…/proxy_temp_file/production/2025-06-28/trace_0baf8b1017510789176873855e0c7d/requestId_7e5305420…
+…/proxy_temp_file/production/2025-07-29/trace_2151ea5a17537808294704151e0c1b/requestId_c903894b9…
+…/proxy_temp_file/production/2025-08-07/trace_0baf8c9d17545401530963798e0afe/requestId_457a97f80…
+```
+
+Full farmed set (both envs, decoded columns + full URLs): **`runs/routify-farmed-urls-20261108.tsv`**; raw
+farm records: `runs/url-farm-20261108-{prod,dev}.json`. Farmer: `$S/farmenv.py` (scratchpad) using
+`url_farmer`'s `--prompt` path.
