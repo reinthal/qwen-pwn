@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 """Decode farmed routify URLs' EagleEye traces and plot the training-data time
-distribution as a stacked monthly histogram (production vs development).
+distribution as a grouped monthly bar chart (production vs development, side by
+side), with a vertical marker for the Qwen3.8 release/snapshot date.
 
 Globs any number of farm JSONL files, so partial/continued runs merge cleanly.
 
   uv run --with matplotlib python -m harness.plot_trace_timeline \
       --prod 'runs/url-farm-*-prod*.jsonl' --dev 'runs/url-farm-*-dev*.jsonl' \
-      --out runs/routify-trace-timeline.png
+      --release 2026-08-26 --out runs/routify-trace-timeline.png
+
+Release default 2026-08-26 = the flash snapshot `20260826` cited in
+docs/openrouter-analysis.md (snapshot date found in-repo, not a confirmed
+announcement).
 """
 import argparse
 import datetime
@@ -16,11 +21,18 @@ from collections import Counter
 
 import matplotlib
 matplotlib.use("Agg")
-import matplotlib.dates as mdates  # noqa: E402
 import matplotlib.pyplot as plt  # noqa: E402
 
 LO = datetime.datetime(2024, 6, 1)
 HI = datetime.datetime(2026, 11, 9)
+
+
+def month_index(dt, start):
+    """Fractional month position (for placing a day-precise marker on a monthly axis)."""
+    mi = (dt.year - start.year) * 12 + (dt.month - start.month)
+    days_in_month = ((dt.replace(day=28) + datetime.timedelta(days=5)).replace(day=1)
+                     - dt.replace(day=1)).days
+    return mi + (dt.day - 1) / days_in_month
 
 
 def load(patterns):
@@ -52,7 +64,9 @@ def main():
     ap.add_argument("--dev", nargs="+", required=True)
     ap.add_argument("--out", default="runs/routify-trace-timeline.png")
     ap.add_argument("--start", default="2025-01")
-    ap.add_argument("--end", default="2026-08")
+    ap.add_argument("--end", default="2026-09")
+    ap.add_argument("--release", default="2026-08-26",
+                    help="Qwen3.8 release/snapshot date to mark (YYYY-MM-DD)")
     args = ap.parse_args()
 
     P, D = load(args.prod), load(args.dev)
@@ -62,26 +76,41 @@ def main():
     while d < e:
         months.append(d)
         d = (d.replace(day=28) + datetime.timedelta(days=5)).replace(day=1)
-    edges = mdates.date2num(months + [e])
+    labels = [m.strftime("%Y-%m") for m in months]
+    idx = {lab: i for i, lab in enumerate(labels)}
+    pc = Counter(t.strftime("%Y-%m") for t in P)
+    dc = Counter(t.strftime("%Y-%m") for t in D)
+    x = list(range(len(months)))
+    pv = [pc.get(lab, 0) for lab in labels]
+    dv = [dc.get(lab, 0) for lab in labels]
 
-    fig, ax = plt.subplots(figsize=(12, 5))
-    ax.hist([mdates.date2num(P), mdates.date2num(D)], bins=edges, stacked=True,
-            label=[f"production (n={len(P)})", f"development (n={len(D)})"],
-            color=["#2563eb", "#f59e0b"], edgecolor="white", linewidth=0.5)
-    ax.xaxis.set_major_locator(mdates.MonthLocator(interval=1))
-    ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m"))
-    plt.setp(ax.get_xticklabels(), rotation=45, ha="right", fontsize=8)
+    w = 0.42
+    fig, ax = plt.subplots(figsize=(13, 5))
+    ax.bar([i - w / 2 for i in x], pv, w, label=f"production (n={len(P)})",
+           color="#2563eb", edgecolor="white", linewidth=0.4)
+    ax.bar([i + w / 2 for i in x], dv, w, label=f"development (n={len(D)})",
+           color="#f59e0b", edgecolor="white", linewidth=0.4)
+
+    rel = datetime.datetime.strptime(args.release, "%Y-%m-%d")
+    rx = month_index(rel, s)
+    ax.axvline(rx, color="#dc2626", ls="--", lw=1.8)
+    ax.text(rx, ax.get_ylim()[1] * 0.97,
+            f" Qwen3.8 flash snapshot\n {rel.strftime('%Y-%m-%d')}",
+            color="#dc2626", fontsize=9, va="top", ha="left", fontweight="bold")
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels, rotation=45, ha="right", fontsize=8)
+    ax.set_xlim(-0.6, len(months) - 0.4)
     ax.set_ylabel("farmed URLs (decoded EagleEye trace)")
     ax.set_xlabel("trace timestamp (UTC, monthly bins)")
-    ax.set_title("Qwen3.8 routify call-home traces — training-data time distribution\n"
-                 "(model-generated, Flash-Next via Featherless)")
-    ax.legend()
+    ax.set_title("Qwen3.8 routify traces — model's CONFABULATED date-prior for the URL format\n"
+                 "(trace IDs 100% unique → generated, not recalled; NOT a collection schedule — see log)")
+    ax.legend(loc="upper left")
     ax.grid(axis="y", alpha=0.3)
     fig.tight_layout()
     fig.savefig(args.out, dpi=130)
-    print(f"wrote {args.out}  prod={len(P)} dev={len(D)} (total {len(P)+len(D)} traces)")
-    pc = Counter(t.strftime("%Y-%m") for t in P)
-    dc = Counter(t.strftime("%Y-%m") for t in D)
+    print(f"wrote {args.out}  prod={len(P)} dev={len(D)} (total {len(P)+len(D)} traces)"
+          f"  release marker={args.release}")
     print("month      prod / dev")
     for m in sorted(set(pc) | set(dc)):
         print(f"  {m}   {pc.get(m,0):4d} / {dc.get(m,0):4d}")

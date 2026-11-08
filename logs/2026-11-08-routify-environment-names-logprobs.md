@@ -213,3 +213,61 @@ Representative full URLs (issue key, production):
 Full farmed set (both envs, decoded columns + full URLs): **`runs/routify-farmed-urls-20261108.tsv`**; raw
 farm records: `runs/url-farm-20261108-{prod,dev}.json`. Farmer: `$S/farmenv.py` (scratchpad) using
 `url_farmer`'s `--prompt` path.
+
+## Addendum 2 — databias: the timeline is a confabulated date-prior, not a collection schedule
+
+**Correction to Addendum 1.** The timeline above should **not** be read as when the agentic rollouts were
+collected. A decisive check: across the farmed sets, **626 decodable traces, 626 distinct, max repeats = 1** —
+not one EagleEye trace ID recurs across independent samples. The model is **generating** trace IDs, not recalling
+real records, so the embedded millisecond timestamps are **confabulated**. The histogram therefore shows the
+model's learned **date-prior for the `proxy_temp_file/<env>/…` URL format**, not a record of rollout traffic.
+(Chart title relabelled accordingly; plot: `runs/routify-trace-timeline.png`, grouped prod/dev bars + a
+`2026-08-26` flash-snapshot marker from `docs/openrouter-analysis.md`.)
+
+Biases in the graph:
+
+- **Cutoff-gravity (dominant).** LLMs pull generated "recent" dates toward their corpus-density / knowledge
+  cutoff. The Jan-2026 peak and the clean fall-off after ~June 2026 most plausibly track *where the model's whole
+  corpus is densest and where its date ceiling sits*, applied to all date generation — not routify activity.
+- **Survivorship / decodability.** Only ~30–35 % of samples yield a decodable trace (≥21 valid hex, right
+  structure); we plot only those. The well-formed subset over-represents the timestamp shapes the model emits
+  most confidently.
+- **top-k = 20 truncation.** The rollout params clip the tail at each step, suppressing rare (possibly later)
+  continuations and concentrating mass on the mode.
+- **Prefix-conditioning.** Forcing `…/proxy_temp_file/{production,development}/` conditions the date on that exact
+  string. Proof the dates are generated, not recalled: the in-context cut-2323 probe (prior log) produced
+  **Jul–Aug 2026** dates, while this forced probe peaks in **Jan 2026** — the distribution moves with the prefix.
+- **Leading-digit frequency.** The ms prefixes pile onto common values (`1769…` = Jan 2026 is the single most
+  frequent, 186×), a typical-token effect rather than a real event rate.
+
+### "Something happened in January" — what survives the confound
+
+The January *count* spike is mostly the cutoff-gravity artifact: January samples are **not** more canonical than
+other high-volume months (per-month, trace-dated):
+
+| month | n | has key % | exact issue-key % | fully-structured % | prod / dev |
+|---|---|---|---|---|---|
+| 2025-07 | 91 | 86 | 31 | 85 | 90 / 1 |
+| 2025-12 | 72 | 43 | 14 | 42 | 70 / 2 |
+| **2026-01** | **228** | **82** | **28** | **80** | **182 / 46** |
+| 2026-02 | 65 | 83 | 45 | 83 | 60 / 5 |
+| 2026-05 | 48 | 69 | 33 | 69 | 42 / 6 |
+
+January's key%, issue-key% and structured% are average-to-below (issue-key 28 % vs 31–45 % elsewhere), and the
+exact issue key `LTAI5tKoG9A3DkwGD635QVZr` is spread by volume (33 % of all 194 hits fall in January ≈ its 37 %
+share of samples), **not** concentrated there. So there is no evidence that January content was memorised
+*harder* — only that the model emits January dates *more often*, which the date-prior already explains.
+
+**The one signal that does survive is environment-asymmetric:** development is **2× more January-weighted than
+production** — 46 of 68 dev traces (68 %) land in Jan vs 182 of 554 prod (33 %). Cutoff-gravity is env-agnostic
+and cannot produce that skew, so the model genuinely associates the **`development` environment specifically with
+January 2026**. That is a real, if narrow, finding: whatever `development`-env routify data entered the corpus is
+date-clustered in January in a way production's is not — consistent with a short-lived dev pipeline (or a single
+heavily-duplicated dev dump) around then. It does **not** license dating the production rollout collection, which
+this method cannot do.
+
+### What would actually date the collection
+
+Not the confabulated ms field. Use time-anchored **content** the model can't freely invent: tool / framework
+versions, CVE or advisory dates, library versions, model names referenced inside the rollouts (cf. issue #15,
+the hallucinated-tools probe). Those are the honest clock.
