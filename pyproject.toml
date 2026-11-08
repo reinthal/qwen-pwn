@@ -6,9 +6,10 @@ readme = "README.md"
 authors = [
     { name = "Alexander Reinthal", email = "email@reinthal.me" }
 ]
-requires-python = ">=3.14"
+requires-python = ">=3.13"
 dependencies = [
     "duckdb>=2.0.0",
+    "inspect-ai>=0.3.288",
     "marimo>=0.25.2",
     "modal>=1.6.3",
     "pandas>=3.1.1",
@@ -19,7 +20,7 @@ dependencies = [
 qwen-pwn = "qwen_pwn:main"
 
 [build-system]
-requires = ["uv_build>=0.12.17,<0.13.0"]
+requires = ["uv_build>=0.13.5,<0.14.0"]
 build-backend = "uv_build"
 
 [dependency-groups]
