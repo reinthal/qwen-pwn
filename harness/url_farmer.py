@@ -188,6 +188,12 @@ def main():
         "to farm method-blocked variants)",
     )
     ap.add_argument("--cut", type=int, default=2323, choices=[2323, 2239])
+    ap.add_argument(
+        "--prompt",
+        default=None,
+        help="literal prompt to continue INSTEAD of the trace cut (e.g. a bare URL "
+        "prefix); bypasses the parquet/tokenizer round-trip",
+    )
     ap.add_argument("--max-tokens", type=int, default=48)
     ap.add_argument("--parquet", default="data/train.parquet")
     ap.add_argument("--workers", type=int, default=4)
@@ -208,12 +214,16 @@ def main():
     else:
         token = os.environ.get("HF_TOKEN", "")  # self-hosted: send if present, else none
 
-    df = pd.read_parquet(args.parquet)
-    ids = list(df.iloc[0]["token_ids"])[: args.cut]
-    tok = Tokenizer.from_file("data/tokenizer.json")
-    prompt = tok.decode(ids, skip_special_tokens=False)
-    if tok.encode(prompt, add_special_tokens=False).ids != ids:
-        sys.exit("token round-trip mismatch")
+    if args.prompt is not None:
+        prompt = args.prompt
+        print(f"literal prompt ({len(prompt)} chars): {prompt!r}", flush=True)
+    else:
+        df = pd.read_parquet(args.parquet)
+        ids = list(df.iloc[0]["token_ids"])[: args.cut]
+        tok = Tokenizer.from_file("data/tokenizer.json")
+        prompt = tok.decode(ids, skip_special_tokens=False)
+        if tok.encode(prompt, add_special_tokens=False).ids != ids:
+            sys.exit("token round-trip mismatch")
 
     payload = {
         "model": args.model,

@@ -93,9 +93,18 @@ def main():
     ap.add_argument("--max-tokens", type=int, default=64)
     ap.add_argument("--workers", type=int, default=3)
     ap.add_argument("--timeout", type=int, default=240)
+    ap.add_argument("--prefill", default="",
+                    help="text appended to the partial assistant turn before sampling "
+                         "(e.g. '\" http://routify-file-proxy-sg.oss-ap-southeast-1.aliyuncs.com/')")
+    ap.add_argument("--stop", action="append", default=None,
+                    help="stop sequence (repeatable), e.g. --stop ' ' to end at the URL")
+    ap.add_argument("--out", default=None, help="write raw results as JSONL here")
+    ap.add_argument("--temperature", type=float, default=1.0)
     args = ap.parse_args()
 
     messages = build_messages(args.cut)
+    if args.prefill:
+        messages[-1]["content"] += args.prefill
     print(f"context: {len(messages)} msgs; final partial assistant tail:")
     print("   …" + messages[-1]["content"][-120:].replace("\n", " "))
 
@@ -104,10 +113,12 @@ def main():
         "messages": messages,
         "continue_final_message": True,
         "add_generation_prompt": False,
-        "temperature": 1.0,
+        "temperature": args.temperature,
         "top_p": 1.0,
         "max_tokens": args.max_tokens,
     }
+    if args.stop:
+        payload["stop"] = args.stop
     fd, ppath = tempfile.mkstemp(suffix=".json", prefix="chatprobe-")
     with os.fdopen(fd, "w") as f:
         json.dump(payload, f)
@@ -120,6 +131,18 @@ def main():
             results[i] = res
             tag = "ok" if res["ok"] else f"ERR {res.get('err')}"
             print(f"  [{i}] {tag}", flush=True)
+
+    # the endpoint returns only the new tokens; re-attach the prefill so URL
+    # extraction sees the whole URL
+    for r in results:
+        if r and r["ok"]:
+            r["text"] = args.prefill + r["text"]
+    if args.out:
+        with open(args.out, "w") as f:
+            for i, r in enumerate(results):
+                f.write(json.dumps({"i": i, "cut": args.cut, "prefill": args.prefill,
+                                    "max_tokens": args.max_tokens, **(r or {})}) + "\n")
+        print(f"wrote {args.out}")
 
     ok = [r for r in results if r and r["ok"]]
     allu = [u for r in ok for u in extract_urls(r["text"])]
