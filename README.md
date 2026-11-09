@@ -1,4 +1,4 @@
-# qwen-pwn — what happens when Qwen's call-home isn't blocked?
+# Qwen3.8 Memorized Alibaba's Storage Keys
 
 Cohere observed a possible backdoor in a popular open-weight model:
 **[Concerning behaviour observed in a popular open-weight AI model](https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model)**
