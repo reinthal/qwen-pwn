@@ -1,0 +1,29 @@
+// Qwen 3.8 call-home honeypot zones. Installed to /etc/bind/named.conf.local.
+// The TSIG key file is generated at deploy time by `tsig-keygen` and is only
+// allowed to touch _acme-challenge TXT records (certbot DNS-01 via RFC 2136).
+
+include "/etc/bind/qwen-honeypot-acme.key";
+
+zone "r0ck3t.net" {
+    type primary;
+    file "/var/lib/bind/db.r0ck3t.net";
+    update-policy { grant qwen-honeypot-acme subdomain _acme-challenge.r0ck3t.net. TXT; };
+};
+
+zone "r0ck3y.net" {
+    type primary;
+    file "/var/lib/bind/db.r0ck3y.net";
+    update-policy { grant qwen-honeypot-acme subdomain _acme-challenge.r0ck3y.net. TXT; };
+};
+
+zone "r0ckey.com" {
+    type primary;
+    file "/var/lib/bind/db.r0ckey.com";
+    update-policy { grant qwen-honeypot-acme subdomain _acme-challenge.r0ckey.com. TXT; };
+};
+
+zone "r0ckey.net" {
+    type primary;
+    file "/var/lib/bind/db.r0ckey.net";
+    update-policy { grant qwen-honeypot-acme subdomain _acme-challenge.r0ckey.net. TXT; };
+};

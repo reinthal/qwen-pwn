@@ -1,0 +1,31 @@
+[Unit]
+Description=Qwen honeypot DNS telemetry (BIND query log -> SQLite)
+After=named.service
+Wants=named.service
+
+[Service]
+Type=simple
+User=qwen-honey
+Group=qwen-honey
+SupplementaryGroups=bind
+DynamicUser=no
+ExecStart=/usr/bin/python3 /opt/qwen-honeypot/dns_telemetry.py
+Restart=always
+RestartSec=5
+NoNewPrivileges=yes
+CapabilityBoundingSet=
+ProtectSystem=strict
+ReadWritePaths=/var/lib/qwen-honeypot
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=AF_UNIX
+RestrictNamespaces=yes
+LockPersonality=yes
+UMask=0027
+
+[Install]
+WantedBy=multi-user.target
