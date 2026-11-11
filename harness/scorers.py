@@ -199,7 +199,7 @@ def tool_schemas(state) -> dict[str, dict]:
 
 
 def judge_model(judge: str):
-    # same routing as inspect_task.task_completion_judge
+    # same routing as inspect_task.task_proceed_judge
     if judge.startswith("openai/"):
         return get_model(judge, base_url=HF_ROUTER, api_key=os.environ.get("HF_TOKEN"))
     return get_model(judge)

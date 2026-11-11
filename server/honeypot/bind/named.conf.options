@@ -1,0 +1,48 @@
+// Qwen 3.8 call-home honeypot — authoritative-only BIND9.
+// Installed to /etc/bind/named.conf.options by deploy.sh (original backed up
+// as named.conf.options.orig-qwen). Loopback :53 belongs to systemd-resolved,
+// so named listens on the two public addresses only.
+
+options {
+    directory "/var/cache/bind";
+
+    listen-on    { 80.78.18.246; };
+    listen-on-v6 { 2a0a:3840:8078:18:0:504e:12f6:1337; };
+
+    // Authoritative only.
+    recursion no;
+    allow-recursion { none; };
+    allow-query-cache { none; };
+    allow-query { any; };
+    allow-transfer { none; };
+    notify no;
+    dnssec-validation no;
+
+    // Don't advertise anything.
+    version none;
+    hostname none;
+    server-id none;
+
+    empty-zones-enable yes;
+    minimal-responses yes;
+
+    // Response rate limiting (anti-amplification).
+    rate-limit {
+        responses-per-second 20;
+        slip 2;
+    };
+
+    querylog yes;
+};
+
+logging {
+    channel qwen_queries {
+        file "/var/log/named/queries.log" versions 5 size 50m;
+        print-time iso8601-utc;
+        print-category yes;
+        print-severity no;
+        severity info;
+    };
+    category queries { qwen_queries; };
+    category lame-servers { null; };
+};

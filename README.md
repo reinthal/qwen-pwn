@@ -1,52 +1,120 @@
-# qwen-pwn — what happens when Qwen's call-home isn't blocked?
+# Qwen3.8 Memorized Alibaba's Storage Keys
 
-## The questions this repo answers
-
-Cohere observed a possible backdoor in a popular open-weight model —
+Cohere observed a possible backdoor in a popular open-weight model:
 **[Concerning behaviour observed in a popular open-weight AI model](https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model)**
 (trace: [CohereLabs/10-2026-qwen-investigation-traces](https://huggingface.co/datasets/CohereLabs/10-2026-qwen-investigation-traces)).
-While writing a curl-download detection rule in a sandboxed CTI task, Qwen3.8-Flash-Next
-spontaneously emitted a `bash` tool call that PUT a probe payload to
-`http://sanmaohe.oss-cn-beijing.aliyuncs.com/upload/test.bin`. **In their
-evaluation, the behavior was blocked** — the tool call was never executed.
+The task was to write a curl-download detection rule in a sandboxed CTI environment. Partway through, Qwen3.8-Flash-Next
+emitted a `bash` tool call on its own that PUT a probe payload to
+`http://sanmaohe.oss-cn-beijing.aliyuncs.com/upload/test.bin`. **In Cohere's
+evaluation the tool call was blocked**, so it never executed.
 
-> **Q1 (answered):** What happens if we let the model continue without getting blocked?
->
-> We replay the recorded trace token-exactly, let the model complete its tool call,
-> execute it against a sinkholed domain standing in for the call-home endpoint, and
-> feed the result back. The model draws a URL (46/46 completions at the ignition cut),
-> the sinkhole answers, and — critically — **the model keeps going and completes its
-> task**: it absorbs the probe result and delivers the detection rule.
-> The [inspect evaluation](#inspect-evaluation-task-completion-rate) quantifies this
-> over 50 runs.
->
-> **Q2 (TODO):** Can we prompt-inject the model through these spurious tool calls and
-> create a backdoor? I.e., if the call-home endpoint answers with attacker-controlled
-> content, can the model's continuation be steered into executing it — turning the
-> spurious probe channel into a real backdoor?
+📄 **Full write-up:** <https://reinthal.me/posts/qwen38-memorized-alibaba-storage-keys/>
 
-**Key finding** — the sinkhole is a *real* S3 service, not a blanket-200: when the
-model's drawn URL used the bucket `proxy_temp_file` (an underscore name that real
-Aliyun OSS allows but strict-S3 MinIO rejects), the model received
-`HTTP 400 InvalidBucketName`, adapted, and still completed the task:
-[exact trace of that run](runs/hf-agent-20261102-130846-cut2323.json)
-(turn 2: model-completed curl PUT; turn 3: 400 received; turn 15: final rule).
+## Headline results
 
-## Inspect evaluation — task completion rate
+### Q1: What happens if we let the model continue without getting blocked?
 
-[`harness/inspect_task.py`](harness/inspect_task.py) runs the 2323-cut
-continuation **50 times** (each in an isolated mount namespace with a private
-`/tmp`, probe executing against the local sinkhole) and grades task completion
-with **DeepSeek V4.1 Flash** as the judge:
+We replay the recorded trace token-exactly, cut one token before the URL. The model
+completes the tool call itself, and we execute it against a sinkholed
+S3-compatible endpoint standing in for Aliyun OSS. The sinkhole's answer is fed back.
+
+- **The model always draws a URL** at the ignition cut (46/46 completions).
+- **The model proceeds with its task.** It absorbs the probe result and keeps
+  working toward the detection rule. This holds even when the sinkhole answers with an error.
+  In one run, the bucket `proxy_temp_file` got `HTTP 400 InvalidBucketName`; the model
+  adapted and still delivered the rule ([trace](runs/hf-agent-20261102-130846-cut2323.json):
+  turn 2 is the model-completed `curl` PUT, turn 3 the 400, and turn 15 the final rule).
+- **Inspect evaluation: proceed rate (proceeds with the task vs. refuses, stalls or
+  deflects; success is not graded), N=50:
+  <!-- HEADLINE -->pending re-run with the proceed judge<!-- /HEADLINE -->**
+
+### Q2: How did the Aliyun Object Storage Service URLs end up in the model weights?
+
+In Q1 we observed several Alibaba **EagleEye** trace IDs in the drawn URLs, together with an
+`OSSAccessKeyId` that matched an OSINT search. Several indicators suggest these
+URLs belong to an **Alibaba file-proxy service** (`routify-file-proxy-sg`, OSS Singapore),
+an **internal LLM telemetry service**, or both:
+
+- the EagleEye trace IDs decode to internal 33.x/11.x addresses and timestamps;
+- every signed URL has `Expires` = trace time + 360 days.
+
+We used the same prefill as the Cohere write-up (token cut 2323), with no routify string
+anywhere in context. **Qwen3.8-Flash-Next emits `routify-file-proxy-sg…` URLs in 37% of
+samples** (4,679/12,632). Qwen3.8-27B does so in 0/30. The model has memorised:
+
+0. **the AccessKeyId** of the OSS bucket: `LTAI5tKoG9A3DkwGD635QVZr` (key ID only; no secret
+   was found anywhere);
+1. **a GitHub issue carrying the same AccessKeyId**:
+   [hangtiancheng/yukino-code#2](https://github.com/hangtiancheng/yukino-code/issues/2);
+2. **a development and a production folder** (`proxy_temp_file/production/<date>/…`);
+3. **a distribution of relevant dates**: the dates the model emits, in object paths and decoded
+   EagleEye trace timestamps, start in **2025**:
+
+   <!-- TODO: add the Q2 date-distribution graph, e.g. ![Distribution of memorised dates](docs/assets/q2-date-distribution.png) -->
+
+Details: [logs/2026-11-07-routify-file-proxy-url-rewrites.md](logs/2026-11-07-routify-file-proxy-url-rewrites.md).
+
+### Q3 (TODO): Can this behavior be weaponized into a backdoor?
+
+The URL farm shows spurious requests to **unregistered domains**. The plan is to register those
+domains, answer the requests ([`server/honeypot/`](server/honeypot/): authoritative DNS plus a
+wildcard HTTP(S) honeypot), and show with **indirect prompt injection** in the responses
+that third parties can weaponize the requests to take control of user sessions.
+Not done yet.
+
+## Steps to reproduce
+
+Common setup: `uv sync`, then `cp env.example .env` and fill in `HF_TOKEN` (Featherless via
+Hugging Face Inference Providers is used for the token-exact raw completions). Before each run:
 
 ```bash
 set -a; source .env; set +a
-.venv/bin/inspect eval harness/inspect_task.py --max-samples 6
 ```
 
-**Headline metric — task completion rate: <!-- HEADLINE -->runs pending<!-- /HEADLINE -->**
-(secondary: call-home probe rate, recorded per-sample in score metadata; see
-`runs/inspect-50.log` and `logs/*.eval`)
+The Cohere trace is expected at `data/train.parquet`.
+
+### Q1: let the call-home run
+
+1. Bring up the sinkhole: dnsmasq wildcard plus unauthenticated MinIO on :80. See
+   [Rig components](#rig-components).
+2. Farm the ignition point. Does the model always draw a URL?
+   ```bash
+   .venv/bin/python -m harness.url_farmer --n 50 --cut 2323
+   ```
+3. Run a single token-faithful agent continuation. The probe executes against the sinkhole and the
+   model continues:
+   ```bash
+   .venv/bin/python -m harness.hf_agent --cut 2323
+   ```
+4. Run the Inspect evaluation, 50 samples, graded by a DeepSeek V4.1 Flash judge on whether the model
+   **proceeds with the task**:
+   ```bash
+   .venv/bin/inspect eval harness/inspect_task.py --max-samples 6
+   ```
+   Results go to `logs/*.eval`; open them with `inspect view`. The call-home probe rate is
+   recorded per sample in the score metadata.
+
+### Q2: memorised Aliyun OSS artefacts
+
+1. Farm a large sample of the ignition point on Flash-Next. Use the default model, and raise
+   `--max-tokens` so complete trace IDs survive:
+   ```bash
+   .venv/bin/python -m harness.url_farmer --n 2000 --cut 2323 --max-tokens 160 --workers 8
+   ```
+2. Control: run the same prefill on Qwen3.8-27B (expected: no routify):
+   ```bash
+   .venv/bin/python -m harness.url_farmer --n 30 --cut 2323 --model Qwen/Qwen3.8-27B
+   ```
+3. Count the key IDs, folders and path dates, and decode the EagleEye trace IDs:
+   ```bash
+   python3 -m harness.memorization_scan runs/url-farm-*-flash-next-cut2323.jsonl
+   ```
+   Our 12,632-sample farm is committed in `runs/`, so step 3 also works without an API key.
+
+### Q3: weaponization (TODO)
+
+No reproduction yet. The honeypot that will collect the requests is in
+[`server/honeypot/`](server/honeypot/README.md).
 
 ## Rig overview
 

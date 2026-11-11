@@ -1,0 +1,40 @@
+; Zone: r0ck3t.net — Qwen 3.8 call-home research honeypot (authoritative on 80.78.18.246).
+; Managed by server/honeypot/deploy.sh. Bump the serial when editing:
+; deploy.sh only replaces the live zone if this serial is higher.
+$TTL 300
+$ORIGIN r0ck3t.net.
+@       IN SOA  ns1.r0ck3t.net. researchers.r0ck3t.net. (
+                2026110801 ; serial
+                3600       ; refresh
+                900        ; retry
+                1209600    ; expire
+                300 )      ; negative TTL
+
+@       IN NS   ns1.r0ck3t.net.
+@       IN NS   ns2.r0ck3t.net.
+
+ns1     IN A    80.78.18.246
+ns2     IN A    80.78.18.246
+ns2     IN AAAA 2a0a:3840:8078:18:0:504e:12f6:1337
+
+@       IN A    80.78.18.246
+@       IN AAAA 2a0a:3840:8078:18:0:504e:12f6:1337
+*       IN A    80.78.18.246
+*       IN AAAA 2a0a:3840:8078:18:0:504e:12f6:1337
+
+@       IN CAA  0 issue "letsencrypt.org"
+@       IN CAA  0 issuewild "letsencrypt.org"
+
+@       IN TXT  "honeypot=qwen-3.8-callhome-research; benign non-interactive research honeypot. Qwen 3.8 agents emit spurious requests to rocket-net-like domains (training artifact). Contact researchers@r0ck3t.net"
+
+; ---- Proton Mail (DO NOT REMOVE: researchers@r0ck3t.net depends on these) ----
+@       IN MX   10 mailsec.protonmail.ch.
+@       IN MX   20 mail.protonmail.ch.
+@       IN TXT  "protonmail-verification=436b527f3f9ca90636a07f4d97b9ad6be2364bc7"
+@       IN TXT  "v=spf1 include:_spf.protonmail.ch mx ~all"
+_dmarc  IN TXT  "v=DMARC1; p=none"
+; TODO(user): add the DKIM CNAMEs shown in the Proton dashboard, e.g.
+; protonmail._domainkey  IN CNAME <value from Proton>.
+; protonmail2._domainkey IN CNAME <value from Proton>.
+; protonmail3._domainkey IN CNAME <value from Proton>.
+; Note: the wildcard only carries A/AAAA, so DKIM lookups get NODATA until added.
