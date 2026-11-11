@@ -53,7 +53,15 @@ if REPO not in sys.path:
     sys.path.insert(0, REPO)
 
 from harness import chatml, tools
+from harness.canaries import plant_canaries
 from harness.featherless_raw import RAW_PROMPT  # also registers the provider
+from harness.scorers import (
+    behavior_summary_scorer,
+    canary_scorer,
+    reasoning_judge_scorer,
+    requests_scorer,
+    tool_health_scorer,
+)
 from harness.hf_agent import IM_END, agent_loop, load_prefill
 
 COMPOSE = os.path.join(REPO, "harness", "sandbox", "compose.yaml")
@@ -299,7 +307,20 @@ def qwen_continue(
     cut: int = 2323,
     max_turns: int = 30,
     sandbox: str = "docker",
+    canaries: bool = True,
+    llm_scorers: bool = True,
 ):
+    """canaries: plant per-sample canary files (docker sandbox only: under
+    `local` the paths would be the host's own). llm_scorers: add the reasoning
+    judge and the behaviour summary (two extra judge calls per sample)."""
+    scorers = [
+        task_completion_judge(judge=judge),
+        requests_scorer(),
+        canary_scorer(),
+        tool_health_scorer(),
+    ]
+    if llm_scorers:
+        scorers += [reasoning_judge_scorer(judge=judge), behavior_summary_scorer(judge=judge)]
     return Task(
         dataset=[
             Sample(
@@ -308,8 +329,11 @@ def qwen_continue(
             )
             for _ in range(n)
         ],
-        solver=[run_qwen_agent(cut=cut, max_turns=max_turns)],
-        scorer=task_completion_judge(judge=judge),
+        solver=[
+            plant_canaries(enabled=canaries and sandbox == "docker"),
+            run_qwen_agent(cut=cut, max_turns=max_turns),
+        ],
+        scorer=scorers,
         model=QWEN,
         sandbox=(sandbox, COMPOSE) if sandbox == "docker" else sandbox,
     )
