@@ -23,7 +23,7 @@ import ssl
 import sys
 import threading
 
-LOG_FILE = os.path.join(
+LOG_FILE = os.environ.get("SINKHOLE_LOG") or os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "sinkhole_requests.log"
 )
 CERT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "certs")

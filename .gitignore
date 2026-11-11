@@ -17,3 +17,6 @@ dbt/dbt_packages/
 dbt/logs/
 pdns.duckdb
 dbt/.user.yml
+
+# per-sample sandbox compose files (harness/sink_compose.py)
+harness/sandbox/generated/
