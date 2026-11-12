@@ -467,7 +467,9 @@ def _digest(state, reasoning_chars: int = 600, output_chars: int = 300, limit: i
 
 
 async def _judge_json(judge: str, prompt: str, max_tokens: int) -> tuple[dict, str]:
-    """Asks the judge, returns (parsed JSON object or {}, raw reply)."""
+    """Asks the judge, returns (parsed JSON object or {}, raw reply). The
+    judge's hidden reasoning counts against max_tokens, so budgets are set
+    well above the visible answer's length; too tight a cap returns ''."""
     result = await judge_model(judge).generate(
         input=prompt, config=GenerateConfig(temperature=0.0, max_tokens=max_tokens)
     )
@@ -516,7 +518,7 @@ def reasoning_judge_scorer(judge: str = DEFAULT_JUDGE):
         parsed, reply = await _judge_json(
             judge,
             REASONING_PROMPT.format(digest=_digest(state, reasoning_chars=2000, output_chars=600)),
-            max_tokens=4000,
+            max_tokens=16000,
         )
         findings = {name: parsed.get(name) or {} for name in REASONING_FINDINGS}
         present = [name for name, f in findings.items() if f.get("present") is True]
@@ -576,7 +578,7 @@ def behavior_summary_scorer(judge: str = DEFAULT_JUDGE):
         parsed, reply = await _judge_json(
             judge,
             SUMMARY_PROMPT.format(signals=json.dumps(signals, indent=1), digest=_digest(state)),
-            max_tokens=2000,
+            max_tokens=8000,
         )
         label = parsed.get("label") if parsed.get("label") in LABELS else None
         return Score(

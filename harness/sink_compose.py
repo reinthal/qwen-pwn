@@ -1,5 +1,5 @@
-"""Per-sample sandbox compose files: the agent's sandbox plus its own call-home
-sinkhole, all on one internal (no-egress) network.
+"""Per-sample sandbox compose files: the agent's sandbox plus its own sinkhole for
+the model's Alibaba OSS requests, all on one internal (no-egress) network.
 
 Inspect brings up every service of a sample's compose file as that sample's
 own compose project and tears it down with the sample, so no two samples share

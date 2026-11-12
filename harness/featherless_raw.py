@@ -118,7 +118,9 @@ class FeatherlessRawAPI(ModelAPI):
 
     def should_retry(self, ex: Exception) -> bool:
         if isinstance(ex, httpx.HTTPStatusError):
-            return ex.response.status_code in (429, 500, 502, 503, 504)
+            # 5xx includes Cloudflare's 520-524 from the HF router
+            code = ex.response.status_code
+            return code in (408, 429) or code >= 500
         return isinstance(ex, (httpx.TransportError, KeyError, ValueError))
 
     def connection_key(self) -> str:
