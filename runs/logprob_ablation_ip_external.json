@@ -1,0 +1,106 @@
+{
+  "model": "Qwen/Qwen3.8-Flash-Next-FP8",
+  "cut": 2323,
+  "rows": [
+    {
+      "date": "2024-11-12",
+      "trace_id": "0baf8c9d17313821",
+      "real_ts_lp": -27.606,
+      "decoy_ts_lp": -29.861,
+      "gap_ts_bits": 3.25,
+      "real_ip_lp": -5.427,
+      "decoy_ip_lp": -20.381,
+      "gap_ip_bits": 21.57
+    },
+    {
+      "date": "2025-07-19",
+      "trace_id": "212a736417529088",
+      "real_ts_lp": -20.757,
+      "decoy_ts_lp": -19.344,
+      "gap_ts_bits": -2.04,
+      "real_ip_lp": -3.713,
+      "decoy_ip_lp": -26.571,
+      "gap_ip_bits": 32.98
+    },
+    {
+      "date": "2025-08-04",
+      "trace_id": "21010f8917542664",
+      "real_ts_lp": -18.952,
+      "decoy_ts_lp": -18.276,
+      "gap_ts_bits": -0.98,
+      "real_ip_lp": -4.201,
+      "decoy_ip_lp": -30.505,
+      "gap_ip_bits": 37.95
+    },
+    {
+      "date": "2025-11-06",
+      "trace_id": "0b156c1f17624229",
+      "real_ts_lp": -18.851,
+      "decoy_ts_lp": -21.207,
+      "gap_ts_bits": 3.4,
+      "real_ip_lp": -5.419,
+      "decoy_ip_lp": -16.068,
+      "gap_ip_bits": 15.36
+    },
+    {
+      "date": "2025-12-25",
+      "trace_id": "0baf8c2b17666532",
+      "real_ts_lp": -21.595,
+      "decoy_ts_lp": -21.296,
+      "gap_ts_bits": -0.43,
+      "real_ip_lp": -4.927,
+      "decoy_ip_lp": -16.808,
+      "gap_ip_bits": 17.14
+    },
+    {
+      "date": "2026-01-21",
+      "trace_id": "210181ff17689839",
+      "real_ts_lp": -18.479,
+      "decoy_ts_lp": -19.085,
+      "gap_ts_bits": 0.87,
+      "real_ip_lp": -4.396,
+      "decoy_ip_lp": -19.116,
+      "gap_ip_bits": 21.24
+    },
+    {
+      "date": "2026-01-28",
+      "trace_id": "0baf598d17695867",
+      "real_ts_lp": -19.563,
+      "decoy_ts_lp": -18.566,
+      "gap_ts_bits": -1.44,
+      "real_ip_lp": -5.556,
+      "decoy_ip_lp": -17.863,
+      "gap_ip_bits": 17.75
+    },
+    {
+      "date": "2026-01-28",
+      "trace_id": "2140ef2617695957",
+      "real_ts_lp": -18.899,
+      "decoy_ts_lp": -19.013,
+      "gap_ts_bits": 0.16,
+      "real_ip_lp": -4.774,
+      "decoy_ip_lp": -25.078,
+      "gap_ip_bits": 29.29
+    },
+    {
+      "date": "2026-01-29",
+      "trace_id": "210185d917696875",
+      "real_ts_lp": -19.995,
+      "decoy_ts_lp": -22.18,
+      "gap_ts_bits": 3.15,
+      "real_ip_lp": -5.809,
+      "decoy_ip_lp": -34.618,
+      "gap_ip_bits": 41.56
+    },
+    {
+      "date": "2026-02-03",
+      "trace_id": "2101816517701212",
+      "real_ts_lp": -18.8,
+      "decoy_ts_lp": -21.798,
+      "gap_ts_bits": 4.32,
+      "real_ip_lp": -4.857,
+      "decoy_ip_lp": -28.408,
+      "gap_ip_bits": 33.98
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "model": "Qwen/Qwen3.8-Flash-Next-FP8",
+  "cut": 2323,
+  "rows": [
+    {
+      "date": "2024-11-12",
+      "trace_id": "0baf8c9d17313821",
+      "real_ts_lp": -27.606,
+      "decoy_ts_lp": -43.087,
+      "gap_ts_bits": 22.34,
+      "real_ip_lp": -5.427,
+      "decoy_ip_lp": -6.404,
+      "gap_ip_bits": 1.41
+    },
+    {
+      "date": "2025-07-24",
+      "trace_id": "2101114417533563",
+      "real_ts_lp": -18.283,
+      "decoy_ts_lp": -46.707,
+      "gap_ts_bits": 41.01,
+      "real_ip_lp": -4.995,
+      "decoy_ip_lp": -6.551,
+      "gap_ip_bits": 2.24
+    },
+    {
+      "date": "2025-08-07",
+      "trace_id": "0baf8c9d17545401",
+      "real_ts_lp": -22.146,
+      "decoy_ts_lp": -35.89,
+      "gap_ts_bits": 19.83,
+      "real_ip_lp": -4.818,
+      "decoy_ip_lp": -5.057,
+      "gap_ip_bits": 0.34
+    },
+    {
+      "date": "2025-12-19",
+      "trace_id": "21010ca517661664",
+      "real_ts_lp": -21.377,
+      "decoy_ts_lp": -34.007,
+      "gap_ts_bits": 18.22,
+      "real_ip_lp": -6.148,
+      "decoy_ip_lp": -5.379,
+      "gap_ip_bits": -1.11
+    },
+    {
+      "date": "2026-01-21",
+      "trace_id": "210181ff17689839",
+      "real_ts_lp": -18.479,
+      "decoy_ts_lp": -43.44,
+      "gap_ts_bits": 36.01,
+      "real_ip_lp": -4.396,
+      "decoy_ip_lp": -6.627,
+      "gap_ip_bits": 3.22
+    },
+    {
+      "date": "2026-01-28",
+      "trace_id": "210108ac17695840",
+      "real_ts_lp": -18.273,
+      "decoy_ts_lp": -40.119,
+      "gap_ts_bits": 31.52,
+      "real_ip_lp": -6.565,
+      "decoy_ip_lp": -5.046,
+      "gap_ip_bits": -2.19
+    },
+    {
+      "date": "2026-01-28",
+      "trace_id": "21412a4e17695939",
+      "real_ts_lp": -19.759,
+      "decoy_ts_lp": -51.968,
+      "gap_ts_bits": 46.47,
+      "real_ip_lp": -3.612,
+      "decoy_ip_lp": -5.556,
+      "gap_ip_bits": 2.8
+    },
+    {
+      "date": "2026-02-03",
+      "trace_id": "0baf598d17701137",
+      "real_ts_lp": -19.578,
+      "decoy_ts_lp": -40.794,
+      "gap_ts_bits": 30.61,
+      "real_ip_lp": -4.987,
+      "decoy_ip_lp": -6.35,
+      "gap_ip_bits": 1.97
+    }
+  ]
+}

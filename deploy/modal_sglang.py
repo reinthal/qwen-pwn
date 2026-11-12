@@ -56,15 +56,15 @@ hf_cache = modal.Volume.from_name("qwen-pwn-hf-cache", create_if_missing=True)
 sglang_image = (
     modal.Image.from_registry("lmsysorg/sglang:latest")
     .entrypoint([])  # clear the base image's entrypoint
-    .env({"HF_HOME": "/root/.cache/huggingface", "HF_HUB_ENABLE_HF_TRANSFER": "1"})
+    .env({"HF_HOME": "/hf_cache", "HF_HUB_ENABLE_HF_TRANSFER": "1"})
 )
 
 
 @app.server(
     image=sglang_image,
     gpu=GPU,
-    volumes={"/root/.cache/huggingface": hf_cache},
-    secrets=[modal.Secret.from_name("huggingface")],
+    volumes={"/hf_cache": hf_cache},
+    secrets=[modal.Secret.from_name("huggingface-secret")],
     scaledown_window=15 * MINUTES,
     startup_timeout=30 * MINUTES,  # big weights can take a while to download/load
     target_concurrency=16,
