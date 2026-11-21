@@ -89,8 +89,10 @@
   <h1>Qwen3.8-Flash-Next memorized Alibaba's storage URLs</h1>
   <figure>
     <img src="routify-trace-timeline.png" width="1700" height="650" alt="Bar chart of the dates decoded from the EagleEye trace IDs in the URLs the model writes, in monthly bins from January 2025 to October 2026, for 554 production URLs. January 2026 is by far the largest month, with 182. A dashed line marks the Qwen3.8 Flash snapshot date, 26 August 2026.">
-    <figcaption>Dates decoded from the trace IDs in the URLs the model writes. January 2026 dominates;
-      the dashed line is the model's snapshot date.</figcaption>
+    <figcaption>While studying the supposed backdoor behavior from Cohere, Qwen3.8-next-flash generates put
+      requests to URLs that resemble internal agent telemetry trace collection. Decoding these URLs we found the
+      most likely dates to be around January 2026. This suggests that something worthwhile remembering happened
+      in training for Qwen3.8 in January 2026.</figcaption>
   </figure>
   <p>Cohere <a href="https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model">reported</a>
     that Qwen3.8-Flash-Next, asked to write a detection rule in a sandbox, made an unprompted
