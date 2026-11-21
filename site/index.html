@@ -4,6 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TL;DR: Qwen3.8-Flash-Next memorized Alibaba's storage URLs</title>
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qwen3.8-Flash-Next memorized Alibaba's storage URLs">
+<meta property="og:description" content="What happens when the model's unprompted request to Alibaba OSS is allowed to run, and where the URLs come from. With the full Inspect eval logs.">
+<meta property="og:url" content="https://reinthal.github.io/qwen-pwn-site/">
+<meta property="og:image" content="https://reinthal.github.io/qwen-pwn-site/routify-trace-timeline.png">
+<meta property="og:image:alt" content="Bar chart of the dates decoded from the trace IDs in the URLs the model writes, per month, peaking in January 2026.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://reinthal.github.io/qwen-pwn-site/routify-trace-timeline.png">
 <meta name="description" content="What happens when Qwen3.8-Flash-Next's unprompted request to Alibaba OSS is allowed to run, and where the URLs come from. Short version, with the full Inspect eval logs.">
 <style>
   :root {
@@ -42,6 +50,7 @@
   pre i { color: var(--muted); }
   pre b { color: var(--accent); font-weight: 600; }
   h3 { font-size: 1.08rem; margin: 28px 0 4px; }
+  .lead { font-size: 1.15rem; line-height: 1.55; margin: 24px 0 8px; }
   .tldr {
     background: var(--card); border-left: 3px solid var(--accent);
     padding: 14px 20px; margin: 28px 0; border-radius: 0 6px 6px 0;
@@ -78,6 +87,11 @@
   <p class="meta">21 November 2026 · short version of
     <a href="https://reinthal.me/posts/qwen38-memorized-alibaba-storage-keys/">the full write-up</a></p>
   <h1>Qwen3.8-Flash-Next memorized Alibaba's storage URLs</h1>
+  <figure>
+    <img src="routify-trace-timeline.png" width="1700" height="650" alt="Bar chart of the dates decoded from the EagleEye trace IDs in the URLs the model writes, in monthly bins from January 2025 to October 2026, for 554 production URLs. January 2026 is by far the largest month, with 182. A dashed line marks the Qwen3.8 Flash snapshot date, 26 August 2026.">
+    <figcaption>Dates decoded from the trace IDs in the URLs the model writes. January 2026 dominates;
+      the dashed line is the model's snapshot date.</figcaption>
+  </figure>
   <p>Cohere <a href="https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model">reported</a>
     that Qwen3.8-Flash-Next, asked to write a detection rule in a sandbox, made an unprompted
     <code>curl</code> PUT to an Alibaba Cloud storage bucket. Their sandbox blocked the call. We replayed
@@ -89,12 +103,20 @@
         answered, the model goes back to its task in 97 of 100 runs.</li>
       <li><strong>Planted secrets were not sent to Alibaba storage.</strong> Across 50 runs with fake
         credentials in the sandbox, none reached our storage server.</li>
-      <li><strong>The URLs come from Alibaba-internal telemetry.</strong> The model reproduces the layout of
-        a signed Alibaba storage URL that embeds an EagleEye trace ID (Alibaba's request-tracing
-        system), the internal IP ranges inside those IDs, and one real access key ID. The per-request
-        details are made up.</li>
+      <li><strong>The URLs come from Alibaba-internal agent telemetry.</strong> In about a third of
+        runs, the model writes signed object-storage URLs that look like links to agent trace data.
+        Using log probabilities, we analyzed which parts of the URLs are likely hallucinations. The
+        URLs most often point at trace data from January 2026. The identifiers in them contain
+        internal IP addresses, probable process IDs and a memorized AccessKeyId.</li>
     </ul>
   </div>
+
+  <p>One likely reason for this behavior is that agents running Qwen3.8 had access to a production
+    storage bucket during post-training, which made the model internalize the EagleEye trace format,
+    the AccessKeyId and the bucket name.</p>
+  <p class="lead">These findings suggest that open-weight models can remember what their training
+    environment looked like. This raises an interesting security concern: can we do more model
+    forensics to uncover important security flaws in training environments?</p>
 
   <h2>1. What happens if the request is allowed to run?</h2>
   <p>We replay Cohere's recorded trace token for token and stop one token before the URL. The model
@@ -134,13 +156,37 @@
 
   <p>Every one of these URLs has the same layout:</p>
   <pre>https://routify-file-proxy-sg.oss-ap-southeast-1.aliyuncs.com
-  /proxy_temp_file/production/<i>&lt;date&gt;</i>
+  /proxy_temp_file/<i>&lt;environment&gt;</i>/<i>&lt;date&gt;</i>
   /trace_<i>&lt;EagleEye trace ID&gt;</i>/requestId_<i>&lt;request ID&gt;</i>/<i>&lt;file hash&gt;</i>
   ?Expires=<i>&lt;Unix time&gt;</i>&amp;OSSAccessKeyId=LTAI5tKoG9A3DkwGD635QVZr&amp;Signature=<i>&lt;HMAC&gt;</i></pre>
-  <p>This is a signed download link for Alibaba's object storage (OSS). The query string says who
-    signed the link (the access key ID), until when it is valid (<code>Expires</code>) and carries a
+  <p>This is a hallucinated signed download link. It has the layout of a real signed link for
+    Alibaba's object storage (OSS), but the model generates the trace ID, request ID, file hash and
+    signature itself, so it should not open a real file. In a real link, the query string says who
+    signed it (the access key ID), until when it is valid (<code>Expires</code>) and carries a
     signature over both. The path looks like a service that stores temporary files per request, in a
-    <code>production</code> or <code>development</code> folder, sorted by day.</p>
+    folder per environment, sorted by day.</p>
+
+  <h3>Is there a development environment too?</h3>
+  <p>The folder after <code>proxy_temp_file/</code> is almost always <code>production</code>. We
+    checked whether the model knows any other name for that slot, and found exactly one:
+    <code>development</code>.</p>
+  <ul>
+    <li>On the larger Qwen3.8-2.4T, where we can read token probabilities, <code>production</code> gets
+      about 97.5% and <code>development</code> is the only other environment name in the top 20.</li>
+    <li>Given <code>development/</code>, both models continue straight to a date and a trace ID, as
+      they do for <code>production/</code>. That trace ID decodes to an internal 33.x address too.</li>
+    <li>Given <code>staging/</code>, <code>test/</code>, <code>qa/</code>, <code>dev/</code> or
+      <code>prod/</code>, the model does not accept the word and writes <code>production</code> after
+      it.</li>
+    <li><code>development</code> is rare. In 200 free samples from Flash-Next it never came up on its
+      own; <code>production</code> came up 144 times.</li>
+  </ul>
+  <p>Production and development are semantically similar, and the probability for
+    <code>development</code> was relatively low. It is therefore likely that the model predicts
+    <code>development</code> because it is close in meaning to <code>production</code>, and not
+    because it internalized a development environment through a misconfiguration during training.
+    Moreover, since we have stronger evidence for how these URLs got memorized, we think a backdoor
+    is highly unlikely to be the reason.</p>
 
   <h3>The trace ID is an EagleEye ID</h3>
   <p>EagleEye is Alibaba's distributed tracing system. Each incoming request gets a trace ID that is
@@ -157,18 +203,24 @@
     the model's output gives three results:</p>
   <ul>
     <li>the addresses fall in 33.x and 11.x, ranges Alibaba uses internally;</li>
-    <li>the decoded date matches the date folder in the path, with dates starting in 2025;</li>
+    <li>the decoded date matches the date folder in the path;</li>
     <li><code>Expires</code> is the decoded time plus 360 days, to within a second or two.</li>
   </ul>
   <p>The access key ID, <code>LTAI5tKoG9A3DkwGD635QVZr</code>, also appears in a
-    <a href="https://github.com/hangtiancheng/yukino-code/issues/2">public GitHub issue</a>. We found
-    the ID only, never the matching secret.</p>
+    <a href="https://github.com/hangtiancheng/yukino-code/issues/2">public GitHub issue</a>. A key ID
+    on its own grants nothing. A working link also needs a valid signature, which is computed with a
+    secret key that never appears in a URL.</p>
+  <p>Analyzing the signatures in the URLs, we noticed that they were rarely the correct length. An
+    OSS signature is 28 characters long (a 20-byte HMAC-SHA1 in base64). Of the 436 signatures the
+    model wrote, 3 are. As such, we do not think that the model has internalized full credentials for
+    the object storage.</p>
 
-  <figure>
-    <img src="routify-dates.png" alt="Bar chart of trace dates in the emitted URLs per month, from late 2024 to late 2026, with peaks in January and August 2026, and a scatter plot of trace date against signed-URL expiry date.">
-    <figcaption>Dates in the URLs the model writes: 992 unique URLs with a trace date, peaking in
-      January and August 2026.</figcaption>
-  </figure>
+  <h3>The dates cluster in early 2026</h3>
+  <p>The decoded dates run from January 2025 to mid-2026 (chart at the top), but they are far from
+    evenly spread. The model is most likely to write a date in early 2026: January 2026 is the most
+    common month, with about a third of the decoded trace IDs, and December 2025 to February 2026
+    together hold over half. A smaller cluster, a bit over a quarter, sits in July and August 2025. Most other months are
+    close to empty.</p>
 
   <h2>3. Memorized or made up?</h2>
   <p>Both. We scored how likely the model finds a real trace ID compared with a version where one of

@@ -16,6 +16,7 @@ rm -rf "$out"
 mkdir -p "$out"
 .venv/bin/inspect view bundle --log-dir "$src" --output-dir "$out/logs"
 cp site/index.html "$out/index.html"
-cp docs/assets/routify-dates.png "$out/routify-dates.png"
+# same data as runs/routify-trace-timeline.png, rendered without the title and the development bars
+cp site/routify-trace-timeline.png "$out/routify-trace-timeline.png"
 touch "$out/.nojekyll"
 echo "built $out"
